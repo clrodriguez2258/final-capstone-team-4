@@ -20,7 +20,7 @@ public class SiteController {
 
     @RequestMapping(path = "/private", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
-        if (auth.userHasRole(new String[] { "admin", "user" })) {
+        if (auth.userHasRole(new String[]{"admin", "user"})) {
             return "private";
         } else {
             throw new UnauthorizedException();
@@ -30,5 +30,11 @@ public class SiteController {
     @RequestMapping(path = "/about", method = RequestMethod.GET)
     public String aboutPage() throws UnauthorizedException {
         return "about";
+    }
+
+    // see grid page on public
+    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
+    public String showRestaurantsPage() {
+        return "restaurants";
     }
 }

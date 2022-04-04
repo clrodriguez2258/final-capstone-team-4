@@ -42,6 +42,8 @@
                     <li><a href="${aboutUrl}">About</a></li>
                     <c:url var="privateUrl" value="/private"/>
                     <li><a href="${privateUrl}">Private</a></li>
+                    <c:url var="restaurantUrl" value="/restaurants"/>
+                    <li><a href="${restaurantUrl}">Restaurants</a> </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <c:if test="${empty user}">
