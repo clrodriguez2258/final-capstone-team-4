@@ -2,9 +2,9 @@
 
 <div id="grid" class="main-content ">
     <c:forEach var="restaurants" items="${restaurant}">
-        <c:choose>
-            <c:when test=""></c:when>
-        </c:choose>
+      <ul>
+          <li>${restaurants.imageName}</li>
+      </ul>
     </c:forEach>
 </div>
 
