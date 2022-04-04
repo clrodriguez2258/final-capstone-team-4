@@ -1,1 +1,9 @@
 body { padding-top: 70px; }
+
+.tinderTile {
+    float: left;
+    width: 21%;
+    padding: 10px;
+    margin:20px;
+    height: 250px;
+}
