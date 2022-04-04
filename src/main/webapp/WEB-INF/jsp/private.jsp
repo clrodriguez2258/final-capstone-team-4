@@ -1,7 +1,7 @@
 <%@ include file="common/header.jspf" %>
 
 <c:url var="cssUrl" value="/css/site.css"/>
-<link rel="stylesheet" href="${cssUrl}" />
+<link rel="stylesheet" href="${cssUrl}"/>
 
 <div class="container">
     <div class="row">
@@ -12,11 +12,15 @@
     </div>
 </div>
 
-<div>
-    <table class="tinderTile">
-        <c:url var="restaurantImage" value="/img/chipotle.jpg"/>
-        <img src="${ restaurantImage }" alt="Chipotle Logo">
-    </table>
+<div class="card" style="width: 18rem;">
+    <c:url var="restaurantUrl" value="/img/chipotle.jpg"/>
+    <img class="card-img-top" src="${ restaurantUrl }" alt="Chipotle Logo" style="width: 250%;">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
 </div>
 
 
