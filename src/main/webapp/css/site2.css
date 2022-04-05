@@ -6,6 +6,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 200%;
+    border-radius: 40px;
 }
 
 #upbutton {
