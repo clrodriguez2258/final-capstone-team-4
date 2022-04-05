@@ -33,15 +33,17 @@ CREATE TABLE restaurant
     close_time      time,
     cuisine varchar (250) ,
     closing_soon boolean,
-    primary key (restaurant_id)
+    CONSTRAINT PK_restaurant PRIMARY KEY (restaurant_id)
 );
 
 CREATE TABLE guest(
-    guest_id serial PRIMARY KEY,
+    guest_id serial ,
     event_id int not null,
     guest_name varchar (250),
     attending boolean,
-    email varchar(250)
+    email varchar(250) NOT NULL,
+    CONSTRAINT PK_guest PRIMARY KEY(guest_id, event_id),
+    CONSTRAINT UNQ_email UNIQUE (email)
 
 );
 CREATE TABLE preferences(
@@ -56,7 +58,7 @@ CREATE TABLE preferences(
 
 );
 CREATE TABLE event(
-    event_id serial PRIMARY KEY ,
+    event_id serial,
     user_id int ,
     restaurant_id int,
     event_name varchar(250) not null ,
@@ -67,16 +69,20 @@ CREATE TABLE event(
     thumbs_up boolean,
     thumbs_up_count int,
     thumbs_down boolean,
-    thumbs_down_count int
+    thumbs_down_count int,
+    CONSTRAINT PK_event PRIMARY KEY(event_id)
 );
 
 
 CREATE TABLE guest_event(
     guest_id int ,
-    event_id int
+    event_id int,
+    CONSTRAINT PK_guest_event PRIMARY KEY(guest_id)
 
 );
 
+ALTER TABLE guest_event ADD CONSTRAINT FK_guest_event FOREIGN KEY (guest_id) REFERENCES event(event_id);
+ALTER TABLE event ADD CONSTRAINT FK_events FOREIGN KEY(restaurant_id) REFERENCES restaurant(restaurant_id);
 
 -- INSERTING VALUES
 
@@ -94,5 +100,4 @@ CREATE TABLE guest_event(
 -- insert into  guest( event_id, guest_name, attending, email )
 -- values ('1','Christian Rodriguez', 'yes','ab@f=gmail.com');
 --
-
 COMMIT;
