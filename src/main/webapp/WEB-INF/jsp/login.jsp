@@ -2,17 +2,17 @@
 
 <c:url var="loginUrl" value="/login"/>
 <form action="${loginUrl}" method="POST">
-    <div id="card">
-        <div id="card-content">
-            <div id="card-title">
+    <div id="card-login">
+        <div id="card-content-login">
+            <div id="card-title-login">
                 <h2>LOGIN</h2>
                 <div class="underline-title"></div>
             </div>
             <c:url var="loginUrl" value="/login"/>
             <form class="form" action="${loginUrl}" method="POST">
-                <label for="username" style="padding-top:13px">&nbsp;Username
-                </label>
-                <input id="username" class="form-content" type="text" name="username"/>
+                <label for="username" style="padding-top:13px">&nbsp;Email
+                </label><br>
+                <input id="username" class="form-content" type="email" name="username"/>
                 <div class="form-border"></div>
                 <label for="user-password" style="padding-top:22px">&nbsp;Password
                 </label>
