@@ -27,6 +27,11 @@ public class SiteController {
         }
     }
 
+    @RequestMapping(path = "/decisionPage", method = RequestMethod.GET)
+    public String decisionPage(){
+        return "decisionPage";
+    }
+
     @RequestMapping(path = "/about", method = RequestMethod.GET)
     public String aboutPage() throws UnauthorizedException {
         return "about";

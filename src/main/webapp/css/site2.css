@@ -6,6 +6,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 200%;
+    border-radius: 40px;
 }
 
 #upbutton {
@@ -16,4 +17,8 @@
 #downbutton {
     background-color: indianred;
     margin-left: 15%;
+}
+
+#submit-btn:hover {
+    box-shadow: 0px 1px 18px #DFDFDE;
 }

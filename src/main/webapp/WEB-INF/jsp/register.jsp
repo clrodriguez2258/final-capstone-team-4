@@ -11,7 +11,7 @@
             <h2>Register</h2>
             <div class="underline-title"></div>
         </div>
-        <label for="username">Username</label>
+        <label for="username" style="padding-top:13px">Username</label>
         <form:input class="form-control" path="username" placeholder="Username"/>
         <form:errors path="username" cssClass="bg-danger"/>
     </div>
@@ -21,7 +21,7 @@
         <form:errors path="password" cssClass="bg-danger"/>
     </div>
     <div class="form">
-        <label for="confirmPassword" style="padding-top:13px">&nbsp;>Confirm Password</label>
+        <label for="confirmPassword" style="padding-top:13px">&nbsp;Confirm Password</label>
         <form:password class="form-control" path="confirmPassword"/>
         <form:errors path="passwordMatching" cssClass="bg-danger"/>
     </div>
