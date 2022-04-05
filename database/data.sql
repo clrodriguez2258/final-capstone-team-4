@@ -45,7 +45,8 @@ INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, im
 VALUES ('Velvet Taco', 'W Park', 'Plano', 'TX', '75093', '4', 'velvetTaco.jpg', 'velvettaco.com',
         '4698250099', 'true', true, '11:00', '22:00');
 
-
+INSERT INTO user_event(user_id, event_id)
+VALUES ((SELECT id FROM app_user where user_name= 'CodeSwindlers@gmail.com'),(SELECT event_id from event where event_name ='burritotime'));
 
 
 
@@ -57,14 +58,13 @@ values ('Christian Rodriguez',  'yes', 'ab@f=gmail.com');
 
 -- INSERT INTO USERPROFILE
 INSERT INTO userprofile(event_id, email, first_name, last_name, phone_number, zipcode)
-VALUES('1', 'user1@gmail.com', 'user1', 'userLastName', '123456789', '75075'
-(SELECT id FROM app-user WHERE),
+VALUES('1', 'user1@gmail.com', 'user1', 'userLastName', '123456789', '75075'),
        ('1', 'user2@gmail.com','user2', 'user2LastName', '875678544', '75074'),
       ('1', 'user3@gmail.com','user3', 'user3LastName', '875678544', '75075');
 
 -- INSERT INTO EVENTS
-INSERT INTO event(user_id, restaurant_id, event_name, event_time, event_date, decision_date, decision_time)
-values ('1', '1', 'burritotime', '17:00', '04/05/2022', '04/04/2022', '18:00');
+INSERT INTO event(restaurant_id, event_name, event_time, event_date, decision_date, decision_time)
+values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022', '18:00');
 
 
 

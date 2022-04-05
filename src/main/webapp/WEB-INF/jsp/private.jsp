@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="row">
-        <h1>Welcome to hangry, The Restaurant Tinder!</h1>
+        <h1>Welcome to HANGRY, The Restaurant Tinder!</h1>
         <h4>You have successfully logged in.</h4>
         <p>User: ${user.capitalizedUsername}</p>
         <p>Role: ${user.role.toUpperCase()}</p>
