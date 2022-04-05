@@ -7,6 +7,7 @@ BEGIN;
 -- INSERT statements go here
 -- insert into app_user(id, user_name, password, role, salt )
 -- values ();
+--- insert restaurant data.
 
 INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
                        call_to_order, isOpen, open_time, close_time)
@@ -44,6 +45,11 @@ INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, im
                        call_to_order, isOpen, open_time, close_time)
 VALUES ('Velvet Taco', 'W Park', 'Plano', 'TX', '75093', '4', 'velvetTaco.jpg', 'velvettaco.com',
         '4698250099', 'true', true, '11:00', '22:00');
+
+
+
+
+--- adding user to event
 
 
 

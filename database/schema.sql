@@ -119,6 +119,13 @@ CREATE TABLE guest_event
 
 );
 
+create table user_event(
+    user_id int not null,
+    event_id int not null,
+
+        primary key (user_id, event_id)
+);
+
 ALTER TABLE event
     ADD CONSTRAINT FK_events FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
 ALTER TABLE userProfile
