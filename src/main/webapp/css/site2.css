@@ -1,0 +1,19 @@
+.up-down-vote-button {
+    border: none;
+    color: white;
+    padding: 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 200%;
+}
+
+#upbutton {
+    background-color: darkseagreen;
+    margin-left: 50%;
+}
+
+#downbutton {
+    background-color: indianred;
+    margin-left: 15%;
+}
