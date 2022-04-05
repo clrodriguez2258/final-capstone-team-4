@@ -19,11 +19,9 @@
                 <input id="user-password" class="form-content" type="password" name="password"/>
                 <div class="form-border"></div>
                 <div>
-                <input id="submit-btn" type="submit" name="submit" value="LOGIN"/>
+                    <input id="submit-btn" type="submit" name="submit" value="LOGIN"/>
                 </div>
             </form>
         </div>
     </div>
-
-
 <%@ include file="common/footer.jspf" %>
