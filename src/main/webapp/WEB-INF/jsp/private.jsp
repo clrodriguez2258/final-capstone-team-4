@@ -19,8 +19,8 @@
     <c:url var="restaurantUrl" value="/img/chipotle.jpg"/>
     <img class="card-img-top" src="${ restaurantUrl }" alt="Chipotle Logo" style="width: 100%; margin-bottom: -10%;">
 
-    <button type="submit" class="up-down-vote-button" id="downbutton"><a href="#" class="card-link" style="font-size: 150%;">&#128078;</a></button>
-    <button type="submit" class="up-down-vote-button" id="upbutton"><a href="#" class="card-link" style="font-size: 150%;">&#128077;</a></button>
+    <button type="submit" class="up-down-vote-button" id="downbutton"><a href="#" class="card-link">&#128078;</a></button>
+    <button type="submit" class="up-down-vote-button" id="upbutton"><a href="#" class="card-link">&#128077;</a></button>
 
         <div class="card-body">
         <h3 class="card-title"><strong>Chipotle</strong></h3>
@@ -34,7 +34,6 @@
         <li class="list-group-item">Price: $</li>
     </ul>
     <div class="card-body">
-
     </div>
 </div>
 
