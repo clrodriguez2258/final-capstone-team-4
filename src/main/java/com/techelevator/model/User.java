@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
  * User
  */
 public class User {
-    @NotBlank(message = "Username is required")
+    @NotBlank(message = "Email is required")
     private String username;
 
     @NotBlank(message = "Role is required")
