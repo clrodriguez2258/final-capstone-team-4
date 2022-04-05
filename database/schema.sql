@@ -5,14 +5,39 @@
 BEGIN;
 
 -- CREATE statements go here
-DROP TABLE IF EXISTS app_user, restaurant, guest, preferences, guest_event, event ;
+DROP TABLE IF EXISTS app_user, restaurant, guest, preferences, guest_event, event;
 
-CREATE TABLE app_user (
-  id SERIAL PRIMARY KEY,
-  user_name varchar(32) NOT NULL UNIQUE,
-  password varchar(32) NOT NULL,
-  role varchar(32),
-  salt varchar(255) NOT NULL
+CREATE TABLE app_user
+(
+    id        SERIAL PRIMARY KEY,
+    user_name varchar(32)  NOT NULL UNIQUE,
+    password  varchar(32)  NOT NULL,
+    role      varchar(32),
+    salt      varchar(255) NOT NULL
+);
+
+CREATE TABLE userProfile
+(
+    event_id     int,
+    email        varChar(255) NOT NULL,
+    first_name   varChar(255) NOT NULL,
+    last_name    varChar(255) NOT NULL,
+    phone_number varChar(15),
+    zipcode      varChar(5)   NOT NULL,
+
+
+    CONSTRAINT PK_user PRIMARY KEY (email)
+
+
+);
+
+CREATE TABLE user_userProfile
+(
+    user_id int,
+    email   varchar(250),
+
+        CONSTRAINT PK_userProfile PRIMARY KEY (user_id, email)
+
 );
 
 CREATE TABLE restaurant
@@ -21,68 +46,83 @@ CREATE TABLE restaurant
     restaurant_name varchar(200) NOT NULL,
     street          varChar(255) NOT NULL,
     city            varchar(200) NOT NULL,
-    state           varchar(2) NOT NULL,
-    zipcode         varchar(5) NOT NULL,
+    state           varchar(2)   NOT NULL,
+    zipcode         varchar(5)   NOT NULL,
     rating          int,
     image_name      varchar(255),
     website         varchar(255),
-    phone_number    varchar(10) NOT NULL,
+    phone_number    varchar(10)  NOT NULL,
     call_to_order   boolean,
     isOpen          boolean,
     open_time       time,
     close_time      time,
-    cuisine varchar (250) ,
-    closing_soon boolean,
+    cuisine         varchar(250),
+    closing_soon    boolean,
+    pet_Friendly    boolean,
+    affordability   int,
+    capacity        int,
+    dressCode       varChar(250),
+    dine_in         boolean,
+
+
     CONSTRAINT PK_restaurant PRIMARY KEY (restaurant_id)
 );
 
-CREATE TABLE guest(
-    guest_id serial ,
-    event_id int not null,
-    guest_name varchar (250),
-    attending boolean,
-    email varchar(250) NOT NULL,
-    CONSTRAINT PK_guest PRIMARY KEY(guest_id, event_id),
-    CONSTRAINT UNQ_email UNIQUE (email)
+CREATE TABLE guest
+(
+    guest_id   serial,
+    guest_name varchar(250),
+    attending  boolean,
+    email      varchar(250) NOT NULL,
+    CONSTRAINT PK_guest PRIMARY KEY (guest_id)
+--     CONSTRAINT UNQ_email UNIQUE (email)
 
 );
-CREATE TABLE preferences(
-    preference_id serial primary key ,
-    pet_friendly boolean ,
-    dress_code varchar(250),
-    dineIn boolean,
-    vegan boolean,
-    gluten_free boolean
+-- CREATE TABLE preferences(
+--     preference_id serial primary key ,
+--     pet_friendly boolean ,
+--     dress_code varchar(250),
+--     dineIn boolean,
+--     vegan boolean,
+--     gluten_free boolean
+--
 
 
+-- );
 
-);
-CREATE TABLE event(
-    event_id serial,
-    user_id int ,
-    restaurant_id int,
-    event_name varchar(250) not null ,
-    event_time time not null,
-    event_date date not null,
-    decision_date date,
-    decision_time time,
-    thumbs_up boolean,
-    thumbs_up_count int,
-    thumbs_down boolean,
+
+CREATE TABLE event
+(
+    event_id          serial,
+    user_id           int,
+    restaurant_id     int,
+    event_name        varchar(250) not null,
+    event_time        time         not null,
+    event_date        date         not null,
+    decision_date     date,
+    decision_time     time,
+    thumbs_up         boolean,
+    thumbs_up_count   int,
+    thumbs_down       boolean,
     thumbs_down_count int,
-    CONSTRAINT PK_event PRIMARY KEY(event_id)
+    event_description int,
+    CONSTRAINT PK_event PRIMARY KEY (event_id)
 );
 
 
-CREATE TABLE guest_event(
-    guest_id int ,
+CREATE TABLE guest_event
+(
+    guest_id int,
     event_id int,
-    CONSTRAINT PK_guest_event PRIMARY KEY(guest_id)
+
+    CONSTRAINT PK_guest_event PRIMARY KEY (guest_id, event_id)
 
 );
 
-ALTER TABLE guest_event ADD CONSTRAINT FK_guest_event FOREIGN KEY (guest_id) REFERENCES event(event_id);
-ALTER TABLE event ADD CONSTRAINT FK_events FOREIGN KEY(restaurant_id) REFERENCES restaurant(restaurant_id);
+ALTER TABLE event
+    ADD CONSTRAINT FK_events FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
+ALTER TABLE userProfile
+    ADD CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES app_user (id);
 
 -- INSERTING VALUES
 
