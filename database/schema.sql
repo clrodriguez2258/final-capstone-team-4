@@ -5,7 +5,7 @@
 BEGIN;
 
 -- CREATE statements go here
-DROP TABLE IF EXISTS app_user, restaurant, guest, preferences, guest_event, event;
+DROP TABLE IF EXISTS app_user, restaurant, guest, preferences, guest_event, event, user_event;
 
 CREATE TABLE app_user
 (
@@ -119,10 +119,26 @@ CREATE TABLE guest_event
 
 );
 
+CREATE TABLE user_event
+    (
+        user_id int,
+        event_id int,
+
+        PRIMARY KEY (user_id, event_id)
+
+);
+
+
+
+ALTER TABLE user_event
+ADD FOREIGN KEY (event_id) REFERENCES event (event_id);
+
+ALTER TABLE user_event
+ADD FOREIGN KEY (user_id) REFERENCES app_user (id);
+
 ALTER TABLE event
     ADD CONSTRAINT FK_events FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
-ALTER TABLE userProfile
-    ADD CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES app_user (id);
+
 
 -- INSERTING VALUES
 
@@ -140,4 +156,5 @@ ALTER TABLE userProfile
 -- insert into  guest( event_id, guest_name, attending, email )
 -- values ('1','Christian Rodriguez', 'yes','ab@f=gmail.com');
 --
+rollback;
 COMMIT;
