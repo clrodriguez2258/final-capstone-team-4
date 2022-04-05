@@ -27,7 +27,7 @@
     background: #fbfbfb;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-    margin: 6rem auto 8.1rem auto;
+    margin: 6rem auto 6rem auto;
     height: 300px;
     width: 500px;
 }
@@ -41,11 +41,21 @@
 }
 
 .event-image {
-    width: 500px;
     max-height: 250px;
 }
 
 .search-image {
-    width: 500px;
     max-height: 250px;
+}
+#card-private{
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    height: 410px;
+    margin: 6rem auto 8.1rem auto;
+    width: 329px;
+}
+
+#card-content-private {
+    padding: 12px 44px;
 }
