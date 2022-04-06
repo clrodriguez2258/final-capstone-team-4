@@ -1,7 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="common/header.jspf" %>
 
-
+<br>
+<br>
 <c:url var="registerUrl" value="/register"/>
 <form:form action="${registerUrl}" method="POST" modelAttribute="user">
     <div id="card">
