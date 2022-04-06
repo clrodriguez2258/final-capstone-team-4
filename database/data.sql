@@ -46,6 +46,56 @@ INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, im
 VALUES ('Velvet Taco', 'W Park', 'Plano', 'TX', '75093', '4', 'velvetTaco.jpg', 'velvettaco.com',
         '4698250099', 'true', true, '11:00', '22:00');
 
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Cafe Valentina', 'McKennans Church Rd.', 'Wilmington', 'DE', '19808', '5', 'cafevalentina.jpg', 'www.cafevalentina.com',
+        '3029960301', 'true', true, '10:00', '22:00', 'Italian', null, 'false', '$$', '150', 'family style', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Rice Restaurant', 'Limestone Rd', 'Wilmington', 'DE', '19808', '5', 'rice.png', 'www.rice2015.com',
+        '3029997423', 'true', true, '11:00', '22:00', 'Cantonese', null, 'false', '$$', '150', 'contemporary casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Applebees', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'applebees.png', 'www.applebees.com',
+        '3029951328', 'true', true, '11:00', '22:00', 'American', null, 'false', '$$', '150', 'casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Wingstop', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'wingstop.png', 'www.wingstop.com',
+        '3025167356', 'true', true, '11:00', '24:00', 'American', null, 'false', '$$', '150', 'casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Ruby Tuesday', 'Limestone Rd', 'Wilmington', 'DE', '19808', '4', 'rubytuesday.png', 'www.rubytuesday.com',
+        '3029959081', 'true', true, '11:00', '22:00', 'American', null, 'false', '$$', '150', 'casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Seasons Pizza', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'seasonspizza.jpg', 'www.seasonspizza.com',
+        '3029986500', 'true', true, '10:00', '22:00', 'Pizzeria', null, 'false', '$', '150', 'casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Pats Pizza', 'W. Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'patspizza.png', 'kirkwood.patspizzeria.com',
+        '3029959081', 'true', true, '10:00', '22:00', 'American', null, 'false', '$', '150', 'casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Polk Bros.', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'pokebros.png', 'www.eatpokebros.com',
+        '3023587020', 'true', true, '11:00', '21:00', 'Seafood', null, 'false', '$$', '150', 'casual', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Zoup!', 'W. Kirkwood Hwy', 'Wilmington', 'DE', '19808', '5', 'zoup.jpg', 'online.zoup.com',
+        '3026604400', 'true', true, '11:00', '20:00', 'American', null, 'false', '$$', '150', 'Cafe', 'true');
+
+INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
+VALUES ('Moes Southwest Grill', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '3', 'moes.png', 'www.moes.com',
+        '3026913690', 'true', true, '11:00', '20:00', 'Southwestern', null, 'false', '$', '150', 'casual', 'true');
+
 INSERT INTO user_event(user_id, event_id)
 VALUES ((SELECT id FROM app_user where user_name= 'CodeSwindlers@gmail.com'),(SELECT event_id from event where event_name ='burritotime'));
 
