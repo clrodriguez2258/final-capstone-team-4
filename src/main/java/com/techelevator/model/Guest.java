@@ -2,27 +2,27 @@ package com.techelevator.model;
 
 public class Guest {
 
-  private long guestId;
-  private long eventId;
+  private int guestId;
+  private int eventId;
   private String guestName;
-  private String attending;
+  private boolean attending;
   private String email;
 
 
-  public long getGuestId() {
+  public int getGuestId() {
     return guestId;
   }
 
-  public void setGuestId(long guestId) {
+  public void setGuestId(int guestId) {
     this.guestId = guestId;
   }
 
 
-  public long getEventId() {
+  public int getEventId() {
     return eventId;
   }
 
-  public void setEventId(long eventId) {
+  public void setEventId(int eventId) {
     this.eventId = eventId;
   }
 
@@ -36,11 +36,11 @@ public class Guest {
   }
 
 
-  public String getAttending() {
+  public boolean getAttending() {
     return attending;
   }
 
-  public void setAttending(String attending) {
+  public void setAttending(boolean attending) {
     this.attending = attending;
   }
 
