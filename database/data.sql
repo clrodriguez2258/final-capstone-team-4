@@ -73,7 +73,7 @@ VALUES ('Ruby Tuesday', 'Limestone Rd', 'Wilmington', 'DE', '19808', '4', 'rubyt
 INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
                        call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
 VALUES ('Seasons Pizza', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'seasonspizza.jpg', 'www.seasonspizza.com',
-        '3029986500', 'true', true, '10:00', '22:00', 'Pizzeria', null, 'false', '$', '150', 'casual', 'true');
+        '3029986500', 'true', true, '10:00', '22:00', 'Pizza', null, 'false', '$', '150', 'casual', 'true');
 
 INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
                        call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability, capacity, dresscode, dine_in)
