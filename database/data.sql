@@ -7,6 +7,7 @@ BEGIN;
 -- INSERT statements go here
 -- insert into app_user(id, user_name, password, role, salt )
 -- values ();
+--- insert restaurant data.
 
 INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
                        call_to_order, isOpen, open_time, close_time)
@@ -97,6 +98,11 @@ VALUES ('Moes Southwest Grill', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '3'
 
 INSERT INTO user_event(user_id, event_id)
 VALUES ((SELECT id FROM app_user where user_name= 'CodeSwindlers@gmail.com'),(SELECT event_id from event where event_name ='burritotime'));
+
+
+--- adding user to event
+
+
 
 
 
