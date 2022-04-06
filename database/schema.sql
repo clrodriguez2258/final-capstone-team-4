@@ -5,7 +5,7 @@
 BEGIN;
 
 -- CREATE statements go here
-DROP TABLE IF EXISTS app_user,user_event,events, restaurant, guest, guest_event, CASCADE;
+DROP TABLE IF EXISTS app_user,user_event,events, restaurant, guest, guest_event,restaurant_event CASCADE;
 
 CREATE TABLE app_user
 (
@@ -126,6 +126,16 @@ CREATE TABLE user_event
     PRIMARY KEY (user_id, event_id)
 
 );
+
+CREATE TABLE restaurant_event
+(
+    event_id  int,
+    restaurant_id int,
+
+    PRIMARY KEY (event_id, restaurant_id)
+
+);
+
 
 
 

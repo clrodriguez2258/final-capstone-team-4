@@ -36,27 +36,50 @@ VALUES ('Chipotle', 'mainstreet', 'Rolling Meadows', 'OH', '43204', '4', 'chipot
 
 
 
-
-INSERT INTO guest(guest_name, attending, email)
-VALUES ('Christian Rodriguez',  'yes', 'ab@f=gmail.com');
+INSERT INTO app_user (id, user_name, password, role, salt)
+VALUES (1, 'user1@gmail.com', 'AfD5Jrsb/tC7YdKTQ4iFFQ==', 'user',
+        'VZ63/yiy4kJEuK5KAdrAskghyhQ8Xzu/gao/+vLPGXHTlo6c1SOQiX5qTTaOQrCCps9HavSFyGKbKoLX9Ul18L8Uhk1lGIzzDW98pF1T6YbYPxwf6Qc8nAikH4uHD9enR58MZV6Y7hWRM49Yzb0kuhQjIaPbewY6qJarBKHf94E=');
+INSERT INTO app_user (id, user_name, password, role, salt)
+VALUES (2, 'administrator1@gmail.com', 'uDgWBAd7PWyLQic+eIaiYQ==', 'admin',
+        'KCzhQXLiIs0bqdMrwAKChH/doRdCJP57UP/bP3114/6nG3L/YOEPbi6LtM1mYEKc+a6FhNvrJz1lgerOGg+C05OAN5ufFfhrVoOShYyE3VD0xxjagkjUwJsPB8x4pZkf9XY2UtLnGF6isQT11Eqf/eNQCtRegW7IENpnBbiUj/8=');
+INSERT INTO app_user (id, user_name, password, role, salt)
+VALUES (3, 'editor1@gmail.com', 'GUs9nF7j7RbZRLyM9y71YQ==', 'editor',
+        'vHyRgM17BMYqKPcFm+2q1gCu04dORdI6Ywpg5rXr9ZXtOp4/gt83zSuNQogCR8levHK2kZbA6OAlBwtHZk/0ntR5/5H6932HwXWOIGMvB9oNk0OP8WZn4GyXIjpOy+nXGX3/AFiDJtTICEnS4cC/L9TnNjGRBcfcW7Fx78pdSoA=');
 
 
 INSERT INTO events(restaurant_id, event_name, event_time, event_date, decision_date, decision_time)
-values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022', '18:00');
+values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022', '18:00'),
+       ('1', 'teatime', '17:00', '04/05/2022', '04/04/2022', '18:00'),
+       ('1', 'timetime', '17:00', '04/05/2022', '04/04/2022', '18:00'),
+       ('2', 'anotherevent', '17:00', '04/05/2022', '04/04/2022', '18:00'),
+       ('2', 'toomanyevents', '17:00', '04/05/2022', '04/04/2022', '18:00');
 -- --
+
+INSERT INTO guest(guest_name, attending, email)
+VALUES ('Christian Rodriguez', 'yes', 'guest1@gmail.com');
+
+
+
 -- --
 
 -- -- INSERT INTO GUEST
 
 
-
+--
 
 INSERT INTO user_event(user_id, event_id)
-VALUES ((SELECT id FROM app_user where user_name= 'user1@gmail.com'),(SELECT event_id from events where event_name ='burritotime'));
+VALUES ((SELECT id FROM app_user where user_name = 'user1@gmail.com'),
+        (SELECT event_id from events where event_name = 'burritotime'));
 --
 INSERT INTO guest_event(guest_id, event_id)
-VALUES((SELECT guest_id FROM guest WHERE email = 'guest1@gmail.com'), (SELECT event_id from events where event_name ='burritotime'));
+VALUES ((SELECT guest_id FROM guest WHERE email = 'guest1@gmail.com'),
+        (SELECT event_id from events where event_name = 'burritotime'));
+
 --
+
+INSERT INTO restaurant_event(event_id, restaurant_id)
+VALUES ((SELECT event_id FROM events WHERE event_name = 'burritotime'),
+        (SELECT restaurant_id FROM restaurant WHERE restaurant_name = 'Chipotle'));
 
 
 ALTER TABLE user_event
@@ -69,7 +92,12 @@ ALTER TABLE guest_event
     ADD FOREIGN KEY (guest_id) REFERENCES events (event_id);
 
 ALTER TABLE events
-    ADD CONSTRAINT FK_events FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
+    ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
+
+ALTER TABLE restaurant_event
+    ADD  FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
+ALTER TABLE restaurant_event
+    ADD  FOREIGN KEY (event_id) REFERENCES events (event_id);
 
 -- INSERT INTO USERPROFILE
 -- INSERT INTO userprofile(event_id, email, first_name, last_name, phone_number, zipcode)
@@ -78,5 +106,5 @@ ALTER TABLE events
 --       ('1', 'user3@gmail.com','user3', 'user3LastName', '875678544', '75075');
 
 -- INSERT INTO EVENTS
-
 COMMIT;
+
