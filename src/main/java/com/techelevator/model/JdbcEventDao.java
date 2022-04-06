@@ -16,7 +16,7 @@ public class JdbcEventDao implements EventDao{
     }
 
     @Override
-    public Event saveEvent(String eventName, java.sql.Date  eventDate, java.sql.Time eventTime) {
+    public Event createNewEvent(String eventName, java.sql.Date  eventDate, java.sql.Time eventTime) {
 
         Event newEvent = new Event();
          Long newId =  jdbcTemplate.queryForObject("INSERT INTO events (event_name, event_date, event_time) values (?,?,?) RETURNING event_id", Long.class,
