@@ -19,7 +19,7 @@ public class JdbcEventDao implements EventDao{
     public Event saveEvent(String eventName, java.sql.Date  eventDate, java.sql.Time eventTime) {
 
         Event newEvent = new Event();
-         Long newId =  jdbcTemplate.queryForObject("INSERT INTO event (event_name, event_date, event_time) values (?,?,?) RETURNING event_id", Long.class,
+         Long newId =  jdbcTemplate.queryForObject("INSERT INTO events (event_name, event_date, event_time) values (?,?,?) RETURNING event_id", Long.class,
                                         eventName,eventDate,eventTime);
          newEvent.setEventId(newId);
          newEvent.setEventName(eventName);
