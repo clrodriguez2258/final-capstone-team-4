@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 public class Event {
 
-  private int eventId;
+  private Long eventId;
   private int userId;
   private int restaurantId;
   private String eventName;
@@ -16,11 +16,11 @@ public class Event {
   private int thumbsDownCount;
 
 
-  public int getEventId() {
+  public Long getEventId() {
     return eventId;
   }
 
-  public void setEventId(int eventId) {
+  public void setEventId(Long eventId) {
     this.eventId = eventId;
   }
 

@@ -22,7 +22,8 @@
             <img src="${ createEventUrl }" alt="people eating food" class="event-image">
             <div class="caption">
                 <h3 class="decision-card-title">Set Up An Event</h3>
-                <p><a href="#" class="btn btn-primary" role="button" style="width: 100%;">Get Started</a></p>
+                <c:url var="getStartedBtn" value="/createEvent"/>
+                <p><a href="${ getStartedBtn }" class="btn btn-primary" role="button" style="width: 100%;">Get Started</a></p>
             </div>
         </div>
     </div>
@@ -32,7 +33,8 @@
             <img src="${ createEventUrl }" alt="people eating food" class="search-image">
             <div class="caption">
                 <h3 class="decision-card-title">Search For Restaurants</h3>
-                <p><a href="#" class="btn btn-primary" role="button" style="width: 100%;">Subdue your HANGER</a></p>
+                <c:url var="searchForRestaurantsBtn" value="/restaurants"/>
+                <p><a href="${ searchForRestaurantsBtn }" class="btn btn-primary" role="button" style="width: 100%;">Subdue your HANGER</a></p>
             </div>
         </div>
     </div>

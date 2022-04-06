@@ -5,7 +5,7 @@
 BEGIN;
 
 -- CREATE statements go here
-DROP TABLE IF EXISTS app_user, restaurant, guest, preferences, guest_event, event, user_event;
+DROP TABLE IF EXISTS app_user,user_event,events, restaurant, guest, guest_event,restaurant_event CASCADE;
 
 CREATE TABLE app_user
 (
@@ -16,29 +16,29 @@ CREATE TABLE app_user
     salt      varchar(255) NOT NULL
 );
 
-CREATE TABLE userProfile
-(
-    event_id     int,
-    email        varChar(255) NOT NULL,
-    first_name   varChar(255) NOT NULL,
-    last_name    varChar(255) NOT NULL,
-    phone_number varChar(15),
-    zipcode      varChar(5)   NOT NULL,
+-- CREATE TABLE userProfile
+-- (
+--     event_id     int,
+--     email        varChar(255) NOT NULL,
+--     first_name   varChar(255) NOT NULL,
+--     last_name    varChar(255) NOT NULL,
+--     phone_number varChar(15),
+--     zipcode      varChar(5)   NOT NULL,
+--
+--
+--     CONSTRAINT PK_user PRIMARY KEY (email)
+--
+--
+-- );
 
-
-    CONSTRAINT PK_user PRIMARY KEY (email)
-
-
-);
-
-CREATE TABLE user_userProfile
-(
-    user_id int,
-    email   varchar(250),
-
-        CONSTRAINT PK_userProfile PRIMARY KEY (user_id, email)
-
-);
+-- CREATE TABLE user_userProfile
+-- (
+--     user_id int,
+--     email   varchar(250),
+--
+--         CONSTRAINT PK_userProfile PRIMARY KEY (user_id, email)
+--
+-- );
 
 CREATE TABLE restaurant
 (
@@ -91,10 +91,9 @@ CREATE TABLE guest
 -- );
 
 
-CREATE TABLE event
+CREATE TABLE events
 (
     event_id          serial,
-    user_id           int,
     restaurant_id     int,
     event_name        varchar(250) not null,
     event_time        time         not null,
@@ -120,24 +119,27 @@ CREATE TABLE guest_event
 );
 
 CREATE TABLE user_event
-    (
-        user_id int,
-        event_id int,
+(
+    user_id  int,
+    event_id int,
 
-        PRIMARY KEY (user_id, event_id)
+    PRIMARY KEY (user_id, event_id)
+
+);
+
+CREATE TABLE restaurant_event
+(
+    event_id  int,
+    restaurant_id int,
+
+    PRIMARY KEY (event_id, restaurant_id)
 
 );
 
 
 
-ALTER TABLE user_event
-ADD FOREIGN KEY (event_id) REFERENCES event (event_id);
 
-ALTER TABLE user_event
-ADD FOREIGN KEY (user_id) REFERENCES app_user (id);
 
-ALTER TABLE event
-    ADD CONSTRAINT FK_events FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
 
 
 -- INSERTING VALUES
@@ -156,5 +158,6 @@ ALTER TABLE event
 -- insert into  guest( event_id, guest_name, attending, email )
 -- values ('1','Christian Rodriguez', 'yes','ab@f=gmail.com');
 --
-rollback;
+
 COMMIT;
+

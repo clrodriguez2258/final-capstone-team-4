@@ -90,3 +90,23 @@
 #card-content-card1{
     padding: 12px 44px;
 }
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);
+}
+
+.searchbar1 {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    width: 10em;
+}
