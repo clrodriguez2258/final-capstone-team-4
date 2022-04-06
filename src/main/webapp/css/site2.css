@@ -41,15 +41,14 @@
 }
 
 .event-image {
-    max-height: 250px;
+    max-height: 300px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .search-image {
-    max-height: 250px;
+    max-height: 300px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -86,7 +85,6 @@
     height: 410px;
     margin: 6rem auto 8.1rem auto;
     width: 329px;
-
 }
 
 #card-content-card1{

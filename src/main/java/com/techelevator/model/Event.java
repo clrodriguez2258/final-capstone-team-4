@@ -2,43 +2,43 @@ package com.techelevator.model;
 
 public class Event {
 
-  private long eventId;
-  private long userId;
-  private long restaurantId;
+  private Long eventId;
+  private int userId;
+  private int restaurantId;
   private String eventName;
   private java.sql.Time eventTime;
   private java.sql.Date eventDate;
   private java.sql.Date decisionDate;
   private java.sql.Time decisionTime;
-  private String thumbsUp;
-  private long thumbsUpCount;
-  private String thumbsDown;
-  private long thumbsDownCount;
+  private boolean thumbsUp;
+  private int thumbsUpCount;
+  private boolean thumbsDown;
+  private int thumbsDownCount;
 
 
-  public long getEventId() {
+  public Long getEventId() {
     return eventId;
   }
 
-  public void setEventId(long eventId) {
+  public void setEventId(Long eventId) {
     this.eventId = eventId;
   }
 
 
-  public long getUserId() {
+  public int getUserId() {
     return userId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(int userId) {
     this.userId = userId;
   }
 
 
-  public long getRestaurantId() {
+  public int getRestaurantId() {
     return restaurantId;
   }
 
-  public void setRestaurantId(long restaurantId) {
+  public void setRestaurantId(int restaurantId) {
     this.restaurantId = restaurantId;
   }
 
@@ -88,38 +88,38 @@ public class Event {
   }
 
 
-  public String getThumbsUp() {
+  public boolean getThumbsUp() {
     return thumbsUp;
   }
 
-  public void setThumbsUp(String thumbsUp) {
+  public void setThumbsUp(boolean thumbsUp) {
     this.thumbsUp = thumbsUp;
   }
 
 
-  public long getThumbsUpCount() {
+  public int getThumbsUpCount() {
     return thumbsUpCount;
   }
 
-  public void setThumbsUpCount(long thumbsUpCount) {
+  public void setThumbsUpCount(int thumbsUpCount) {
     this.thumbsUpCount = thumbsUpCount;
   }
 
 
-  public String getThumbsDown() {
+  public boolean getThumbsDown() {
     return thumbsDown;
   }
 
-  public void setThumbsDown(String thumbsDown) {
+  public void setThumbsDown(boolean thumbsDown) {
     this.thumbsDown = thumbsDown;
   }
 
 
-  public long getThumbsDownCount() {
+  public int getThumbsDownCount() {
     return thumbsDownCount;
   }
 
-  public void setThumbsDownCount(long thumbsDownCount) {
+  public void setThumbsDownCount(int thumbsDownCount) {
     this.thumbsDownCount = thumbsDownCount;
   }
 
