@@ -7,7 +7,7 @@ import java.time.LocalTime;
 
 public interface EventDao {
 
-    public Event saveEvent(String eventName, java.sql.Date  eventDate, java.sql.Time eventTime);
+    public Event createNewEvent(String eventName, java.sql.Date  eventDate, java.sql.Time eventTime);
 
 
 }
