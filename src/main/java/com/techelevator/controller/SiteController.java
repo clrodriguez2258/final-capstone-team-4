@@ -49,22 +49,22 @@ public class SiteController {
         return "about";
     }
 
-    // see grid page on public
+//    // see grid page on public
+//    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
+//    public String showRestaurantsPage() {
+//        return "restaurants";
+//    }
+
+
+
+
     @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
-    public String showRestaurantsPage() {
-        return "restaurants";
-    }
-
-
-
-
-    @RequestMapping(path = "/viewRestaurants", method = RequestMethod.GET)
     public String displayRestaurant (ModelMap map){
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
 
-        return "displayRestaurants";
+        return "restaurants";
 
     }
 }
