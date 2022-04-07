@@ -34,10 +34,10 @@ public class SiteController {
         return "decisionPage";
     }
 
-//    @RequestMapping(path = "/createEvent", method = RequestMethod.GET)
-//    public String createEventPage(){
-//        return "createEvent";
-//    }
+    @RequestMapping(path = "/createEvent", method = RequestMethod.GET)
+    public String createEventPage(){
+        return "createEvent";
+    }
 
     @RequestMapping(path = "/about", method = RequestMethod.GET)
     public String aboutPage() throws UnauthorizedException {
