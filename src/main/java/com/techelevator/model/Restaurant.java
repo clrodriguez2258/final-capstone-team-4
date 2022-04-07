@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Restaurant {
+    private Long restaurant_id;
     private String restaurantName;
     private String street;
     private String city;
@@ -17,6 +18,8 @@ public class Restaurant {
     private String typeOfEstablishment;
     private LocalTime openTime;
     private LocalTime closeTime;
+
+
 
     public String getTypeOfEstablishment() {
         return typeOfEstablishment;
