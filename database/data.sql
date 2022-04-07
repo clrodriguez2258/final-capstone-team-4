@@ -9,8 +9,9 @@ BEGIN;
 -- values ();
 
 INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
-                       call_to_order, isOpen, open_time, close_time)
- 
+                       call_to_order, isOpen, open_time, close_time, cuisine, closing_soon, pet_friendly, affordability,
+                       capacity, dresscode, dine_in)
+
 VALUES ('Chipotle', 'mainstreet', 'Rolling Meadows', 'OH', '43204', '4', 'chipotle.jpg', 'www.chipotle.com',
         '8474392530', 'true', true, '8:00', '22:00'),
 
@@ -32,9 +33,43 @@ VALUES ('Chipotle', 'mainstreet', 'Rolling Meadows', 'OH', '43204', '4', 'chipot
         '4696091570', 'true', true, '11:00', '12:00'),
 
        ('Velvet Taco', 'W Park', 'Plano', 'TX', '75093', '4', 'velvetTaco.jpg', 'velvettaco.com',
-        '4698250099', 'true', true, '11:00', '22:00');
+        '4698250099', 'true', true, '11:00', '22:00'),
 
 
+       ('Cafe Valentina', 'McKennans Church Rd.', 'Wilmington', 'DE', '19808', '5', 'cafevalentina.jpg',
+        'www.cafevalentina.com',
+        '3029960301', 'true', true, '10:00', '22:00', 'Italian', null, 'false', '$$', '150', 'family style', 'true'),
+
+       ('Rice Restaurant', 'Limestone Rd', 'Wilmington', 'DE', '19808', '5', 'rice.png', 'www.rice2015.com',
+        '3029997423', 'true', true, '11:00', '22:00', 'Cantonese', null, 'false', '$$', '150', 'contemporary casual',
+        'true'),
+
+       ('Applebees', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'applebees.png', 'www.applebees.com',
+        '3029951328', 'true', true, '11:00', '22:00', 'American', null, 'false', '$$', '150', 'casual', 'true'),
+
+       ('Wingstop', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'wingstop.png', 'www.wingstop.com',
+        '3025167356', 'true', true, '11:00', '24:00', 'American', null, 'false', '$$', '150', 'casual', 'true'),
+
+       ('Ruby Tuesday', 'Limestone Rd', 'Wilmington', 'DE', '19808', '4', 'rubytuesday.png', 'www.rubytuesday.com',
+        '3029959081', 'true', true, '11:00', '22:00', 'American', null, 'false', '$$', '150', 'casual', 'true'),
+
+       ('Seasons Pizza', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'seasonspizza.jpg', 'www.seasonspizza.com',
+        '3029986500', 'true', true, '10:00', '22:00', 'Pizzeria', null, 'false', '$', '150', 'casual', 'true'),
+
+       ('Pats Pizza', 'W. Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'patspizza.png',
+        'kirkwood.patspizzeria.com', '3029959081', 'true', true, '10:00', '22:00', 'American', null, 'false', '$',
+        '150', 'casual', 'true'),
+
+       ('Polk Bros.', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '4', 'pokebros.png', 'www.eatpokebros.com',
+        '3023587020', 'true', true, '11:00', '21:00', 'Seafood', null, 'false', '$$', '150', 'casual', 'true'),
+
+       ('Zoup!', 'W. Kirkwood Hwy', 'Wilmington', 'DE', '19808', '5', 'zoup.jpg', 'online.zoup.com',
+        '3026604400', 'true', true, '11:00', '20:00', 'American', null, 'false', '$$', '150', 'Cafe', 'true'),
+
+       ('Moes Southwest Grill', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '3', 'moes.png', 'www.moes.com',
+        '3026913690', 'true', true, '11:00', '20:00', 'Southwestern', null, 'false', '$', '150', 'casual', 'true');
+
+--INSERT TEMPORARY USERS
 
 INSERT INTO app_user (id, user_name, password, role, salt)
 VALUES (1, 'user1@gmail.com', 'AfD5Jrsb/tC7YdKTQ4iFFQ==', 'user',
@@ -95,9 +130,9 @@ ALTER TABLE events
     ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
 
 ALTER TABLE restaurant_event
-    ADD  FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
+    ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
 ALTER TABLE restaurant_event
-    ADD  FOREIGN KEY (event_id) REFERENCES events (event_id);
+    ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
 
 -- INSERT INTO USERPROFILE
 -- INSERT INTO userprofile(event_id, email, first_name, last_name, phone_number, zipcode)
