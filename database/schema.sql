@@ -5,7 +5,7 @@
 BEGIN;
 
 -- CREATE statements go here
-DROP TABLE IF EXISTS app_user,user_event,events, restaurant, guest, guest_event,restaurant_event CASCADE;
+DROP TABLE IF EXISTS app_user,user_event,events, event , restaurant, guest, guest_event,restaurant_event CASCADE;
 
 CREATE TABLE app_user
 (

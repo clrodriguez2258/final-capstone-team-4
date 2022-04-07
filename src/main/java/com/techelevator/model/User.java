@@ -1,7 +1,9 @@
 package com.techelevator.model;
 
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.util.StringUtils;
 
@@ -10,6 +12,7 @@ import org.springframework.util.StringUtils;
  */
 public class User {
     @NotBlank(message = "Email is required")
+    @Email(message = "This is not a valid email address try again")
     private String username;
 
     @NotBlank(message = "Role is required")
@@ -17,6 +20,7 @@ public class User {
     private long id;
 
     @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "The password has a 8 character minimum please try again")
     private String password;
     private String confirmPassword;
 
