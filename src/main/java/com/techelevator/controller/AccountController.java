@@ -58,16 +58,5 @@ public class AccountController {
         return "register";
     }
 
-    @RequestMapping(path = "/register", method = RequestMethod.POST)
-    public String register(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
-        if (result.hasErrors()) {
-            flash.addFlashAttribute("user", user);
-            flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
-            flash.addFlashAttribute("message", "Please fix the following errors:");
-            return "redirect:/register";
-        }
-        auth.register(user.getUsername(), user.getPassword(), user.getRole());
-        return "redirect:/";
-    }
 
 }
