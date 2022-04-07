@@ -1,20 +1,31 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Event {
 
   private Long eventId;
   private int userId;
   private int restaurantId;
   private String eventName;
-  private java.sql.Time eventTime;
-  private java.sql.Date eventDate;
-  private java.sql.Date decisionDate;
-  private java.sql.Time decisionTime;
+  private LocalDate eventTime;
+  private LocalDate eventDate;
+  private LocalDate decisionDate;
+  private LocalDate decisionTime;
   private boolean thumbsUp;
   private int thumbsUpCount;
   private boolean thumbsDown;
   private int thumbsDownCount;
 
+  public Event(String eventName, LocalDate eventDate, LocalDate eventTime) {
+    this.eventName = eventName;
+    this.eventDate = eventDate;
+    this.eventTime = eventTime;
+  }
+
+  public Event() {
+
+  }
 
   public Long getEventId() {
     return eventId;
@@ -52,38 +63,38 @@ public class Event {
   }
 
 
-  public java.sql.Time getEventTime() {
+  public LocalDate getEventTime() {
     return eventTime;
   }
 
-  public void setEventTime(java.sql.Time eventTime) {
+  public void setEventTime(LocalDate eventTime) {
     this.eventTime = eventTime;
   }
 
 
-  public java.sql.Date getEventDate() {
+  public LocalDate getEventDate() {
     return eventDate;
   }
 
-  public void setEventDate(java.sql.Date eventDate) {
+  public void setEventDate(LocalDate eventDate) {
     this.eventDate = eventDate;
   }
 
 
-  public java.sql.Date getDecisionDate() {
+  public LocalDate getDecisionDate() {
     return decisionDate;
   }
 
-  public void setDecisionDate(java.sql.Date decisionDate) {
+  public void setDecisionDate(LocalDate decisionDate) {
     this.decisionDate = decisionDate;
   }
 
 
-  public java.sql.Time getDecisionTime() {
+  public LocalDate getDecisionTime() {
     return decisionTime;
   }
 
-  public void setDecisionTime(java.sql.Time decisionTime) {
+  public void setDecisionTime(LocalDate decisionTime) {
     this.decisionTime = decisionTime;
   }
 
