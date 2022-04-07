@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -15,12 +16,15 @@ public class User {
     @Email(message = "This is not a valid email address try again")
     private String username;
 
+    @Email(message = "This email already exits")
+    private String confirmUsername;
+
     @NotBlank(message = "Role is required")
     private String role;
     private long id;
 
     @NotBlank(message = "Password is required")
-    @Size(min = 8, message = "The password has a 8 character minimum please try again")
+    @Pattern(regexp = "^(?=.*[0-9]).{8,20}$", message = "The password must be 8 character long have one number, one lowercase, one capital.")
     private String password;
     private String confirmPassword;
 
@@ -47,6 +51,9 @@ public class User {
      */
     public String getUsername() {
         return username;
+    }
+    public String getConfirmUsername() {
+        return confirmUsername;
     }
     public String getCapitalizedUsername() {
         return StringUtils.capitalize(username);
@@ -94,4 +101,6 @@ public class User {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+
 }

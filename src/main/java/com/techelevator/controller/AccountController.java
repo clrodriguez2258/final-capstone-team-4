@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +32,10 @@ public class AccountController {
 
     @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelHolder) {
+
         return "login";
     }
+
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
@@ -57,6 +60,26 @@ public class AccountController {
         }
         return "register";
     }
+
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
+    public String register(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
+        if (!user.getUsername().equals(user.getConfirmUsername())) {
+            result.addError(new FieldError("user", "username", "Email already exist please try again"));
+        }
+
+       if (result.hasErrors()) {
+            flash.addFlashAttribute("user", user);
+            flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+            flash.addFlashAttribute("message", "Please fix the following errors:");
+
+            return "redirect:/register";
+        }
+
+        auth.register(user.getUsername(), user.getPassword(), user.getRole());
+        return "redirect:/";
+    }
+
+
 
 
 }
