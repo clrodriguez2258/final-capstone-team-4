@@ -6,34 +6,41 @@
 <div class="testbox">
     <div action="/">
         <div class="banner">
-            <h1>Where To Eat - Event Sign-Up</h1>
-        </div>
-        <form>
-        <div class="item">
-            <p>Event Name</p>
-            <div class="event-name-item">
-                <input type="text" name="name"/>
+            <h1>Create Your Event</h1>
+            <div>
+                <br>
+            </div>
+            <br>
+            <div class="subheader">
+                <p>Invite your favorite people for great food and fun! </p>
             </div>
         </div>
+        <form>
             <div class="item">
-                <p>Event City</p>
+                <p>Event Name</p>
+                <div class="event-name-item">
+                    <input type="text" name="name"/>
+                </div>
+            </div>
+            <div class="item">
+                <p>Event Location</p>
                 <div class="event-location-item">
                     <input type="text" name="name"/>
                 </div>
             </div>
-        <div class="item">
-            <p>Email</p>
-            <input type="email" name="email"/>
-        </div>
-        <div class="item">
-            <p>Event Date</p>
-            <input type="date" name="event-date" required/>
-            <i class="fas fa-calendar-alt"></i>
-        </div>
-        <div class="item">
-            <p>Event Time</p>
-            <input type="time" name="event-time" required/>
-        </div>
+            <div class="item">
+                <p>Email</p>
+                <input type="email" name="email"/>
+            </div>
+            <div class="item">
+                <p>Event Date</p>
+                <input type="date" name="event-date" required/>
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="item">
+                <p>Event Time</p>
+                <input type="time" name="event-time" required/>
+            </div>
             <div class="dueBy">
                 <p>Decision due date & time</p>
                 <span>
@@ -41,11 +48,10 @@
                 <input type="time" name="decision-time" required/>
                 </span>
             </div>
-
-        <div class="item">
-            <p>Invitees</p>
-            <textarea rows="3"></textarea>
-        </div>
+            <div class="item">
+                <p>Invitees</p>
+                <textarea rows="3"></textarea>
+            </div>
             <div class="btn-block">
                 <button type="submit" id="submit-btn" href="/">Send</button>
             </div>
@@ -53,7 +59,15 @@
 
 
         <div class="pref-header">
-            <h2>Restaurant Search</h2>
+            <h2>Search for and add restaurants</h2>
+        </div>
+
+        <div class="addToInvite">
+            <input type="radio" id="city" name="location" value="City">
+            <label for="city">City</label><br>
+            <input type="radio" id="zip" name="location" value="Zip code">
+            <label for="zip">Zip code</label>
+            <p><input type="text" name="location" id="locationValue" maxlength="255"></p>
         </div>
         <div class="addToInvite">
             <p>Cuisine</p>
@@ -103,13 +117,11 @@
                 <option value="Food Truck">Food Truck</option>
             </select>
         </div>
-        <div class="addToInvite">
+        <div>
             <p>Pet-friendly</p>
-            <span>
             <input type="checkbox" id="pets" name="pets" value="true">
-            </span>
         </div>
-
+        <button type="submit">Search</button>
     </div>
 </div>
 
