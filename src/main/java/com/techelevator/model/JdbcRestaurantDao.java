@@ -41,7 +41,7 @@ public class JdbcRestaurantDao implements RestaurantDao {
     public List<Restaurant> getRestaurantByCity(String city) {
         List<Restaurant> restaurantsByCity = new ArrayList<>();
 
-        String sql = "SELECT restaurant_name, cuisine, street, city, state, zipcode, open_time, close_time, image_name " +
+        String sql = "SELECT * " +
                 "FROM restaurant " +
                 "WHERE city = ? ";
 
@@ -61,7 +61,7 @@ public class JdbcRestaurantDao implements RestaurantDao {
 
         List<Restaurant> restaurantsByZipCode = new ArrayList<>();
 
-        String sql =  "SELECT restaurant_name, cuisine, street, city, state, zipcode, open_time, close_time, image_name " +
+        String sql =  "SELECT * " +
                 "FROM restaurant " +
                 "WHERE zipcode = ? ";
 
