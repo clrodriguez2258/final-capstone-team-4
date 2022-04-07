@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Restaurant {
     private String restaurantName;
@@ -13,7 +14,33 @@ public class Restaurant {
     private String website;
     private String phoneNumber;
     private boolean callToOrder;
-    private LocalDateTime hoursOfOperation;
+    private String typeOfEstablishment;
+    private LocalTime openTime;
+    private LocalTime closeTime;
+
+    public String getTypeOfEstablishment() {
+        return typeOfEstablishment;
+    }
+
+    public void setTypeOfEstablishment(String typeOfEstablishment) {
+        this.typeOfEstablishment = typeOfEstablishment;
+    }
+
+    public LocalTime getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(LocalTime openTime) {
+        this.openTime = openTime;
+    }
+
+    public LocalTime getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(LocalTime closeTime) {
+        this.closeTime = closeTime;
+    }
 
     public String getRestaurantName() {
         return restaurantName;
@@ -95,11 +122,5 @@ public class Restaurant {
         this.callToOrder = callToOrder;
     }
 
-    public LocalDateTime getHoursOfOperation() {
-        return hoursOfOperation;
-    }
 
-    public void setHoursOfOperation(LocalDateTime hoursOfOperation) {
-        this.hoursOfOperation = hoursOfOperation;
-    }
 }

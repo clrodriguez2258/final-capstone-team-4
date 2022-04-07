@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.authentication.AuthProvider;
 import com.techelevator.authentication.UnauthorizedException;
 
+import com.techelevator.model.RestaurantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SiteController {
     @Autowired
     private AuthProvider auth;
+    RestaurantDao restaurantDao;
 
     @RequestMapping(path = "/private", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
@@ -31,7 +33,6 @@ public class SiteController {
     public String decisionPage(){
         return "decisionPage";
     }
-
 
     @RequestMapping(path = "/createEvent", method = RequestMethod.GET)
     public String createEventPage(){
