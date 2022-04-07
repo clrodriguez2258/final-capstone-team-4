@@ -89,14 +89,14 @@
 <%--    <div class="row">--%>
 <%--    <div class="col-sm-6 col-md-4">--%>
 <%--        <div class="thumbnail">--%>
-<%--            <img class="displayRestaurantTile" src="<c:url value="/img/chipotle.jpg"/>" alt="Restaurant Logo"/>--%>
+<%--            <img class="displayRestaurantTile" src="<c:url value="/img/${ restaurant.imageName }"/>" alt="Restaurant Logo"/>--%>
 <%--            <div class="caption">--%>
-<%--                <h3>Chipotle</h3>--%>
+<%--                <h3>${ restaurant.restaurantName }</h3>--%>
 <%--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut--%>
 <%--                    labore et dolore magna aliqua.</p>--%>
 <%--                <p style="color: ${ openCloseColor };">${ isOpen }</p>--%>
 <%--                <p>Hours: ${ restaurant.getOpenTime() }AM - ${ restaurant.getCloseTime() }PM</p>--%>
-<%--                <span><img src="img/pizzaSlice${ restaurant.getRating() }.jpg" alt="Pizza Slice Rating"></span>--%>
+<%--                <span><img src="img/pizzaSlice${ restaurant.getRating() }.png" alt="Pizza Slice Rating"></span>--%>
 <%--                <button type="button">Call to Order</button>--%>
 <%--            </div>--%>
 <%--        </div>--%>
