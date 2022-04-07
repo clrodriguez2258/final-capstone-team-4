@@ -32,6 +32,7 @@ public class JdbcUserDao implements UserDao {
         this.passwordHasher = passwordHasher;
     }
 
+
     /**
      * Save a new user to the database. The password that is passed in will be
      * salted and hashed before being saved. The original password is never

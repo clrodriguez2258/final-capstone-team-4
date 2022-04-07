@@ -12,11 +12,9 @@
             <h2>Register</h2>
             <div class="underline-title"></div>
         </div>
-        <form class="form">
         <label for="username" style="padding-top:13px">Email</label>
         <form:input class="form-control" path="username" />
         <form:errors path="username" cssClass="bg-danger"/>
-        </form>
     </div>
     <div class="form">
         <label for="password" style="padding-top:13px">&nbsp;Password</label>
