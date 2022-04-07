@@ -121,6 +121,13 @@ public class Restaurant {
     public void setCallToOrder(boolean callToOrder) {
         this.callToOrder = callToOrder;
     }
-
+    
+    public boolean isOpen() {
+        LocalTime compareTime = LocalTime.now();
+        if(compareTime.isAfter(openTime) && compareTime.isBefore(closeTime)){
+            return true;
+        }
+        return false;
+    }
 
 }
