@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="common/header.jspf" %>
 
 <c:url var="cssUrl2" value="/css/site2.css"/>
@@ -6,14 +7,14 @@
 <br>
 <br>
 <div class="searchbar1">
-    <form for="restaurantSearch">
+    <form for="restaurantSearch" action="restaurants" method="POST">
         <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
         <div class="btn-group">
             <label for="searchCity"> Search by city</label>
-            <input type="radio" id="searchCity" class="searchCity" name="searchRadio">
+            <input type="radio" id="searchCity" class="searchCity" name="searchRadio" value="city">
             <br>
             <label for="searchZip"> Search by zipcode</label>
-            <input type="radio" id="searchZip" class="searchZip" name="searchRadio" checked>
+            <input type="radio" id="searchZip" class="searchZip" name="searchRadio" value="zip" checked>
         </div>
         <%--        <c:choose>--%>
         <%--        <c:when test="${ searchZip.equals(true) }">--%>
@@ -24,11 +25,41 @@
         <%--            </c:otherwise>--%>
         <%--        </c:choose>--%>
         <div>
-            <input type="text" id="restaurantSearch" placeholder="${ cityOrZip }" style="width: 100%;">
+            <input type="text" id="restaurantSearch" name="restaurantSearch" placeholder="${ cityOrZip }" style="width: 100%;">
             <button type="submit">Search</button>
         </div>
     </form>
 </div>
+
+<%--                       Code used after database works                         --%>
+<c:forEach var="restaurant" items="${ restaurants }">
+    <c:choose>
+        <c:when test="${ restaurant.isOpen() }">
+            <c:set var="isOpen" value="Open Now"/>
+            <c:set var="openCloseColor" value="green"/>
+        </c:when>
+        <c:otherwise>
+            <c:set var="isOpen" value="Closed"/>
+            <c:set var="openCloseColor" value="red"/>
+        </c:otherwise>
+    </c:choose>
+    <div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img class="displayRestaurantTile" src="<c:url value="/img/${ restaurant.image }"/>" alt="Restaurant Logo"/>
+            <div class="caption">
+                <h3>${ restaurant.restaurantName }</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.</p>
+                <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
+                <p>Hours: ${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM</p>
+                <span><img src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating"></span>
+                <button type="button">Call to Order</button>
+            </div>
+        </div>
+    </div>
+</c:forEach>
+<%--                       Code used after database works                         --%>
 <%--<c:forEach var="count" begin="1" end="10">--%>
 <%--    <div class="row">--%>
 <%--        <div class="col-sm-6 col-md-4">--%>
@@ -74,33 +105,5 @@
 <%--</c:forEach>--%>
 
 
-                       Code used after database works
-<c:forEach var="restaurant" items="${ restaurants }">
-    <c:choose>
-    <c:when test="${ restaurant.isOpen() }">
-        <c:set var="isOpen" value="Open Now"/>
-        <c:set var="openCloseColor" value="green"/>
-    </c:when>
-        <c:otherwise>
-            <c:set var="isOpen" value="Closed"/>
-            <c:set var="openCloseColor" value="red"/>
-        </c:otherwise>
-    </c:choose>
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img class="displayRestaurantTile" src="<c:url value="/img/${ restaurant.image }"/>" alt="Restaurant Logo"/>
-            <div class="caption">
-                <h3>${ restaurant.restaurantName }</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.</p>
-                <p style="color: ${ openCloseColor };">${ isOpen }</p>
-                <p>Hours: ${ restaurant.getOpenTime() }AM - ${ restaurant.getCloseTime() }PM</p>
-                <span><img src="img/pizzaSlice${ restaurant.getRating() }.png" alt="Pizza Slice Rating"></span>
-                <button type="button">Call to Order</button>
-            </div>
-        </div>
-    </div>
-</c:forEach>
-                       Code used after database works
+
 <%@ include file="common/footer.jspf" %>

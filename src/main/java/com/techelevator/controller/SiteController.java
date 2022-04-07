@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -49,22 +50,25 @@ public class SiteController {
         return "about";
     }
 
-//    // see grid page on public
-//    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
-//    public String showRestaurantsPage() {
-//        return "restaurants";
-//    }
-
-
-
-
     @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
     public String displayRestaurant (ModelMap map){
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
+        return "restaurants";
+    }
+
+    @RequestMapping(path = "/restaurants", method = RequestMethod.POST)
+    public String processRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch, ModelMap model) {
+
+        if(searchRadio.equals("city")){
+            List<Restaurant> restaurants = restaurantDao.getRestaurantByCity(restaurantSearch);
+            model.put("restaurants", restaurants);
+        } else if(searchRadio.equals("zip")){
+            List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
+            model.put("restaurants", restaurants);
+        }
 
         return "restaurants";
-
     }
 }
