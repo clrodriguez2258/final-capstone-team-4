@@ -2,13 +2,32 @@
 
 <c:url var="cssUrl2" value="/css/site2.css"/>
 <link rel="stylesheet" href="${cssUrl2}"/>
-
-<%--<div class="grid">--%>
+<br>
+<br>
+<br>
 <div class="searchbar1">
-<form for="restaurantSearch">
-    <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
-    <input type="text" id="restaurantSearch" placeholder="Enter Restaurant Name" style="width: 100%;">
-</form>
+    <form for="restaurantSearch">
+        <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
+        <div class="btn-group">
+            <label for="searchCity"> Search by city</label>
+            <input type="radio" id="searchCity" class="searchCity" name="searchRadio">
+            <br>
+            <label for="searchZip"> Search by zipcode</label>
+            <input type="radio" id="searchZip" class="searchZip" name="searchRadio" checked>
+        </div>
+<%--        <c:choose>--%>
+<%--        <c:when test="${ searchZip.equals(true) }">--%>
+<%--            <c:set var="cityOrZip" value="Enter Zip Code"></c:set>--%>
+<%--        </c:when>--%>
+<%--            <c:otherwise>--%>
+<%--                <c:set var="cityOrZip" value="Enter City"></c:set>--%>
+<%--            </c:otherwise>--%>
+<%--        </c:choose>--%>
+        <div>
+            <input type="text" id="restaurantSearch" placeholder="${ cityOrZip }" style="width: 100%;">
+            <button type="submit">Search</button>
+        </div>
+    </form>
 </div>
 <c:forEach var="count" begin="1" end="10">
     <div class="row">
@@ -53,7 +72,6 @@
         </div>
     </div>
 </c:forEach>
-<%--</div>--%>
 
 
 <%--                       Code used after database works                          --%>

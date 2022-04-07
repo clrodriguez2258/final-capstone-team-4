@@ -113,6 +113,19 @@ public class JdbcUserDao implements UserDao {
 
         return users;
     }
+    @Override
+    public List<User> getUserWithEmail(String email) {
+        List<User> users = new ArrayList<User>();
+        String sqlSelectAllUsers = "SELECT id, user_name, role FROM app_user WHERE user_name = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllUsers, email);
+
+        while (results.next()) {
+            User user = mapResultToUser(results);
+            users.add(user);
+        }
+
+        return users;
+    }
 
 
     private User mapResultToUser(SqlRowSet results) {

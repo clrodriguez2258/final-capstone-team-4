@@ -32,6 +32,7 @@ public class SiteController {
         return "decisionPage";
     }
 
+
     @RequestMapping(path = "/createEvent", method = RequestMethod.GET)
     public String createEventPage(){
         return "createEvent";
