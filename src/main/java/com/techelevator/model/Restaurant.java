@@ -10,41 +10,47 @@ public class Restaurant {
     private String city;
     private String state;
     private String zipCode;
-    private int rating;
+//    private int rating;
+    private Integer rating;
     private String image;
     private String website;
     private String phoneNumber;
-    private boolean callToOrder;
+//    private boolean callToOrder;
+    private Boolean callToOrder;
     private String typeOfEstablishment;
     private LocalTime openTime;
     private LocalTime closeTime;
-    private boolean petFriendly;
-    private int affordability;
-    private int capacity;
+//    private boolean petFriendly;
+    private Boolean petFriendly;
+//    private int affordability;
+    private Integer affordability;
+//    private int capacity;
+    private Integer capacity;
     private String dressCode;
-    private boolean dineIn;
+//    private boolean dineIn;
+    private Boolean dineIn;
 
-    public boolean isPetFriendly() {
+    public Boolean isPetFriendly() {
         return petFriendly;
     }
 
-    public void setPetFriendly(boolean petFriendly) {
+    public void setPetFriendly(Boolean petFriendly) {
         this.petFriendly = petFriendly;
     }
 
-    public int getAffordability() {
+    public Integer getAffordability() {
         return affordability;
     }
 
-    public void setAffordability(int affordability) {
+    public void setAffordability(Integer affordability) {
         this.affordability = affordability;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
@@ -56,19 +62,19 @@ public class Restaurant {
         this.dressCode = dressCode;
     }
 
-    public boolean isDineIn() {
+    public Boolean isDineIn() {
         return dineIn;
     }
 
-    public void setDineIn(boolean dineIn) {
+    public void setDineIn(Boolean dineIn) {
         this.dineIn = dineIn;
     }
 
-    public Long getRestaurant_id() {
+    public Long getRestaurantId() {
         return restaurant_id;
     }
 
-    public void setRestaurant_id(Long restaurant_id) {
+    public void setRestaurantId(Long restaurant_id) {
         this.restaurant_id = restaurant_id;
     }
 
@@ -136,11 +142,11 @@ public class Restaurant {
         this.zipCode = zipCode;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 
@@ -168,11 +174,11 @@ public class Restaurant {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isCallToOrder() {
+    public Boolean isCallToOrder() {
         return callToOrder;
     }
 
-    public void setCallToOrder(boolean callToOrder) {
+    public void setCallToOrder(Boolean callToOrder) {
         this.callToOrder = callToOrder;
     }
 
