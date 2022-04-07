@@ -1,21 +1,26 @@
-<%@ include file = "common/header.jspf" %>
+<%@ include file="common/header.jspf" %>
+<c:url var="createEvent" value="/css/eventInvite.css"/>
+<link rel="stylesheet" href="${createEvent}"/>
 
-
-<%--    <title>Restaurant Reservation Form</title>--%>
-<%--    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">--%>
-<%--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">--%>
 
 <div class="testbox">
     <div action="/">
         <div class="banner">
             <h1>Where To Eat - Event Sign-Up</h1>
         </div>
+        <form>
         <div class="item">
             <p>Event Name</p>
             <div class="event-name-item">
                 <input type="text" name="name"/>
             </div>
         </div>
+            <div class="item">
+                <p>Event City</p>
+                <div class="event-location-item">
+                    <input type="text" name="name"/>
+                </div>
+            </div>
         <div class="item">
             <p>Email</p>
             <input type="email" name="email"/>
@@ -29,14 +34,28 @@
             <p>Event Time</p>
             <input type="time" name="event-time" required/>
         </div>
+            <div class="dueBy">
+                <p>Decision due date & time</p>
+                <span>
+                <input type="date" name="decision-date" required/>
+                <input type="time" name="decision-time" required/>
+                </span>
+            </div>
+
         <div class="item">
             <p>Invitees</p>
             <textarea rows="3"></textarea>
         </div>
+            <div class="btn-block">
+                <button type="submit" id="submit-btn" href="/">Send</button>
+            </div>
+        </form>
+
+
         <div class="pref-header">
-            <h2>Restaurant Preferences</h2>
+            <h2>Restaurant Search</h2>
         </div>
-        <div class="item">
+        <div class="addToInvite">
             <p>Cuisine</p>
             <select name="cuisine" id="cuisine">
                 <option value="null">Any</option>
@@ -63,7 +82,7 @@
                 <option value="Gluten-Free">Gluten-Free</option>
             </select>
         </div>
-        <div class="item">
+        <div class="addToInvite">
             <p>Price Range</p>
             <select name="price" id="price">
                 <option value="null">Any</option>
@@ -73,7 +92,7 @@
                 <option value="4">High</option>
             </select>
         </div>
-        <div class="item">
+        <div class="addToInvite">
             <p>Atmosphere</p>
             <select name="Atmosphere" id="Atmosphere">
                 <option value="null">Any</option>
@@ -84,20 +103,15 @@
                 <option value="Food Truck">Food Truck</option>
             </select>
         </div>
-        <div class="item">
+        <div class="addToInvite">
             <p>Pet-friendly</p>
-            <select name="Pet" id="Pet">
-                <option value="null">Any</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+            <span>
+            <input type="checkbox" id="pets" name="pets" value="true">
+            </span>
+        </div>
 
-            </select>
-        </div>
-        <div class="btn-block">
-            <button type="submit" id="submit-btn" href="/">Send</button>
-        </div>
-    </form>
+    </div>
 </div>
 
 
-<%@ include file = "common/footer.jspf" %>
+<%@ include file="common/footer.jspf" %>
