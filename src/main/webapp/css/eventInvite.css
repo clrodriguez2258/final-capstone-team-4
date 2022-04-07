@@ -13,22 +13,31 @@ html, body {
 /*}*/
 
 h1 {
-    position: absolute;
-    margin: 0;
+    margin: 30px;
     line-height: 42px;
-    font-size: 42px;
+    font-size: 55px;
+    color: white;
+    text-shadow: 5px 5px 5px #3A4750;
+    font-weight: bolder;
+    z-index: 2;
+    font-family: Candara;
+}
+.subheader{
+    margin: 30px;
+    font-size: 24px;
     color: #fff;
     z-index: 2;
     font-family: "Candara Light" ;
 }
 
-.testbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: inherit;
-    padding: 20px;
-}
+
+/*.testbox {*/
+    /*display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: inherit;*/
+/*    padding: 20px;*/
+/*}*/
 
 form {
     width: 100%;
@@ -48,12 +57,11 @@ form {
     align-items: center;
     text-align: center;
     font-family: "Candara Light";
-    color: darkorange;
 }
 
 .banner::after {
     content: "";
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(190, 49, 68);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -65,10 +73,8 @@ input, select, textarea {
     border-radius: 3px;
 }
 
-
-
-input {
-    width: calc(100% - 10px);
+.item input {
+    width: 30%;
     padding: 5px;
 }
 form div span input{
@@ -78,15 +84,22 @@ form div span input{
 input[type="date"] {
     padding: 4px 5px;
 }
+.dueBy  input[type="date"]{
+    margin-right: 20px;
+}
+
+.dueBy  input[type="time"] {
+    padding: -2px -2px -2px -2px;
+}
 
 select {
-    width: 100%;
+    width: 30%;
     padding: 7px 0;
     background: transparent;
 }
 
 textarea {
-    width: calc(100% - 12px);
+    width: calc(30% - 12px);
     padding: 5px;
 }
 
@@ -99,6 +112,20 @@ textarea {
 .item {
     position: relative;
     margin: 10px 0;
+    margin-bottom: 10px;
+}
+.addToInvite{
+    position: relative;
+    margin: 10px 0;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    display: inline;
+}
+
+input[type="checkbox"] {
+    display: inline;
 }
 
 input[type="date"]::-webkit-inner-spin-button {
