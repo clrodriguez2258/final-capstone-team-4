@@ -3,6 +3,8 @@ package com.techelevator.controller;
 import com.techelevator.authentication.AuthProvider;
 import com.techelevator.authentication.UnauthorizedException;
 
+import com.techelevator.model.JdbcRestaurantDao;
+import com.techelevator.model.Restaurant;
 import com.techelevator.model.RestaurantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * SiteController
  */
@@ -18,7 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SiteController {
     @Autowired
     private AuthProvider auth;
-    RestaurantDao restaurantDao;
+    @Autowired
+    private RestaurantDao restaurantDao;
 
     @RequestMapping(path = "/private", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
@@ -48,5 +53,18 @@ public class SiteController {
     @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
     public String showRestaurantsPage() {
         return "restaurants";
+    }
+
+
+
+
+    @RequestMapping(path = "/viewRestaurants", method = RequestMethod.GET)
+    public String displayRestaurant (ModelMap map){
+        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
+        map.put("restaurants", restaurants);
+
+
+        return "displayRestaurants";
+
     }
 }

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Restaurant {
+    private Long restaurant_id;
     private String restaurantName;
     private String street;
     private String city;
@@ -17,6 +18,59 @@ public class Restaurant {
     private String typeOfEstablishment;
     private LocalTime openTime;
     private LocalTime closeTime;
+    private boolean petFriendly;
+    private int affordability;
+    private int capacity;
+    private String dressCode;
+    private boolean dineIn;
+
+    public boolean isPetFriendly() {
+        return petFriendly;
+    }
+
+    public void setPetFriendly(boolean petFriendly) {
+        this.petFriendly = petFriendly;
+    }
+
+    public int getAffordability() {
+        return affordability;
+    }
+
+    public void setAffordability(int affordability) {
+        this.affordability = affordability;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public String getDressCode() {
+        return dressCode;
+    }
+
+    public void setDressCode(String dressCode) {
+        this.dressCode = dressCode;
+    }
+
+    public boolean isDineIn() {
+        return dineIn;
+    }
+
+    public void setDineIn(boolean dineIn) {
+        this.dineIn = dineIn;
+    }
+
+    public Long getRestaurant_id() {
+        return restaurant_id;
+    }
+
+    public void setRestaurant_id(Long restaurant_id) {
+        this.restaurant_id = restaurant_id;
+    }
 
     public String getTypeOfEstablishment() {
         return typeOfEstablishment;

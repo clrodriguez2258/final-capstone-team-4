@@ -5,14 +5,13 @@
 
 
 <div>
-<c:forEach var="restaurants"  items="${}">
-
-
-
-
-
-
-</c:forEach>
+<%--<c:forEach var="restaurants"  items="${}">--%>
+<%--  --%>
+<%--  --%>
+<%--  --%>
+<%--  --%>
+<%--  --%>
+<%--</c:forEach>--%>
 
 
 
