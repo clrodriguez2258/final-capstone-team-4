@@ -110,3 +110,13 @@
 .item {
     width: 10em;
 }
+
+#pizzaSliceImageDiv{
+    width: 50px;
+    height: 50px;
+}
+
+img#pizzaSliceImage{
+    width: 10%;
+    height: 10%;
+}
