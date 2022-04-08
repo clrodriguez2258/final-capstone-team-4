@@ -5,6 +5,7 @@ import com.techelevator.model.Event;
 import com.techelevator.model.JdbcEventDao;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -54,8 +55,8 @@ public class InviteController {
 
 // BASIC REQUEST MAPPING WITHOUT SESSION.
     @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
-    public String saveUserForumInput(@RequestParam String eventName, @RequestParam LocalDate eventDate,
-                                     @RequestParam LocalTime eventTime, @RequestParam LocalDate decisionDate) {
+    public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd")LocalDate eventDate,
+                                     @RequestParam @DateTimeFormat(pattern="HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate decisionDate) {
 
         eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
 
