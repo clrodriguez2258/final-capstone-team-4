@@ -1,5 +1,7 @@
 html, body {
     min-height: 60%;
+    background: -webkit-linear-gradient(white, #3A4750)
+;
 }
 
 /*body, div, form, input, select, textarea, p {*/
@@ -11,16 +13,16 @@ html, body {
 /*    color: #666;*/
 /*    line-height: 22px;*/
 /*}*/
-
+.oneandhalf {line-height: 1.3em;}
 h1 {
     margin: 30px;
     line-height: 42px;
-    font-size: 55px;
+    font-size: 45px;
     color: white;
     text-shadow: 5px 5px 5px #3A4750;
     font-weight: bolder;
     z-index: 2;
-    font-family: Candara;
+    font-family: "Candara Light";
 }
 .subheader{
     margin: 30px;
@@ -30,6 +32,13 @@ h1 {
     font-family: "Candara Light" ;
 }
 
+.testbox {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    /*height: inherit;*/
+    /*padding: 20px;*/
+}
 
 .linkExpired {
     display: flex;
@@ -48,7 +57,10 @@ form {
 }
 
 .banner {
+    border: medium solid #303841;
     position: relative;
+    margin-top: 100px;
+    border-radius: 10px;
     height: 300px;
     /*background-image: url("/uploads/media/default/0001/02/53019e0a8aae1c494bf9489d3f1db33cd0dd49a1.jpeg");*/
     background-size: cover;
@@ -57,11 +69,12 @@ form {
     align-items: center;
     text-align: center;
     font-family: "Candara Light";
+    background-color: rgba(190, 49, 68);
 }
 
 .banner::after {
     content: "";
-    background-color: rgba(190, 49, 68);
+
     position: absolute;
     width: 100%;
     height: 100%;
@@ -172,7 +185,31 @@ button:hover {
 }
 
 img.decisionLogo {
-   display: inline-block;
-    width: 100px;
-    height: 100px;
+    margin-top: 10px;
+    width: 50%;
+    height: 50%;
+
+}
+@keyframes example {
+    0%   {left:0px; top:0px;}
+    15%  {left:100px; top:0px;}
+    30%  {left:0px; top:0px;}
+    30%  {right:100px; top:0px;}
+    45%  {right:0px; top:0px;}
+    45%  {left:100px; top:0px;}
+    60%  {left:0px; top:0px;}
+    60%  {right:100px; top:0px;}
+    75%  {right:0px; top:0px;}
+    75%  {left:100px; top:0px;}
+    90%  {left:0px; top:0px;}
+    90%  { left:0px; bottom:0px;}
+
+
+}
+img.decisionLogo{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    animation-name: example;
+    animation-duration: 6s;
 }
