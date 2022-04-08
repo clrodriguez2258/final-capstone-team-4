@@ -1,26 +1,27 @@
 package com.techelevator.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Event {
 
   private Long eventId;
-  private int userId;
   private int restaurantId;
   private String eventName;
-  private LocalDate eventTime;
+  private LocalTime eventTime;
   private LocalDate eventDate;
   private LocalDate decisionDate;
-  private LocalDate decisionTime;
-  private boolean thumbsUp;
-  private int thumbsUpCount;
-  private boolean thumbsDown;
-  private int thumbsDownCount;
+//  private LocalDate decisionTime;
+//  private boolean thumbsUp;
+//  private int thumbsUpCount;
+//  private boolean thumbsDown;
+//  private int thumbsDownCount;
 
-  public Event(String eventName, LocalDate eventDate, LocalDate eventTime) {
+  public Event(String eventName, LocalDate eventDate, LocalTime eventTime, LocalDate decisionDate) {
     this.eventName = eventName;
     this.eventDate = eventDate;
     this.eventTime = eventTime;
+    this.decisionDate = decisionDate;
   }
 
   public Event() {
@@ -35,14 +36,6 @@ public class Event {
     this.eventId = eventId;
   }
 
-
-  public int getUserId() {
-    return userId;
-  }
-
-  public void setUserId(int userId) {
-    this.userId = userId;
-  }
 
 
   public int getRestaurantId() {
@@ -63,11 +56,11 @@ public class Event {
   }
 
 
-  public LocalDate getEventTime() {
+  public LocalTime getEventTime() {
     return eventTime;
   }
 
-  public void setEventTime(LocalDate eventTime) {
+  public void setEventTime(LocalTime eventTime) {
     this.eventTime = eventTime;
   }
 
@@ -90,48 +83,48 @@ public class Event {
   }
 
 
-  public LocalDate getDecisionTime() {
-    return decisionTime;
-  }
-
-  public void setDecisionTime(LocalDate decisionTime) {
-    this.decisionTime = decisionTime;
-  }
-
-
-  public boolean getThumbsUp() {
-    return thumbsUp;
-  }
-
-  public void setThumbsUp(boolean thumbsUp) {
-    this.thumbsUp = thumbsUp;
-  }
-
-
-  public int getThumbsUpCount() {
-    return thumbsUpCount;
-  }
-
-  public void setThumbsUpCount(int thumbsUpCount) {
-    this.thumbsUpCount = thumbsUpCount;
-  }
-
-
-  public boolean getThumbsDown() {
-    return thumbsDown;
-  }
-
-  public void setThumbsDown(boolean thumbsDown) {
-    this.thumbsDown = thumbsDown;
-  }
-
-
-  public int getThumbsDownCount() {
-    return thumbsDownCount;
-  }
-
-  public void setThumbsDownCount(int thumbsDownCount) {
-    this.thumbsDownCount = thumbsDownCount;
-  }
+//  public LocalDate getDecisionTime() {
+//    return decisionTime;
+//  }
+//
+//  public void setDecisionTime(LocalDate decisionTime) {
+//    this.decisionTime = decisionTime;
+//  }
+//
+//
+//  public boolean getThumbsUp() {
+//    return thumbsUp;
+//  }
+//
+//  public void setThumbsUp(boolean thumbsUp) {
+//    this.thumbsUp = thumbsUp;
+//  }
+//
+//
+//  public int getThumbsUpCount() {
+//    return thumbsUpCount;
+//  }
+//
+//  public void setThumbsUpCount(int thumbsUpCount) {
+//    this.thumbsUpCount = thumbsUpCount;
+//  }
+//
+//
+//  public boolean getThumbsDown() {
+//    return thumbsDown;
+//  }
+//
+//  public void setThumbsDown(boolean thumbsDown) {
+//    this.thumbsDown = thumbsDown;
+//  }
+//
+//
+//  public int getThumbsDownCount() {
+//    return thumbsDownCount;
+//  }
+//
+//  public void setThumbsDownCount(int thumbsDownCount) {
+//    this.thumbsDownCount = thumbsDownCount;
+//  }
 
 }

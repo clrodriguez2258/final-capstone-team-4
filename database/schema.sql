@@ -97,12 +97,11 @@ CREATE TABLE events
     event_time        time         not null,
     event_date        date         not null,
     decision_date     date,
-    decision_time     time,
-    thumbs_up         boolean,
-    thumbs_up_count   int,
-    thumbs_down       boolean,
-    thumbs_down_count int,
-    event_description int,
+--     thumbs_up         boolean,
+--     thumbs_up_count   int,
+--     thumbs_down       boolean,
+--     thumbs_down_count int,
+--     event_description int,
     CONSTRAINT PK_event PRIMARY KEY (event_id)
 );
 

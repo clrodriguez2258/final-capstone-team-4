@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 /**
@@ -30,63 +31,80 @@ public class InviteController {
     @Autowired
     JdbcEventDao eventDao;
 
+
+//THIS METHOD RETURNS THE INITIAL PAGE
     @RequestMapping(method = RequestMethod.GET, path = "/createEvent")
     public String CreateEventTEST() {
         return "createEvent";
     }
 
 
-    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
-    public String saveUserForumInput(@RequestParam String eventName, @RequestParam LocalDate eventDate, @RequestParam LocalDate eventTime) {
+    //THIS METHOD WILL ALLOW POSTS INTO THE FORM
 
-        eventDao.createNewEvent( eventName, eventDate, eventTime);
+
+    /* @RequestMapping(path="/createEvent", method = RequestMethod.POST)
+    public String createEventFlash (@RequestParam String eventName, @RequestParam LocalDate eventDate,
+                                    @RequestParam LocalDate eventTime, RedirectAttributes flash){
+        if (eventDao.createNewEvent(eventName, eventDate, eventTime)){
+            return "redirect:"
+        }
+    }*/
+
+
+
+// BASIC REQUEST MAPPING WITHOUT SESSION.
+    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
+    public String saveUserForumInput(@RequestParam String eventName, @RequestParam LocalDate eventDate,
+                                     @RequestParam LocalTime eventTime, @RequestParam LocalDate decisionDate) {
+
+        eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
 
         return "redirect:/createEventConfirmation";
 
     }
-}
+//}
 //====================================
+// REQUEST MAPPING WITH FLASH SESSION AND ERRORS
+//    @RequestMapping(path = "/createEventsession", method = RequestMethod.GET)
+//    public String createFlashSession(@Valid @ModelAttribute("event") Event event, BindingResult result, RedirectAttributes flash) {
+//        if (result.hasErrors()) {
+//            flash.addFlashAttribute("event", event);
+//            flash.addAttribute(BindingResult.MODEL_KEY_PREFIX + "event", result);
+//            flash.addAttribute("message", "Please fix errors");
+//            return "/createEvent";
+//        }
+//        return "redirect:/createEvent";
+//    }
 
-    /*@RequestMapping(path = "/createEventsession", method = RequestMethod.GET)
-    public String createFlashSession(@Valid @ModelAttribute("event") Event event, BindingResult result, RedirectAttributes flash) {
-        if (result.hasErrors()) {
-            flash.addFlashAttribute("event", event);
-            flash.addAttribute(BindingResult.MODEL_KEY_PREFIX + "event", result);
-            flash.addAttribute("message", "Please fix errors");
-            return "/createEvent";
-        }
-        return "redirect:/createEvent";
-    }
+
+//    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
+//    public String createEvent(
+//            @RequestParam String name,
+//            @RequestParam LocalDate eventDate,
+//            @RequestParam LocalDate eventTime,
+//
+//            HttpSession session
+//    ) {
+//        Event invite = new Event();
+//        invite.setEventName(name);
+//        invite.setEventDate(eventDate);
+//        invite.setEventTime(eventTime);
+//
+//        session.setAttribute("createEventApplication", invite);
+//
+//        return "redirect:createEvent/createEventConfirmation";
+//    }
 
 
-    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
-    public String createEvent(
-            @RequestParam String name,
-            @RequestParam LocalDate eventDate,
-            @RequestParam LocalDate eventTime,
 
-            HttpSession session
-    ) {
-        Event invite = new Event();
-        invite.setEventName(name);
-        invite.setEventDate(eventDate);
-        invite.setEventTime(eventTime);
 
-        session.setAttribute("createEventApplication", invite);
-
-        return "redirect:createEvent/createEventConfirmation";
-    }
-
-    //JSP FILE HAS NOT BEEN CREATED
+// RETURN CONFIRMATION PAGE
     @RequestMapping(path = "/createEventConfirmation", method = RequestMethod.GET)
     public String displayCreateEventConfirmation() {
-        return "redirect:/createEvent";
+        return "createEventConfirmation";
     }
 }
 
-
-===========================================
-*/
 
 
 
@@ -111,8 +129,6 @@ public class InviteController {
 //    }
 
 
-
-
 //    @RequestMapping(path = "/register", method = RequestMethod.POST)
 //    public String register(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
 //        if (result.hasErrors()) {
@@ -132,7 +148,6 @@ public class InviteController {
 //        //@RequestMapping(path="spaceStoreItems")
 //
 //    }
-
 
 
 //EVENT SEARCH

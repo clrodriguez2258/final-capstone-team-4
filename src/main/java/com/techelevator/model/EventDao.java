@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 public interface EventDao {
 
-    public Event createNewEvent(String eventName,LocalDate  eventDate, LocalDate eventTime);
+    public Event createNewEvent(String eventName,LocalDate  eventDate, LocalTime eventTime, LocalDate decisionDate);
 
 
 }
