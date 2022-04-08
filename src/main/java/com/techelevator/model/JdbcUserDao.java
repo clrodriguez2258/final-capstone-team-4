@@ -56,6 +56,7 @@ public class JdbcUserDao implements UserDao {
         newUser.setId(newId);
         newUser.setUsername(userName);
         newUser.setRole(role);
+        newUser.setPassword(hashedPassword);
 
         return newUser;
     }
