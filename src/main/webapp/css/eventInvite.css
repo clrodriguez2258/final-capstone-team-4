@@ -194,11 +194,11 @@ img.decisionLogo {
     0%   {left:0px; top:0px;}
     15%  {left:100px; top:0px;}
     30%  {left:0px; top:0px;}
-    30%  {right:100px; top:0px;}
+    30%  {right:300px; top:0px;}
     45%  {right:0px; top:0px;}
     45%  {left:100px; top:0px;}
     60%  {left:0px; top:0px;}
-    60%  {right:100px; top:0px;}
+    60%  {right:300px; top:0px;}
     75%  {right:0px; top:0px;}
     75%  {left:100px; top:0px;}
     90%  {left:0px; top:0px;}
