@@ -50,7 +50,7 @@
                 <p>Decision due date & time</p>
                 <span>
                 <input type="date" name="decisionDate" id="decisionDate"> required/>
-                <input type="datetime-local" name="decision-time" value="24:00">required/>
+                <input type="datetime-local" name="time" value="24:00">required/>
                     <label for="startTime">Start time: </label>
   <input type="time" id="startTime">
   <p>
