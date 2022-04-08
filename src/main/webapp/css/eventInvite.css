@@ -1,5 +1,5 @@
 html, body {
-    min-height: 100%;
+    min-height: 60%;
 }
 
 /*body, div, form, input, select, textarea, p {*/
@@ -31,13 +31,13 @@ h1 {
 }
 
 
-/*.testbox {*/
-    /*display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    height: inherit;*/
-/*    padding: 20px;*/
-/*}*/
+.linkExpired {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 20px;
+}
 
 form {
     width: 100%;
@@ -171,4 +171,8 @@ button:hover {
     background: #6eb8dd;
 }
 
-
+img.decisionLogo {
+   display: inline-block;
+    width: 100px;
+    height: 100px;
+}

@@ -104,6 +104,13 @@ public class InviteController {
     public String displayCreateEventConfirmation() {
         return "createEventConfirmation";
     }
+
+
+// RETURN LINK EXPIRED PAGE
+    @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
+    public String displayDecisionLinkExpired() {
+        return "eventLinkExpired";
+    }
 }
 
 

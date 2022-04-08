@@ -44,11 +44,12 @@
                     labore et dolore magna aliqua.</p>
                 <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
                 <p>Hours: ${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM</p>
-                <span><img src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating"></span>
+                <p>Address: ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }</p>
                 <span>
                     <h5>Phone Number: ${ restaurant.phoneNumber }</h5>
                     <button type="button" style="width: 45%">Call to Order</button>
                 </span>
+                <div id="pizzaSliceImageDiv"><img id="pizzaSliceImage" src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating"></div>
             </div>
         </div>
     </div>
