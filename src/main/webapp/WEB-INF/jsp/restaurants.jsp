@@ -49,7 +49,7 @@
                     <h5>Phone Number: ${ restaurant.phoneNumber }</h5>
                     <button type="button" style="width: 45%">Call to Order</button>
                 </span>
-                <span><img src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating"></span>
+                <div id="pizzaSliceImageDiv"><img id="pizzaSliceImage" src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating"></div>
             </div>
         </div>
     </div>
