@@ -18,15 +18,16 @@ public class JdbcEventDao implements EventDao{
     }
 
     @Override
-    public Event createNewEvent(String eventName, LocalDate  eventDate, LocalDate eventTime) {
+    public Event createNewEvent(String eventName, LocalDate  eventDate, LocalTime eventTime, LocalDate decisionDate) {
 
         Event newEvent = new Event();
-         Long newId =  jdbcTemplate.queryForObject("INSERT INTO event (event_name, event_date, event_time) values (?,?,?) RETURNING event_id", Long.class,
-                                        eventName,eventDate,eventTime);
+         Long newId =  jdbcTemplate.queryForObject("INSERT INTO events (event_name, event_date, event_time,decision_Date) values (?,?,?,?) RETURNING event_id", Long.class,
+                                        eventName,eventDate,eventTime, decisionDate);
          newEvent.setEventId(newId);
          newEvent.setEventName(eventName);
          newEvent.setEventDate(eventDate);
          newEvent.setEventTime(eventTime);
+         newEvent.setDecisionDate(decisionDate);
 
         return newEvent;
     }
