@@ -42,8 +42,6 @@ public class AccountController {
         if (auth.signIn(username, password)) {
             return "redirect:/private";
         } else {
-
-            flash.addFlashAttribute("username", "username");
             //result.addError(new FieldError("username", "username", "Invalid Login"));
 
             flash.addFlashAttribute("message", "Login Invalid");
