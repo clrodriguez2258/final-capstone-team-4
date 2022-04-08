@@ -15,17 +15,8 @@
             <br>
             <label for="searchZip"> Search by zipcode</label>
             <input type="radio" id="searchZip" class="searchZip" name="searchRadio" value="zip" checked>
-        </div>
-        <%--        <c:choose>--%>
-        <%--        <c:when test="${ searchZip.equals(true) }">--%>
-        <%--            <c:set var="cityOrZip" value="Enter Zip Code"></c:set>--%>
-        <%--        </c:when>--%>
-        <%--            <c:otherwise>--%>
-        <%--                <c:set var="cityOrZip" value="Enter City"></c:set>--%>
-        <%--            </c:otherwise>--%>
-        <%--        </c:choose>--%>
-        <div>
-            <input type="text" id="restaurantSearch" name="restaurantSearch" placeholder="${ cityOrZip }" style="width: 100%;">
+            <input type="text" id="restaurantSearch" name="restaurantSearch" placeholder="Enter a city or zip code"
+                   style="width: 100%;">
             <button type="submit">Search</button>
         </div>
     </form>
@@ -54,7 +45,10 @@
                 <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
                 <p>Hours: ${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM</p>
                 <span><img src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating"></span>
-                <button type="button">Call to Order</button>
+                <span>
+                    <h5>Phone Number: ${ restaurant.phoneNumber }</h5>
+                    <button type="button" style="width: 45%">Call to Order</button>
+                </span>
             </div>
         </div>
     </div>
@@ -103,7 +97,6 @@
 <%--        </div>--%>
 <%--    </div>--%>
 <%--</c:forEach>--%>
-
 
 
 <%@ include file="common/footer.jspf" %>
