@@ -42,10 +42,30 @@ public class AccountController {
         if (auth.signIn(username, password)) {
             return "redirect:/private";
         } else {
+
+            flash.addFlashAttribute("username", "username");
+            //result.addError(new FieldError("username", "username", "Invalid Login"));
+
             flash.addFlashAttribute("message", "Login Invalid");
             return "redirect:/login";
         }
     }
+
+//    @RequestMapping(path = "/login", method = RequestMethod.POST)
+//    public String login(@RequestParam @ModelAttribute("username") String username, BindingResult userResult, @RequestParam String userPassword, RedirectAttributes flash) {
+//        if (auth.signIn(username, userPassword)) {
+//            return "redirect:/private";
+//        } else {
+//            userResult.addError(new FieldError("username", "username", "Invalid Login"));
+//        }
+//        if(userResult.hasErrors()){
+//            flash.addFlashAttribute("username", username);
+//            flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "username", userResult);
+//            flash.addFlashAttribute("message", "Login Invalid");
+//            return "redirect:/login";
+//        }
+//        return "redirect:/login";
+//    }
 
     @RequestMapping(path = "/logoff", method = RequestMethod.POST)
     public String logOff() {
@@ -62,8 +82,8 @@ public class AccountController {
     }
 
     @RequestMapping(path = "/register", method = RequestMethod.POST)
-    public String register(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
-        if (!user.getUsername().equals(user.getConfirmUsername())) {
+    public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
+        if (!user.isPasswordMatching()) {
             result.addError(new FieldError("user", "username", "Email already exist please try again"));
         }
 
