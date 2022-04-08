@@ -45,7 +45,7 @@
                 <p>Decision due date & time</p>
                 <span>
                 <input type="date" name="decision-date" required/>
-                <input type="time" name="decision-time" required/>
+
                 </span>
             </div>
             <div class="item">
