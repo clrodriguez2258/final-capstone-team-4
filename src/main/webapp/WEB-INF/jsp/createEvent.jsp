@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="common/header.jspf" %>
 <c:url var="createEvent" value="/css/eventInvite.css"/>
 <link rel="stylesheet" href="${createEvent}"/>
@@ -15,11 +16,15 @@
                 <p>Invite your favorite people for great food and fun! </p>
             </div>
         </div>
-        <form>
+
+        <c:url var="createEvent" value="/createEvent"/>
+        <form:form action="${createEvent}" method="POST">
+
+            <form method="POST" action="${createEvent}"/>
             <div class="item">
                 <p>Event Name</p>
-                <div class="event-name-item">
-                    <input type="text" name="name"/>
+                <div class="eventName">
+                    <input type="text" name="eventName" id="eventName"/>
                 </div>
             </div>
             <div class="item">
@@ -32,20 +37,26 @@
                 <p>Email</p>
                 <input type="email" name="email"/>
             </div>
-            <div class="item">
+            <div class="eventDate">
                 <p>Event Date</p>
-                <input type="date" name="event-date" required/>
+                <input type="date" name="eventDate" id="eventDate"> required/>
                 <i class="fas fa-calendar-alt"></i>
             </div>
-            <div class="item">
+            <div class="eventTime">
                 <p>Event Time</p>
-                <input type="time" name="event-time" required/>
+                <input type="time" name="eventTime" id="eventTime"> required/>
             </div>
-            <div class="dueBy">
+            <div class="decisionDate">
                 <p>Decision due date & time</p>
                 <span>
-                <input type="date" name="decision-date" required/>
-                <input type="time" name="decision-time" required/>
+                <input type="date" name="decisionDate" id="decisionDate"> required/>
+                <input type="datetime-local" name="decision-time" value="24:00">required/>
+                    <label for="startTime">Start time: </label>
+  <input type="time" id="startTime">
+  <p>
+    Value of the <code>time</code> input: <code>
+            "<span id="value">n/a</span>"</code>.
+  </p>
                 </span>
             </div>
             <div class="item">
@@ -55,8 +66,8 @@
             <div class="btn-block">
                 <button type="submit" id="submit-btn" href="/">Send</button>
             </div>
-        </form>
-
+            </form>
+        </form:form>
 
         <div class="pref-header">
             <h2>Search for and add restaurants</h2>

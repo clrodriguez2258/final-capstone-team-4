@@ -15,9 +15,9 @@
                 </label><br>
                 <input id="username" class="form-content" type="email" name="username"/>
                 <div class="form-border"></div>
-                <label for="user-password" style="padding-top:22px">&nbsp;Password
+                <label for="password" style="padding-top:22px">&nbsp;Password
                 </label>
-                <input id="user-password" class="form-content" type="password" name="password"/>
+                <input id="password" class="form-content" type="password" name="password"/>
                 <div class="form-border"></div>
                 <div>
                     <input id="submit-btn" type="submit" name="submit" value="LOGIN"/>

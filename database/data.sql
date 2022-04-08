@@ -79,12 +79,12 @@ VALUES (3, 'editor1@gmail.com', 'GUs9nF7j7RbZRLyM9y71YQ==', 'editor',
         'vHyRgM17BMYqKPcFm+2q1gCu04dORdI6Ywpg5rXr9ZXtOp4/gt83zSuNQogCR8levHK2kZbA6OAlBwtHZk/0ntR5/5H6932HwXWOIGMvB9oNk0OP8WZn4GyXIjpOy+nXGX3/AFiDJtTICEnS4cC/L9TnNjGRBcfcW7Fx78pdSoA=');
 
 
-INSERT INTO events(restaurant_id, event_name, event_time, event_date, decision_date, decision_time)
-values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022', '18:00'),
-       ('1', 'teatime', '17:00', '04/05/2022', '04/04/2022', '18:00'),
-       ('1', 'timetime', '17:00', '04/05/2022', '04/04/2022', '18:00'),
-       ('2', 'anotherevent', '17:00', '04/05/2022', '04/04/2022', '18:00'),
-       ('2', 'toomanyevents', '17:00', '04/05/2022', '04/04/2022', '18:00');
+INSERT INTO events(restaurant_id, event_name, event_time, event_date, decision_date)
+values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022'),
+       ('1', 'teatime', '17:00', '04/05/2022', '04/04/2022'),
+       ('1', 'timetime', '17:00', '04/05/2022', '04/04/2022'),
+       ('2', 'anotherevent', '17:00', '04/05/2022', '04/04/2022'),
+       ('2', 'toomanyevents', '17:00', '04/05/2022', '04/04/2022');
 -- --
 
 INSERT INTO guest(guest_name, attending, email)
