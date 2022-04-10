@@ -24,6 +24,10 @@
                     <img class="displayRestaurantImage" src="<c:url value="/img/${ restaurant.image }"/>"
                          alt="Restaurant Logo"/>
                     <div class="restaurantInfo">
+                        <span>
+                        <button type="button" class="btn btn-default btn-sm" style="margin-top: 5px; background: lightgreen; display: inline-block; width: 49%"><span class="glyphicon glyphicon-ok" style="color: darkgreen; font-size: 150%;"></span></button>
+                        <button type="button" class="btn btn-default btn-sm" style="margin-top: 5px; background: lightcoral; display: inline-block; width: 49%"><span class="glyphicon glyphicon-remove" style="color: darkred; font-size: 150%;"></span></button>
+                        </span>
                         <h3>${ restaurant.restaurantName }</h3>
                         <p>Cuisine: ${ restaurant.typeOfEstablishment }</p>
                         <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
