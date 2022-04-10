@@ -9,10 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
@@ -25,6 +22,10 @@ import java.time.LocalTime;
  * Invite Controller
  */
 @Controller
+
+//UNCOMMENT TO USE SESSION
+@RequestMapping("/login")
+@SessionAttributes("eventInvite")
 public class InviteController {
     @Autowired
     private AuthProvider auth;
@@ -33,14 +34,100 @@ public class InviteController {
     JdbcEventDao eventDao;
 
 
-//THIS METHOD RETURNS THE INITIAL PAGE
+//    ADDING EVENTS TO THE EVENTS TABLE WITHOUT A SESSION CODE WORKING
+//=====================================================================================
+//
+//    //THIS METHOD RETURNS THE INITIAL PAGE
+//    @RequestMapping(method = RequestMethod.GET, path = "/createEvent")
+//    public String CreateEventTEST() {
+//        return "createEvent";
+//    }
+//
+//
+//    // BASIC REQUEST MAPPING WITHOUT SESSION.
+//    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
+//    public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate eventDate,
+//                                     @RequestParam @DateTimeFormat(pattern = "HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate decisionDate) {
+//
+//        eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
+//
+//        return "redirect:/createEventConfirmation";
+//
+//    }
+//
+//    @RequestMapping(path = "/createEventConfirmation", method = RequestMethod.GET)
+//    public String displayCreateEventConfirmation() {
+//        return "createEventConfirmation";
+//    }
+//
+//
+//    // RETURN LINK EXPIRED PAGE
+//    @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
+//    public String displayDecisionLinkExpired() {
+//        return "eventLinkExpired";
+//    }
+//}
+//===============================================================================================
+//
+
+    //CREATE EVENT USING SESSION
+//==================================================================================
+    //THIS METHOD RETURNS THE INITIAL PAGE
     @RequestMapping(method = RequestMethod.GET, path = "/createEvent")
-    public String CreateEventTEST() {
+    public String CreateEvent(ModelMap map) {
+        map.addAttribute("eventInvite", new Event());
         return "createEvent";
     }
 
 
-    //THIS METHOD WILL ALLOW POSTS INTO THE FORM
+    // BASIC REQUEST MAPPING WITHOUT SESSION.
+    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
+    public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate eventDate,
+                                     @RequestParam @DateTimeFormat(pattern = "HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate decisionDate,
+                                     ModelMap map) {
+
+        Event eventInvite = getEvents(map);
+
+
+        eventInvite.setEventName(eventName);
+        eventInvite.setEventDate(eventDate);
+        eventInvite.setEventTime(eventTime);
+        eventInvite.setDecisionDate(decisionDate);
+
+
+        eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
+
+        return "redirect:/createEventConfirmation";
+
+    }
+
+    @RequestMapping(path = "/createEventConfirmation", method = RequestMethod.GET)
+    public String displayCreateEventConfirmation() {
+        return "createEventConfirmation";
+    }
+
+    private Event getEvents(ModelMap map) {
+        return (Event) map.get("eventInvite");
+    }
+
+    // RETURN LINK EXPIRED PAGE
+    @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
+    public String displayDecisionLinkExpired() {
+        return "eventLinkExpired";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /* @RequestMapping(path="/createEvent", method = RequestMethod.POST)
@@ -52,17 +139,6 @@ public class InviteController {
     }*/
 
 
-
-// BASIC REQUEST MAPPING WITHOUT SESSION.
-    @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
-    public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd")LocalDate eventDate,
-                                     @RequestParam @DateTimeFormat(pattern="HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate decisionDate) {
-
-        eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
-
-        return "redirect:/createEventConfirmation";
-
-    }
 //}
 //====================================
 // REQUEST MAPPING WITH FLASH SESSION AND ERRORS
@@ -95,26 +171,6 @@ public class InviteController {
 //
 //        return "redirect:createEvent/createEventConfirmation";
 //    }
-
-
-
-
-// RETURN CONFIRMATION PAGE
-    @RequestMapping(path = "/createEventConfirmation", method = RequestMethod.GET)
-    public String displayCreateEventConfirmation() {
-        return "createEventConfirmation";
-    }
-
-
-// RETURN LINK EXPIRED PAGE
-    @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
-    public String displayDecisionLinkExpired() {
-        return "eventLinkExpired";
-    }
-}
-
-
-
 
 
 //    @RequestMapping(path = "/itemDetail", method = RequestMethod.POST)
