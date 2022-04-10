@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.authentication.AuthProvider;
+import com.techelevator.model.JdbcUserDao;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ import javax.validation.Valid;
 public class AccountController {
     @Autowired
     private AuthProvider auth;
+
+    @Autowired
+    private JdbcUserDao userDao;
 
     @RequestMapping(method = RequestMethod.GET, path = {"/", "/index"})
     public String index(ModelMap modelHolder) {
@@ -65,7 +69,11 @@ public class AccountController {
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
         if (!user.isPasswordMatching()) {
-            result.addError(new FieldError("user", "username", "Email already exist please try again"));
+            result.addError(new FieldError("user", "password", "Passwords must match"));
+        }
+
+        if (!userDao.getUserWithEmail(user.getUsername()).isEmpty()){
+            result.addError((new FieldError("user", "username", "User already exists")));
         }
 
        if (result.hasErrors()) {
