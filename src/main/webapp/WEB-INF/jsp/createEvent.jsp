@@ -12,7 +12,7 @@
         <img class="groupdinner" src="./img/groupdinner.jpg"/>
     </div>
     <div class="imgBackground" action="/">
-        <c:url var="createEvent" value="/createEvent"/>
+        <c:url var="createEvent" value="createEvent.jsp"/>
         <form:form action="${ createEvent }" method="POST">
         <div id="eventForm">
 
