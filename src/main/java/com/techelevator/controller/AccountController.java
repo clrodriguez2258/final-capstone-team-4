@@ -72,7 +72,7 @@ public class AccountController {
             result.addError(new FieldError("user", "password", "Passwords must match"));
         }
 
-        if (!userDao.getUserWithEmail(user.getUsername()).isEmpty()){
+        if (!userDao.getUserWithEmail(user.getUsername().toUpperCase()).isEmpty()){
             result.addError((new FieldError("user", "username", "User already exists")));
         }
 
@@ -87,8 +87,4 @@ public class AccountController {
         auth.register(user.getUsername(), user.getPassword(), user.getRole());
         return "redirect:/";
     }
-
-
-
-
 }

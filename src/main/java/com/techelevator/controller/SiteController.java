@@ -69,4 +69,12 @@ public class SiteController {
 
         return "restaurants";
     }
+
+    @RequestMapping(path = "eventVote", method = RequestMethod.GET)
+    public String displayEventVotingPage(@RequestParam Long eventId, ModelMap modelHolder){
+        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
+        modelHolder.put("restaurants", restaurants);
+
+        return "eventVote";
+    }
 }

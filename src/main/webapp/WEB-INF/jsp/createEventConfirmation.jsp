@@ -1,8 +1,15 @@
 <%@ include file="common/header.jspf" %>
-<c:url var="createEvent" value="/css/eventInvite.css"/>
-<link rel="stylesheet" href="${createEvent}"/>
+<c:url var="createEventConfirmation" value="/css/eventInvite.css"/>
+<link rel="stylesheet" href="${createEventConfirmation}"/>
 
-<h1>CONGRATS ITS WORKING</h1>
+<div class="bannerPageExpired">
+    <h1 class="oneandhalf">The event invitation has been sent to the following recipients:</h1>
+    <p>
+
+
+
+    </p>
+</div>
 
 
 <%@ include file="common/footer.jspf" %>

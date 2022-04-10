@@ -74,6 +74,22 @@ public class JdbcRestaurantDao implements RestaurantDao {
         return restaurantsByZipCode;
     }
 
+    @Override
+    public List<Restaurant> getRestaurantsByEvent(Long eventId){
+        List<Restaurant> restaurantsByEvent = new ArrayList<>();
+        String sql = "SELECT * " +
+                "FROM restaurant " +
+                "LEFT JOIN restaurant_event ON restaurant.restaurant_id = restaurant_event.restaurant_id " +
+                "WHERE event_id = ?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, eventId);
+        while (results.next()){
+            restaurantsByEvent.add(mapRowToRestaurant(results));
+        }
+
+        return restaurantsByEvent;
+    }
+
 
     private Restaurant mapRowToRestaurant(SqlRowSet results){
 

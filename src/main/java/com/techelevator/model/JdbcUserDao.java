@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.sql.DataSource;
 
@@ -50,7 +51,7 @@ public class JdbcUserDao implements UserDao {
         String saltString = new String(Base64.encode(salt));
         long newId = jdbcTemplate.queryForObject(
                 "INSERT INTO app_user(user_name, password, salt, role) VALUES (?, ?, ?, ?) RETURNING id", Long.class,
-                userName, hashedPassword, saltString, role);
+                userName.toUpperCase(), hashedPassword, saltString, role);
 
         User newUser = new User();
         newUser.setId(newId);
@@ -119,7 +120,7 @@ public class JdbcUserDao implements UserDao {
     public List<User> getUserWithEmail(String email) {
         List<User> users = new ArrayList<User>();
         String sqlSelectAllUsers = "SELECT id, user_name, role FROM app_user WHERE user_name = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllUsers, email);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllUsers, email.toUpperCase());
 
         while (results.next()) {
             User user = mapResultToUser(results);
@@ -133,7 +134,7 @@ public class JdbcUserDao implements UserDao {
     private User mapResultToUser(SqlRowSet results) {
         User user = new User();
         user.setId(results.getLong("id"));
-        user.setUsername(results.getString("user_name"));
+        user.setUsername(results.getString("user_name").toUpperCase());
         user.setRole(results.getString("role"));
         return user;
     }
