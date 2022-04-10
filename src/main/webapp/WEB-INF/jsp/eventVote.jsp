@@ -24,16 +24,18 @@
                     <img class="displayRestaurantImage" src="<c:url value="/img/${ restaurant.image }"/>"
                          alt="Restaurant Logo"/>
                     <div class="restaurantInfo">
+                        <form class="restaurantChoice">
                         <span>
-                        <button type="button" class="btn btn-default btn-sm"
+                        <button type="button" class="btn btn-default btn-sm" id="upvoteButton"
                                 style="margin-top: 5px; background: lightgreen; display: inline-block; width: 49%"><span
                                 class="glyphicon glyphicon-ok"
                                 style="color: darkgreen; font-size: 150%;"></span></button>
-                        <button type="button" class="btn btn-default btn-sm"
+                        <button type="button" class="btn btn-default btn-sm" id="downvoteButton"
                                 style="margin-top: 5px; background: lightcoral; display: inline-block; width: 49%"><span
                                 class="glyphicon glyphicon-remove"
                                 style="color: darkred; font-size: 150%;"></span></button>
                         </span>
+                        </form>
                         <h3>${ restaurant.restaurantName }</h3>
                         <p>Cuisine: ${ restaurant.typeOfEstablishment }</p>
                         <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
@@ -53,4 +55,14 @@
         </div>
     </div>
 </div>
+
+<script>
+restaurantChoice.addEventListener('input',() => {
+    if(upvoteButton.value === true || downvoteButton.value === true){
+        upvoteButton.setAttribute(disabled);
+        downvoteButton.setAttribute(disabled);
+    }
+});
+</script>
+
 <%@ include file="common/footer.jspf" %>
