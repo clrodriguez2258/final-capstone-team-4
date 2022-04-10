@@ -3,13 +3,11 @@ package com.techelevator.controller;
 import com.techelevator.authentication.AuthProvider;
 import com.techelevator.authentication.UnauthorizedException;
 
-import com.techelevator.model.JdbcRestaurantDao;
 import com.techelevator.model.Restaurant;
 import com.techelevator.model.RestaurantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,10 +24,10 @@ public class SiteController {
     @Autowired
     private RestaurantDao restaurantDao;
 
-    @RequestMapping(path = "/private", method = RequestMethod.GET)
+    @RequestMapping(path = "/decision", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
-            return "private";
+            return "decision";
         } else {
             throw new UnauthorizedException();
         }
@@ -70,5 +68,13 @@ public class SiteController {
         }
 
         return "restaurants";
+    }
+
+    @RequestMapping(path = "eventVote", method = RequestMethod.GET)
+    public String displayEventVotingPage(@RequestParam Long eventId, ModelMap modelHolder){
+        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
+        modelHolder.put("restaurants", restaurants);
+
+        return "eventVote";
     }
 }

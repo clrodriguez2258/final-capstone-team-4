@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.authentication.AuthProvider;
+import com.techelevator.model.JdbcUserDao;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,9 @@ public class AccountController {
     @Autowired
     private AuthProvider auth;
 
+    @Autowired
+    private JdbcUserDao userDao;
+
     @RequestMapping(method = RequestMethod.GET, path = {"/", "/index"})
     public String index(ModelMap modelHolder) {
         modelHolder.put("user", auth.getCurrentUser());
@@ -40,7 +44,7 @@ public class AccountController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
         if (auth.signIn(username, password)) {
-            return "redirect:/private";
+            return "decision";
         } else {
 
             flash.addFlashAttribute("message", "Login Invalid");
@@ -65,7 +69,11 @@ public class AccountController {
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
         if (!user.isPasswordMatching()) {
-            result.addError(new FieldError("user", "username", "Email already exist please try again"));
+            result.addError(new FieldError("user", "password", "Passwords must match"));
+        }
+
+        if (!userDao.getUserWithEmail(user.getUsername().toUpperCase()).isEmpty()){
+            result.addError((new FieldError("user", "username", "User already exists")));
         }
 
        if (result.hasErrors()) {
@@ -79,8 +87,4 @@ public class AccountController {
         auth.register(user.getUsername(), user.getPassword(), user.getRole());
         return "redirect:/";
     }
-
-
-
-
 }
