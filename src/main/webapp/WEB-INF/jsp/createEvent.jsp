@@ -9,7 +9,7 @@
             <h1>Create Your Event</h1>
         </div>
     <div>
-        <img class="groupdinner" src="./img/groupdinner.jpg" height="30%" width="100%"/>
+        <img class="groupdinner" src="./img/groupdinner.jpg"/>
     </div>
     <div class="imgBackground" action="/">
             <c:url var="createEvent" value="/createEvent"/>
