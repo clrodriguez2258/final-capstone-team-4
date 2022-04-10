@@ -1,4 +1,3 @@
-
 /*body, div, form, input, select, textarea, p {*/
 /*    padding: 0;*/
 /*    margin: 0;*/
@@ -8,26 +7,31 @@
 /*    color: #666;*/
 /*    line-height: 22px;*/
 /*}*/
-.oneandhalf {line-height: 1.3em;}
+.oneandhalf {
+    line-height: 1.3em;
+}
+
 h1 {
     margin: 30px;
     line-height: 42px;
-    font-size: 45px;
+    font-size: 35px;
     color: white;
     text-shadow: 5px 5px 5px #3A4750;
     font-weight: bolder;
     z-index: 2;
     font-family: "Candara Light";
 }
-.subheader p{
-    margin: 30px;
-    font-size: 40px;
+
+.subheader p {
+    margin: 20px;
+    font-size: 24px;
     font-weight: bold;
     font-family: "Candara Light";
     color: white;
     background-color: #3A4750;
 }
-.subheader p span{
+
+.subheader p span {
     background-color: #3A4750;
     border-radius: 4px;
 }
@@ -39,14 +43,13 @@ h1 {
 }
 
 
-
 #eventForm {
-    position: center;
+    
     right: 0;
-    margin-top: -1000px;
+    margin-top: -750px;
     max-width: 100%;
     padding: 16px;
-    background-color: rgba(0,0,0,.5);
+    background-color: white;
     /*width: 100%;*/
     /*padding: 20px;*/
     /*border-radius: 6px;*/
@@ -54,32 +57,17 @@ h1 {
     /*position: center;*/
     /*color: #3A4750;*/
 }
-    /*width: 100%;*/
-    /*padding: 20px;*/
-    /*border-radius: 6px;*/
-    /*z-index: 100;*/
-    /*position: center;*/
-    /*color: #3A4750;*/
 
-/*.imgBackground{*/
-/*    background-image: url("/img/groupdinner.jpg");*/
-/*    opacity: .2;*/
-/*}*/
-
-
-.banner{
+.banner {
     border: medium solid #303841;
     position: relative;
     margin-top: 100px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    height: 300px;
-    /*background-image: url("/uploads/media/default/0001/02/53019e0a8aae1c494bf9489d3f1db33cd0dd49a1.jpeg");*/
-    background-size: cover;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     font-family: "Candara Light";
     background-color: rgba(190, 49, 68, 1);
 }
@@ -91,10 +79,11 @@ h1 {
 /*    height: 60%;*/
 /*}*/
 img.groupdinner {
-    /*width: 100%;*/
-    /*height:40%;*/
-    position: center;
-
+    width: 100%;
+    height: 800px;
+}
+.imgBackground{
+    background-color: darkgrey;
 }
 
 input, select, textarea {
@@ -107,18 +96,20 @@ input, select, textarea {
     width: 30%;
     padding: 5px;
 }
-form div span input{
-    display:inline-block;
+
+form div span input {
+    display: inline-block;
 }
 
 input[type="date"] {
     padding: 4px 5px;
 }
-.dueBy  input[type="date"]{
+
+.dueBy input[type="date"] {
     margin-right: 20px;
 }
 
-.dueBy  input[type="time"] {
+.dueBy input[type="time"] {
     padding: -2px -2px -2px -2px;
 }
 
@@ -142,9 +133,86 @@ textarea {
 .item {
     position: relative;
     margin: 10px 0;
+    margin-left: 20px;
     margin-bottom: 10px;
 }
-.addToInvite{
+
+.item p {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.item input {
+    position: relative;
+    font-size: 14px;
+    color: black;
+}
+
+.eventDate {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    margin-left: 20px;
+}
+
+.eventDate p {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.eventDate input {
+    position: relative;
+    font-size: 14px;
+    color: black;
+}
+
+.eventTime {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    margin-left: 20px;
+}
+
+.eventTime p {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.eventTime input {
+    position: relative;
+    font-size: 14px;
+    color: black;
+
+}
+
+.decisionDate {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    margin-left: 20px;
+}
+
+.decisionDate p {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.decisionDate input {
+    position: relative;
+    font-size: 14px;
+    color: black;
+}
+
+.addToInvite {
     position: relative;
     margin: 10px 0;
     margin-bottom: 10px;
@@ -160,6 +228,7 @@ input[type="checkbox"] {
 
 input[type="date"]::-webkit-inner-spin-button {
     display: none;
+    margin-left: 20px;
 }
 
 .item i, input[type="date"]::-webkit-calendar-picker-indicator {
@@ -187,19 +256,14 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 button {
-    width: 150px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #0087cc;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
+
+    font-size: 14px;
 }
 
 button:hover {
     background: #6eb8dd;
 }
+
 /*____________________________LINK EXPIRED PAGE CSS BLOW LINE________________*/
 .linkExpired {
     display: flex;
@@ -208,51 +272,89 @@ button:hover {
     height: inherit;
     padding: 20px;
 }
+
 .bannerPageExpired {
     border: medium solid #303841;
     position: relative;
     margin-top: 100px;
     border-radius: 10px;
-    height: 300px;
+    height: 200px;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-family: "Candara Light";
-    background-color: rgba(190, 49, 68);
+    background-color: rgba(190, 49, 68, 1);
 }
 
 img.decisionLogo {
     margin-top: 10px;
-    width: 50%;
-    height: 50%;
+    width: 35%;
+    height: 35%;
 
 }
 
 
 @keyframes example {
-    0%   {left:0px; top:0px;}
-    15%  {left:100px; top:0px;}
-    30%  {left:0px; top:0px;}
-    30%  {right:300px; top:0px;}
-    45%  {right:0px; top:0px;}
-    45%  {left:100px; top:0px;}
-    60%  {left:0px; top:0px;}
-    60%  {right:300px; top:0px;}
-    75%  {right:0px; top:0px;}
-    75%  {left:100px; top:0px;}
-    90%  {left:0px; top:0px;}
-    90%  { left:0px; bottom:0px;}
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+    15% {
+        left: 100px;
+        top: 0px;
+    }
+    30% {
+        left: 0px;
+        top: 0px;
+    }
+    30% {
+        right: 300px;
+        top: 0px;
+    }
+    45% {
+        right: 0px;
+        top: 0px;
+    }
+    45% {
+        left: 100px;
+        top: 0px;
+    }
+    60% {
+        left: 0px;
+        top: 0px;
+    }
+    60% {
+        right: 300px;
+        top: 0px;
+    }
+    75% {
+        right: 0px;
+        top: 0px;
+    }
+    75% {
+        left: 100px;
+        top: 0px;
+    }
+    90% {
+        left: 0px;
+        top: 0px;
+    }
+    90% {
+        left: 0px;
+        bottom: 0px;
+    }
 
 
 }
-img.decisionLogo{
-    width: 50%;
-    height: 50%;
+
+img.decisionLogo {
+    width: 35%;
+    height: 35%;
     position: relative;
     animation-name: example;
-    animation-duration: 15s;
+    animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
