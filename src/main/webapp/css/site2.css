@@ -8,6 +8,13 @@
     font-size: 200%;
     border-radius: 40px;
 }
+#grid {
+    display: grid;
+    grid-gap: 15px;
+    grid-auto-rows: minmax(150px, 1fr);
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
 
 #upbutton {
     background-color: darkseagreen;
@@ -91,14 +98,14 @@
     padding: 12px 44px;
 }
 
-.tile {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);
-}
+/*.tile {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    padding: 5px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 3px;*/
+/*    box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);*/
+/*}*/
 
 .searchbar1 {
     height: 200px;
@@ -119,4 +126,19 @@
 img#pizzaSliceImage{
     width: 10%;
     height: 10%;
+}
+#masonry-page{
+    display: flex;
+    flex: 1;
+}
+#masonry-page #grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.thumbnail{
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    height: 460px;
+    margin: 6rem auto 8.1rem auto;
+    width: 250px;
 }
