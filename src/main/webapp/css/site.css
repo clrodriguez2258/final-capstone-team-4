@@ -6,7 +6,7 @@ body {
 }
 body footer{
     color: white;
-    font-size: 14px;
+    font-size: 18px;
 }
 a {
     text-decoration: none;
@@ -83,11 +83,11 @@ label {
     cursor: pointer;
     color: white;
     font-family: "Raleway SemiBold", sans-serif;
-    height: 32.3px;
+    height: 42.3px;
     margin: 0 auto;
     margin-top: 50px;
     transition: 0.25s;
-    width: 120px;
+    width: 153px;
 }
 
 #submit-btn:hover {

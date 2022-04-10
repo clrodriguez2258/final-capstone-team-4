@@ -44,7 +44,7 @@ public class AccountController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
         if (auth.signIn(username, password)) {
-            return "redirect:/private";
+            return "decision";
         } else {
 
             flash.addFlashAttribute("message", "Login Invalid");
@@ -87,8 +87,4 @@ public class AccountController {
         auth.register(user.getUsername(), user.getPassword(), user.getRole());
         return "redirect:/";
     }
-
-
-
-
 }
