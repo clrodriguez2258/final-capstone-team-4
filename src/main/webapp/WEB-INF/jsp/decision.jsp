@@ -11,7 +11,6 @@
         <h1>Welcome to HANGRY, The Restaurant Tinder!</h1>
         <h4>You have successfully logged in.</h4>
         <p>User: ${user.capitalizedUsername}</p>
-        <p>Role: ${user.role.toUpperCase()}</p>
     </div>
 </div>
 
@@ -22,7 +21,7 @@
             <img src="${ createEventUrl }" alt="people eating food" class="event-image">
             <div class="caption">
                 <h3 class="decision-card-title">Set Up An Event</h3>
-                <c:url var="getStartedBtn" value="/createEvent"/>
+                <c:url var="getStartedBtn" value="/login/createEvent"/>
                 <p><a href="${ getStartedBtn }" class="btn btn-primary" role="button" style="width: 100%;">Get Started</a></p>
             </div>
         </div>
@@ -33,7 +32,7 @@
             <img src="${ createEventUrl }" alt="people eating food" class="search-image">
             <div class="caption">
                 <h3 class="decision-card-title">Search For Restaurants</h3>
-                <c:url var="searchForRestaurantsBtn" value="/restaurants"/>
+                <c:url var="searchForRestaurantsBtn" value="/login/restaurants"/>
                 <p><a href="${ searchForRestaurantsBtn }" class="btn btn-primary" role="button" style="width: 100%;">Subdue your HANGER</a></p>
             </div>
         </div>

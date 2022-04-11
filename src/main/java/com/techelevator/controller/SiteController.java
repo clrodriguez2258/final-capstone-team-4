@@ -3,17 +3,19 @@ package com.techelevator.controller;
 import com.techelevator.authentication.AuthProvider;
 import com.techelevator.authentication.UnauthorizedException;
 
-import com.techelevator.model.JdbcRestaurantDao;
-import com.techelevator.model.Restaurant;
-import com.techelevator.model.RestaurantDao;
+import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -25,25 +27,66 @@ public class SiteController {
     private AuthProvider auth;
     @Autowired
     private RestaurantDao restaurantDao;
+    @Autowired
+    private UserDao userDao;
 
-    @RequestMapping(path = "/private", method = RequestMethod.GET)
-    public String privatePage(ModelMap model) throws UnauthorizedException {
-        if (auth.userHasRole(new String[]{"admin", "user"})) {
-            return "private";
+    @RequestMapping(method = RequestMethod.GET, path = {"/", "/index"})
+    public String index(ModelMap modelHolder) {
+        modelHolder.put("user", auth.getCurrentUser());
+        return "index";
+    }
+
+    @RequestMapping(path = "/logoff", method = RequestMethod.POST)
+    public String logOff() {
+        auth.logOff();
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/register", method = RequestMethod.GET)
+    public String register(ModelMap modelHolder) {
+        if (!modelHolder.containsAttribute("user")) {
+            modelHolder.put("user", new User());
+        }
+        return "register";
+    }
+
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
+    public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
+        if (!user.isPasswordMatching()) {
+            result.addError(new FieldError("user", "password", "Passwords must match"));
+        }
+
+        if (!userDao.getUserWithEmail(user.getUsername().toUpperCase()).isEmpty()){
+            result.addError((new FieldError("user", "username", "User already exists")));
+        }
+
+        if (result.hasErrors()) {
+            flash.addFlashAttribute("user", user);
+            flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+            flash.addFlashAttribute("message", "Please fix the following errors:");
+
+            return "redirect:/register";
+        }
+
+        auth.register(user.getUsername(), user.getPassword(), user.getRole());
+        return "redirect:/login";
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.GET)
+    public String login(ModelMap modelHolder) {
+
+        return "login";
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
+        if (auth.signIn(username, password)) {
+            return "decision";
         } else {
-            throw new UnauthorizedException();
+            flash.addFlashAttribute("message", "Login Invalid");
+            return "redirect:/login";
         }
     }
-
-    @RequestMapping(path = "/decisionPage", method = RequestMethod.GET)
-    public String decisionPage(){
-        return "decisionPage";
-    }
-
-//    @RequestMapping(path = "/createEvent", method = RequestMethod.GET)
-//    public String createEventPage(){
-//        return "createEvent";
-//    }
 
     @RequestMapping(path = "/about", method = RequestMethod.GET)
     public String aboutPage() throws UnauthorizedException {
@@ -71,12 +114,5 @@ public class SiteController {
 
         return "restaurants";
     }
-
-    @RequestMapping(path = "eventVote", method = RequestMethod.GET)
-    public String displayEventVotingPage(@RequestParam Long eventId, ModelMap modelHolder){
-        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
-        modelHolder.put("restaurants", restaurants);
-
-        return "eventVote";
-    }
 }
+
