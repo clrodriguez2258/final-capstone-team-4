@@ -33,13 +33,14 @@
                 </form>
             </div>
         </form:form>
-        <c:url var="doneAddingGuests" value="/createEventConfirmation"/>
-        <input src="${ doneAddingGuests }" id="done-btn" type="submit" name="submit" value="Done"/>
         <ul id="theList">
             <c:forEach var="guest" items="${ guests }">
                 <li>${ guest.guestName } - ${ guest.email }</li>
             </c:forEach>
         </ul>
+        <c:url var="doneAddingGuests" value="/login/createEventConfirmation"/>
+        <a href="${ doneAddingGuests }">Done</a>
+        <%--        <button formmethod="POST" id="submit-btn" type="submit" name="submit" value="Done"></button>--%>
     </div>
 </div>
 

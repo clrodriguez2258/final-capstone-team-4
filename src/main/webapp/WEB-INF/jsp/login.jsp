@@ -1,8 +1,8 @@
 <%@ include file="common/header.jspf" %>
 <br>
 <br>
-<%--<c:url var="loginUrl" value="/login"/>--%>
-<%--<form action="${loginUrl}" method="POST">--%>
+<c:url var="loginUrl" value="/login"/>
+<form action="${loginUrl}" method="POST">
 
     <div id="card-login">
         <div id="card-content-login">
@@ -27,5 +27,5 @@
         </div>
     </div>
 
-<%--</form>--%>
+</form>
 <%@ include file="common/footer.jspf" %>
