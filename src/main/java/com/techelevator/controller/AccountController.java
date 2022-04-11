@@ -151,23 +151,19 @@ public class AccountController {
         List<Guest> guests = (List<Guest>) map.get("guests");
         guests.add(newGuest);
         map.replace("guests", guests);
+        Event event = (Event) map.get("event");
 
         return "addMoreGuests";
     }
 
     @RequestMapping(path = "/createEventConfirmation", method = RequestMethod.GET)
-    public String displayCreateEventConfirmation() {
+    public String displayCreateEventConfirmation(ModelMap map) {
+
         return "createEventConfirmation";
     }
 
     private Event getEvents(ModelMap map) {
         return (Event) map.get("eventInvite");
-    }
-
-    // RETURN LINK EXPIRED PAGE
-    @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
-    public String displayDecisionLinkExpired() {
-        return "eventLinkExpired";
     }
 
 

@@ -17,7 +17,7 @@
                     <p><span>Invite your favorite people for great food and fun!</span></p>
                 </div>
                 <div class="item">
-                    <p>Add Guests</p>
+                    <p>Guest Name</p>
                     <div class="guestName">
                         <input type="text" name="guestName" id="guestName"/>
                     </div>
