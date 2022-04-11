@@ -12,19 +12,25 @@
 
 
   <div id="profile">
-    <p id="userNameText">${user.username} </p>
+
+            <h2 id="userNameText"><c:out value="${user.capitalizedUsername}"/> </h2>
 
   </div>
-  <c:forEach var="event" items="${events}">
+<%--  <c:forEach var="event" items="${geteventsByGuestId}">--%>
   <div id="userEvents">
-    <p id="eventName">${event.eventName}</p>
+  <c:set var="restaurant" value="${restaurants}"/>
+    <h2>EVENTS:</h2>
+    <ul>
+      <li>${event.eventName} </li>
+      <li>${event.eventTime} </li>
+      <li>${event.eventDate} </li>
+      <li>${event.eventTime} </li>
 
-
-
+    </ul>
 
   </div>
 
-  </c:forEach>
+<%--  </c:forEach>--%>
 
 
 
