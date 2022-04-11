@@ -91,17 +91,16 @@ public class JdbcRestaurantDao implements RestaurantDao {
     }
 
 
-    public List<Restaurant> getRestaurantByRestaurantId(Long restaurantId) {
-        List<Restaurant> restaurantByRestaurantId = new ArrayList<>();
+    public Restaurant getRestaurantByRestaurantId(Long restaurantId) {
+        Restaurant restaurantByRestaurantId = new Restaurant();
 
         String sql = "SELECT * " +
                 "FROM restaurant " +
                 "WHERE restaurant_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, restaurantId);
-        while (results.next()) {
-            restaurantByRestaurantId.add(mapRowToRestaurant(results));
-        }
+
+        restaurantByRestaurantId = (mapRowToRestaurant(results));
 
         return restaurantByRestaurantId;
 

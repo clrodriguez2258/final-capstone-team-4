@@ -13,5 +13,5 @@ public interface RestaurantDao {
 
     public void addRestaurantToEvent(Long eventId, Long restaurantId);
     public void removeRestaurantFromEvent(Long eventId, Long restaurantId);
-    public List<Restaurant> getRestaurantByRestaurantId(Long restaurantId);
+    public Restaurant getRestaurantByRestaurantId(Long restaurantId);
 }
