@@ -46,7 +46,8 @@ public class AccountController {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
             return "decision";
         } else {
-            throw new UnauthorizedException();
+            //throw new UnauthorizedException();
+            return "redirect:/login";
         }
     }
 
