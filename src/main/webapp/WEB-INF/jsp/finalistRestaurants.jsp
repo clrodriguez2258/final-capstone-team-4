@@ -7,7 +7,7 @@
 
 
 
-<div class="container">
+<div class="container"   >
 
     <div>
         <p>${event.eventName} evenName </p>
@@ -17,11 +17,19 @@
         <br/>
 
         <c:forEach var="restaurant" items="${restaurants}">
-            <div>
-                <c:url var="restaurantImage" value="/img/${ restaurant.image }"></c:url>
-                <img src="${restaurantImage}">
-                <h3>${retaurant.retaurantName}</h3>
-                <p> Address: ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }</p>
+            <div style="background-color: aliceblue;
+            width: 300px;
+            height: auto;
+            margin-bottom: 50px;
+            margin-right: 20px;
+            display: inline-block;
+
+               ">
+                <c:url var="restaurantImage" value="/img/${  restaurant.image }"></c:url>
+                <img src="${restaurantImage}" style="width: 300px;
+height: 300px">
+                <p>${restaurant.restaurantName}</p>
+                <p> ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }</p>
                 <label for="chooseAsWinner"> Choose as Winner </label>
                 <input type="radio" id="chooseAsWinner" class="chooseAsWinner" name="winnerRadio" value="winner">
                 <br>
@@ -29,14 +37,10 @@
             </div>
 
 
-
         </c:forEach>
 
 
-
-
     </div>
-
 
 </div>
 

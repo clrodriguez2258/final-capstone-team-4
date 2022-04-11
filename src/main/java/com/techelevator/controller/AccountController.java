@@ -196,4 +196,15 @@ public class AccountController {
     }
 
 
+
+
+//    public String displayFinalistRestaurants (ModelMap map){
+//        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
+//        map.put("restaurants", restaurants);
+//
+//        return "finalistRestaurants";
+//    }
+
+
+
 }
