@@ -27,8 +27,8 @@
                     <input type="email" name="email" id="email" required/>
                     <i class="email"></i>
                 </div>
-                <div class="btn-block">
-                    <input id="add-btn" type="submit" name="submit" value="Add"/>
+                <div class="eventButton">
+                    <input id="event-btn" type="submit" name="submit" value="Add"/>
                 </div>
                 </form>
             </div>

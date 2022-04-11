@@ -8,11 +8,12 @@
     <div class="banner">
         <h1>Create Your Event</h1>
     </div>
-    <div>
-        <c:url var="createEventImage" value="/img/groupdinner.jpg"/>
-        <img class="groupdinner" src="${ createEventImage }"/>
-    </div>
-    <div class="imgBackground" <%--action="/"--%>>
+
+    <div <%--action="/"--%>>
+        <div>
+            <c:url var="createEventImage" value="/img/groupdinner.jpg"/>
+            <img class="groupdinner" src="${ createEventImage }"/>
+        </div>
         <c:url var="addGuests" value="/login/createEvent"/>
         <form:form action="${ addGuests }" method="POST">
             <div id="eventForm">
@@ -36,16 +37,19 @@
                     <input type="time" name="eventTime" id="eventTime" required/>
                 </div>
                 <div class="decisionDate">
-                    <p>Decision due date & time</p>
+                    <p>Decision due date</p>
                     <span>
                 <input type="date" name="decisionDate" id="decisionDate" required/>
 <%--                <input type="input" name="time" value="24:00:00">required/>--%>
                 </span>
                 </div>
-                <input id="submit-btn" type="submit" name="submit" value="Add Guests"/>
+                <div class="btn-block">
+                <input id="event-btn" type="submit" name="submit" value="Choose Restaurants"/>
+                </div>
             </div>
             </form>
         </form:form>
+
     </div>
 </div>
 
