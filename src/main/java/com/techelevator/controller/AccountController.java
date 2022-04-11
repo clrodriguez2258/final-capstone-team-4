@@ -72,6 +72,29 @@ public class AccountController {
         return "restaurants_private";
     }
 
+    @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
+    public String displayAddRestaurant (ModelMap map){
+        List<Restaurant> restaurants = (List<Restaurant>) map.get("restaurants");
+
+        return "restaurantResults_private";
+    }
+
+    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
+    public String processAddRestaurant(@RequestParam Long[] restaurantCheckbox, ModelMap model) {
+
+        for (int i = 0; i < restaurantCheckbox.length; i++) {
+            if(restaurantCheckbox[i].equals(0)){
+                continue;
+            } else {
+                //restaurantCheckbox[i]
+                //Add into restaurant_event table
+            }
+        }
+
+
+        return "restaurantResults_private";
+    }
+
     @RequestMapping (path = "/createEvent", method = RequestMethod.GET)
     public String CreateEvent(ModelMap map) {
         map.addAttribute("eventInvite", new Event());
@@ -105,6 +128,7 @@ public class AccountController {
     public String processAddGuests(@RequestParam String guestName, @RequestParam String email, ModelMap map) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
+        //Add into guest_event table - might need to get event from model attribute
         List<Guest> guests = new ArrayList<>();
         guests.add(newGuest);
         map.addAttribute("guests", guests);
@@ -123,6 +147,7 @@ public class AccountController {
     public String processAddMoreGuests(@RequestParam String guestName, @RequestParam String email, ModelMap map) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
+        //Add into guest_event table - might need to get event from model attribute
         List<Guest> guests = (List<Guest>) map.get("guests");
         guests.add(newGuest);
         map.replace("guests", guests);
