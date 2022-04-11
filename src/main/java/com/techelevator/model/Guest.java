@@ -1,28 +1,39 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Guest {
 
-  private int guestId;
-  private int eventId;
+  private Long guestId;
+  private Long eventId;
   private String guestName;
   private boolean attending;
   private String email;
 
+  public Guest(String guestName, String email) {
+    this.guestName = guestName;
+    this.email = email;
+  }
 
-  public int getGuestId() {
+  public Guest(){
+
+  }
+
+  public Long getGuestId() {
     return guestId;
   }
 
-  public void setGuestId(int guestId) {
+  public void setGuestId(Long guestId) {
     this.guestId = guestId;
   }
 
 
-  public int getEventId() {
+  public Long getEventId() {
     return eventId;
   }
 
-  public void setEventId(int eventId) {
+  public void setEventId(Long eventId) {
     this.eventId = eventId;
   }
 

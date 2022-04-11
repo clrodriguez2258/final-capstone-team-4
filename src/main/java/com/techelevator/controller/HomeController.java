@@ -9,12 +9,12 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class HomeController {
-    @RequestMapping("/")
+    @RequestMapping("/createEventConfirmation")
     public ModelAndView redirectToHomepageAfterCreatingEvent() {
         // Because we want to return a 301 status code, we need to use RedirectView
         // rather than redirect:
         // Return a redirect relative to the context of the application
-        RedirectView redirect = new RedirectView("/login/createEvent", true);
+        RedirectView redirect = new RedirectView("/login/createEventConfirmation", true);
         redirect.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
         return new ModelAndView(redirect);
     }
