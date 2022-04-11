@@ -142,6 +142,9 @@ ALTER TABLE guest_restaurant
 
 ALTER TABLE guest_restaurant
     ADD FOREIGN KEY (guest_id) REFERENCES guest (guest_id );
+
+ALTER TABLE guest_restaurant
+    ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
 -- INSERT INTO USERPROFILE
 -- INSERT INTO userprofile(event_id, email, first_name, last_name, phone_number, zipcode)
 -- VALUES('1', 'user1@gmail.com', 'user1', 'userLastName', '123456789', '75075'),

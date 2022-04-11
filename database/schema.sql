@@ -82,6 +82,7 @@ CREATE TABLE guest_restaurant
     thumbs_up_down  int,
     restaurant_id int,
     guest_id int,
+    event_id int,
     primary key (restaurant_id, guest_id)
 );
 -- CREATE TABLE preferences(
