@@ -5,7 +5,7 @@
 BEGIN;
 
 -- CREATE statements go here
-DROP TABLE IF EXISTS app_user,user_event,events, event , restaurant, guest, guest_event,restaurant_event CASCADE;
+DROP TABLE IF EXISTS app_user,user_event,events, favorites , restaurant, guest, guest_event,restaurant_event CASCADE;
 
 CREATE TABLE app_user
 (
@@ -70,11 +70,20 @@ CREATE TABLE guest
 (
     guest_id   serial,
     guest_name varchar(250),
-    attending  boolean,
     email      varchar(250) NOT NULL,
+
     CONSTRAINT PK_guest PRIMARY KEY (guest_id)
 --     CONSTRAINT UNQ_email UNIQUE (email)
 
+);
+
+CREATE TABLE guest_restaurant
+(
+    thumbs_up_down  int,
+    restaurant_id int,
+    guest_id int,
+    event_id int,
+    primary key (restaurant_id, guest_id)
 );
 -- CREATE TABLE preferences(
 --     preference_id serial primary key ,
@@ -87,6 +96,14 @@ CREATE TABLE guest
 
 
 -- );
+create table favorites (
+    user_id  int ,
+    restaurant_id int ,
+
+    primary key ( user_id,restaurant_id )
+
+);
+
 
 
 CREATE TABLE events
