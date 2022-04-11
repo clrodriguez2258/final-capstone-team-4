@@ -8,6 +8,7 @@
 </div>
 </div>
 <div class="linkExpired">
-<img class="decisionLogo" src="./img/hangry-no-text-logo.png"/>
+   <c:url var="hangryLogo" value="/img/hangry-no-text-logo.png"/>
+<img class="decisionLogo" src="${hangryLogo}"/>
 </div>
 <%@ include file="common/footer.jspf" %>
