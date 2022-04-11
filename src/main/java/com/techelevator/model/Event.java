@@ -6,7 +6,7 @@ import java.time.LocalTime;
 public class Event {
 
   private Long eventId;
-  private int restaurantId;
+  private Long restaurantId;
   private String eventName;
   private LocalTime eventTime;
   private LocalDate eventDate;
@@ -38,11 +38,11 @@ public class Event {
 
 
 
-  public int getRestaurantId() {
+  public Long getRestaurantId() {
     return restaurantId;
   }
 
-  public void setRestaurantId(int restaurantId) {
+  public void setRestaurantId(Long restaurantId) {
     this.restaurantId = restaurantId;
   }
 
