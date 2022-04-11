@@ -3,16 +3,13 @@ html{
 }
 
 body {
-    background: -webkit-linear-gradient(#D3D6DB, #3A4750);
-    background-repeat: no-repeat;
-    padding-top: 70px;
-    margin-top: -25px;
-    margin-bottom: 0;
+    background-color: #D3D6DB ;
 }
-footer{
-    overflow: hidden;
-    color: white;
-    margin: 0;
+footer > p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
 }
 a {
     text-decoration: none;
