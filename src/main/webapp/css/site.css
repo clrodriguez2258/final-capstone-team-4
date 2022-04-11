@@ -86,7 +86,7 @@ label {
 }
 
 #submit-btn {
-    background: -webkit-linear-gradient(right,  #DFDFDE, #8D8DAA);
+    background: #BE3144;
     border: none;
     border-radius: 21px;
     box-shadow: 0px 1px 8px #8D8DAA;
@@ -137,7 +137,5 @@ input#submit-btn{
     margin: -1.1rem auto 0 auto;
     width: 89px;
 }
-footer > p{
-    position: fixed;
-}
+
 
