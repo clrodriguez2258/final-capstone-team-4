@@ -76,7 +76,7 @@ public class AccountController {
             model.put("restaurants", restaurants);
         }
 
-        return "restaurants_private";
+        return "restaurantResults_private";
     }
 
     @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
@@ -91,7 +91,7 @@ public class AccountController {
 
         for (int i = 0; i < restaurantCheckbox.length; i++) {
             if(!restaurantCheckbox[i].equals(0)){
-                //restaurantCheckbox[i]
+                Restaurant restaurant = restaurantDao.getRestaurantById(restaurantCheckbox[i]);
                 //Add into restaurant_event table
             }
         }
