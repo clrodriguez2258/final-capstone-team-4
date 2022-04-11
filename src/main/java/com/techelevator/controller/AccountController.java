@@ -41,6 +41,12 @@ public class AccountController {
     @Autowired
     private GuestDao guestDao;
 
+    //user profile page.
+    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
+    public String displayUserProfile(){return "userProfile";}
+
+
+
     @RequestMapping(path = "/decision", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
