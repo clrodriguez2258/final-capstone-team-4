@@ -90,6 +90,17 @@ public class JdbcRestaurantDao implements RestaurantDao {
         return restaurantsByEvent;
     }
 
+// UPDATING RELATIONAL TABLES RESTAURANT_EVENT
+    public void addRestaurantToEvent(Long eventId, Long restaurantId){
+        String sqlAddRestaurantToEvent = "INSERT INTO restaurant_event (event_id, restaurant_id) VALUES (?,?)";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, eventId, restaurantId);
+    }
+
+    public void removeRestaurantFromEvent(Long eventId, Long restaurantId){
+        String sqlRemoveGuestFromEvent = "DELETE FROM restaurant_event WHERE event_id = ? AND restaurant_id = ?";
+        jdbcTemplate.update(sqlRemoveGuestFromEvent, eventId, restaurantId);
+    }
+
 
     private Restaurant mapRowToRestaurant(SqlRowSet results){
 

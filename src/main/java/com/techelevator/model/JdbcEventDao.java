@@ -55,6 +55,24 @@ public class JdbcEventDao implements EventDao {
 
     }
 
+
+    @Override
+    public List<Event> getEventByUserId(Long userId) {
+        List<Event> eventByUser = new ArrayList<>();
+
+        String sql = "SELECT * " +
+                "FROM app_user " +
+                "LEFT JOIN user_event ON app_user.id = user_event.user_id " +
+                "WHERE user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()) {
+            eventByUser.add(mapRowToEvent(results));
+        }
+
+        return eventByUser;
+
+    }
     public List<Event> getEventByEventId(Long guestId) {
         List<Event> eventByEventId = new ArrayList<>();
 
@@ -63,6 +81,7 @@ public class JdbcEventDao implements EventDao {
                 "WHERE event_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
+
         while (results.next()) {
             eventByEventId.add(mapRowToEvent(results));
         }
@@ -70,6 +89,19 @@ public class JdbcEventDao implements EventDao {
         return eventByEventId;
 
     }
+
+
+// UPDATING RELATIONAL TABLES GUEST_EVENT
+    public void addGuestToEvent(Long guestId, Long eventId){
+        String sqlAddGuestToEvent = "INSERT INTO guest_event (guest_id, event_id) VALUES (?,?)";
+        jdbcTemplate.update(sqlAddGuestToEvent, guestId, eventId);
+    }
+
+    public void removeGuestFromEvent(Long guestId, Long eventId){
+        String sqlRemoveGuestFromEvent = "DELETE FROM guest_event WHERE guest_id =? AND event_id = ?";
+        jdbcTemplate.update(sqlRemoveGuestFromEvent, guestId, eventId);
+    }
+
 
 
 

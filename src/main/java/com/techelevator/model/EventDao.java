@@ -12,7 +12,9 @@ public interface EventDao {
     public Event createNewEvent(String eventName,LocalDate  eventDate, LocalTime eventTime, LocalDate decisionDate);
     public List<Event> getEventByGuestId(Long guestId);
     public List<Event> getEventByEventId(Long eventId);
-
+    public void addGuestToEvent(Long guestId, Long eventId);
+    public void removeGuestFromEvent(Long guestId, Long eventId);
+    public List<Event> getEventByUserId(Long userId);
 }
 
 
