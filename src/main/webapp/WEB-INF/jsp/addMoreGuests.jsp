@@ -34,12 +34,12 @@
             </div>
         </form:form>
         <c:url var="doneAddingGuests" value="/createEventConfirmation"/>
-        <button href="${ doneAddingGuests }" id="done-btn" type="submit" name="submit">Done</button>
-<%--        <ul id="theList">--%>
-<%--            <c:forEach var="guest" items="${ guests }">--%>
-<%--                <li>${ guest.guestName } - ${ guest.email }</li>--%>
-<%--            </c:forEach>--%>
-<%--        </ul>--%>
+        <input src="${ doneAddingGuests }" id="done-btn" type="submit" name="submit" value="Done"/>
+        <ul id="theList">
+            <c:forEach var="guest" items="${ guests }">
+                <li>${ guest.guestName } - ${ guest.email }</li>
+            </c:forEach>
+        </ul>
     </div>
 </div>
 
