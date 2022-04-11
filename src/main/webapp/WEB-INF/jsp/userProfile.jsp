@@ -1,5 +1,6 @@
-<%@ include file = "common/header.jspf" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<%@ include file = "common/header.jspf" %>
 <c:url var="cssUrl" value="/css/site.css"/>
 <link rel="stylesheet" href="${cssUrl}"/>
 
