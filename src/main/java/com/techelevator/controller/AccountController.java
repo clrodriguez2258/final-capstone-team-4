@@ -84,9 +84,7 @@ public class AccountController {
     public String processAddRestaurant(@RequestParam Long[] restaurantCheckbox, ModelMap model) {
 
         for (int i = 0; i < restaurantCheckbox.length; i++) {
-            if(restaurantCheckbox[i].equals(0)){
-                continue;
-            } else {
+            if(!restaurantCheckbox[i].equals(0)){
                 //restaurantCheckbox[i]
                 //Add into restaurant_event table
             }
