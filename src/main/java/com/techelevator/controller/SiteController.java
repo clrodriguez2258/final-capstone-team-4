@@ -84,7 +84,7 @@ public class SiteController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
         if (auth.signIn(username, password)) {
-            return "decision";
+            return "userProfile";
         } else {
             flash.addFlashAttribute("message", "Login Invalid");
             return "redirect:/login";
@@ -135,10 +135,6 @@ public class SiteController {
         return "eventLinkExpired";
     }
 
-
-     //user profile page.
-    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
-    public String displayUserProfile(){return "userProfile";}
 
 
 

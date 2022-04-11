@@ -131,6 +131,20 @@ public class JdbcUserDao implements UserDao {
     }
 
 
+    //UPDATE RELATIONAL TABLES USER_EVENT
+
+    public void addUserToEvent(Long userId, Long eventId){
+        String sqlAddRestaurantToEvent = "INSERT INTO user_event (user_id, event_id) VALUES (?,?)";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, userId, eventId);
+    }
+
+    public void removeUserFromEvent(Long userId, Long eventId){
+        String sqlRemoveGuestFromEvent = "DELETE FROM user_event WHERE user_id = ? AND event_id = ?";
+        jdbcTemplate.update(sqlRemoveGuestFromEvent, userId, eventId);
+    }
+
+
+
     private User mapResultToUser(SqlRowSet results) {
         User user = new User();
         user.setId(results.getLong("id"));

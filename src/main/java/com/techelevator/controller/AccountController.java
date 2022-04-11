@@ -41,6 +41,12 @@ public class AccountController {
     @Autowired
     private GuestDao guestDao;
 
+    //user profile page.
+    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
+    public String displayUserProfile(){return "userProfile";}
+
+
+
     @RequestMapping(path = "/decision", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
@@ -70,30 +76,7 @@ public class AccountController {
             model.put("restaurants", restaurants);
         }
 
-        return "restaurants_private";
-    }
-
-    @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
-    public String displayAddRestaurant (ModelMap map){
-        List<Restaurant> restaurants = (List<Restaurant>) map.get("restaurants");
-
-        return "restaurantResults_private";
-    }
-
-    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
-    public String processAddRestaurant(@RequestParam Long[] restaurantCheckbox, ModelMap model) {
-
-        for (int i = 0; i < restaurantCheckbox.length; i++) {
-            if(restaurantCheckbox[i].equals(0)){
-                continue;
-            } else {
-                //restaurantCheckbox[i]
-                //Add into restaurant_event table
-            }
-        }
-
-
-        return "restaurantResults_private";
+        return "restaurant_private";
     }
 
     @RequestMapping (path = "/createEvent", method = RequestMethod.GET)
@@ -117,6 +100,50 @@ public class AccountController {
         Event newEvent = eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
         map.addAttribute("event", newEvent);
 
+        return "restaurants_private";
+    }
+
+    @RequestMapping(path = "/addRestaurants", method = RequestMethod.GET)
+    public String displayAddRestaurant (ModelMap map){
+        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
+        map.put("restaurants", restaurants);
+
+        return "restaurants_private";
+    }
+
+    @RequestMapping(path = "/addRestaurants", method = RequestMethod.POST)
+    public String processAddRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch, ModelMap model) {
+        if(searchRadio.equals("city")){
+            List<Restaurant> restaurants = restaurantDao.getRestaurantByCity(restaurantSearch);
+            model.put("restaurants", restaurants);
+        } else if(searchRadio.equals("zip")){
+            List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
+            model.put("restaurants", restaurants);
+        }
+
+        return "restaurantResults_private";
+    }
+
+    @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
+    public String displayAddRestaurantResults (ModelMap map){
+        List<Restaurant> restaurants = (List<Restaurant>) map.get("restaurants");
+
+        return "restaurantResults_private";
+    }
+
+    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
+    public String processAddRestaurantResults(@RequestParam Long[] restaurantCheckbox, ModelMap map) {
+        List<Restaurant> restaurants = new ArrayList<>();
+        Event event = (Event) map.get("event");
+        for (int i = 0; i < restaurantCheckbox.length; i++) {
+            if(!restaurantCheckbox[i].equals(0)){
+                Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId(restaurantCheckbox[i]);
+                restaurantDao.addRestaurantToEvent(event.getEventId(), restaurant.getRestaurantId());
+                restaurants.add(restaurant);
+            }
+        }
+        map.put("restaurants", restaurants);
+
         return "addGuests";
     }
 
@@ -129,7 +156,8 @@ public class AccountController {
     public String processAddGuests(@RequestParam String guestName, @RequestParam String email, ModelMap map) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
-        //Add into guest_event table - might need to get event from model attribute
+        Event event = (Event) map.get("event");
+        eventDao.addGuestToEvent(guest.getGuestId(), event.getEventId());
         List<Guest> guests = new ArrayList<>();
         guests.add(newGuest);
         map.addAttribute("guests", guests);

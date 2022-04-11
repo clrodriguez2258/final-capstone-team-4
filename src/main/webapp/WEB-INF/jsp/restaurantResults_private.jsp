@@ -9,7 +9,7 @@
 <div class="searchbar1">
     <form for="restaurantSearch" action="restaurants" method="POST">
         <div class="btn-group">
-            <button type="submit">Create Event</button>
+            <button id="submit-btn" type="submit" name="submit">Create Event</button>
         </div>
     </form>
 </div>
@@ -45,6 +45,7 @@
                     <button type="button" style="width: 45%">Call to Order</button>
                 </span>
                         <img id="pizzaSliceImage" src="img/pizzaSlice${ restaurant.rating }.png" alt="Pizza Slice Rating">
+                        <label for="Restaurant${ restaurant.restaurantId }">Add Restaurant to Event: </label>
                         <input type="checkbox" id="restaurant${ restaurant.restaurantId }" name="restaurantCheckbox" value="${ restaurant.restaurantId }"/>
                     </div>
                 </div>
