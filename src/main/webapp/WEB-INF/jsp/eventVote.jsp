@@ -56,13 +56,13 @@
     </div>
 </div>
 
-<script>
-restaurantChoice.addEventListener('input',() => {
-    if(upvoteButton.value === true || downvoteButton.value === true){
-        upvoteButton.setAttribute(disabled);
-        downvoteButton.setAttribute(disabled);
-    }
-});
-</script>
+<%--<script>--%>
+<%--restaurantChoice.addEventListener('input',() => {--%>
+<%--    if(upvoteButton.value === true || downvoteButton.value === true){--%>
+<%--        upvoteButton.setAttribute(disabled);--%>
+<%--        downvoteButton.setAttribute(disabled);--%>
+<%--    }--%>
+<%--});--%>
+<%--</script>--%>
 
 <%@ include file="common/footer.jspf" %>
