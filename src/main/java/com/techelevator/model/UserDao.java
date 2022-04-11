@@ -36,4 +36,7 @@ public interface UserDao {
     public List<User> getAllUsers();
 
     public List<User> getUserWithEmail(String email);
+    public void removeUserFromEvent(Long userId, Long eventId);
+    public void addUserToEvent(Long userId, Long eventId);
+
 }
