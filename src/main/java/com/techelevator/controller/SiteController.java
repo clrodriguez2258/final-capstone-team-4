@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -29,6 +30,8 @@ public class SiteController {
     private RestaurantDao restaurantDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private EventDao eventDao;
 
     @RequestMapping(method = RequestMethod.GET, path = {"/", "/index"})
     public String index(ModelMap modelHolder) {
@@ -118,9 +121,11 @@ public class SiteController {
     @RequestMapping(path = "/eventVote", method = RequestMethod.GET)
     public String displayEventVote(@RequestParam Long eventId, @RequestParam Long guestId, ModelMap map){
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
+        Event event = (Event) eventDao.getEventByEventId(eventId);
         map.addAttribute("restaurants", restaurants);
-
-
+        if(event.getDecisionDate().isBefore(LocalDate.now())) {
+            return("redirect:/eventLinkExpired");
+        }
         return "eventVote";
     }
 

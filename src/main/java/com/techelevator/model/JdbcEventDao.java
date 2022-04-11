@@ -55,8 +55,8 @@ public class JdbcEventDao implements EventDao {
 
     }
 
-    public List<Event> getEventByEventId(Long guestId) {
-        List<Event> eventByEventId = new ArrayList<>();
+    public Event getEventByEventId(Long guestId) {
+        Event eventByEventId = new Event();
 
         String sql = "SELECT * " +
                 "FROM events " +
@@ -64,7 +64,7 @@ public class JdbcEventDao implements EventDao {
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
         while (results.next()) {
-            eventByEventId.add(mapRowToEvent(results));
+            eventByEventId = mapRowToEvent(results);
         }
 
         return eventByEventId;
