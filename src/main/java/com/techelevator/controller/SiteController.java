@@ -114,5 +114,18 @@ public class SiteController {
 
         return "restaurants";
     }
+
+    @RequestMapping(path = "/eventVote", method = RequestMethod.GET)
+    public String displayEventVote(@RequestParam Long eventId, @RequestParam Long guestId, ModelMap map){
+        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
+        map.addAttribute("restaurants", restaurants);
+        return "eventVote";
+    }
+
+    // RETURN LINK EXPIRED PAGE
+    @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
+    public String displayDecisionLinkExpired() {
+        return "eventLinkExpired";
+    }
 }
 

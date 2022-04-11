@@ -86,11 +86,11 @@ img.groupdinner {
     background-color: darkgrey;
 }
 
-input, select, textarea {
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
+/*input, select, textarea {*/
+/*    margin-bottom: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 3px;*/
+/*}*/
 
 .item input {
     width: 30%;
@@ -276,7 +276,7 @@ button:hover {
 .bannerPageExpired {
     border: medium solid #303841;
     position: relative;
-    margin-top: 100px;
+    margin-top: 75px;
     border-radius: 10px;
     height: 200px;
     background-size: cover;
@@ -358,4 +358,26 @@ img.decisionLogo {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+/*__________________ADD MORE GUESTS CSS BELOW___________________________*/
+
+.email {
+    position: relative;
+    margin: 10px 0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.email p {
+    position: relative;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.email input {
+    position: relative;
+    font-size: 14px;
+    color: black;
 }

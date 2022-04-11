@@ -17,7 +17,7 @@
                     <p><span>Invite your favorite people for great food and fun!</span></p>
                 </div>
                 <div class="item">
-                    <p>Add Guests</p>
+                    <p>Guest Name</p>
                     <div class="guestName">
                         <input type="text" name="guestName" id="guestName"/>
                     </div>
@@ -33,13 +33,14 @@
                 </form>
             </div>
         </form:form>
-        <c:url var="doneAddingGuests" value="/createEventConfirmation"/>
-        <input src="${ doneAddingGuests }" id="done-btn" type="submit" name="submit" value="Done"/>
         <ul id="theList">
             <c:forEach var="guest" items="${ guests }">
                 <li>${ guest.guestName } - ${ guest.email }</li>
             </c:forEach>
         </ul>
+        <c:url var="doneAddingGuests" value="/login/createEventConfirmation"/>
+        <a href="${ doneAddingGuests }">Done</a>
+        <%--        <button formmethod="POST" id="submit-btn" type="submit" name="submit" value="Done"></button>--%>
     </div>
 </div>
 
