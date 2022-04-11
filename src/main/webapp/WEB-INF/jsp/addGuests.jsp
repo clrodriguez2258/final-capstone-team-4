@@ -34,7 +34,7 @@
             </div>
         </form:form>
         <c:url var="doneAddingGuests" value="/createEventConfirmation"/>
-        <button href="${ doneAddingGuests }" id="done-btn" type="submit" name="submit">Done</button>
+        <input src="${ doneAddingGuests }" id="done-btn" type="submit" name="submit" value="Done"/>
     </div>
 </div>
 
