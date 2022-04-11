@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ include file = "common/header.jspf" %>
+
 <c:url var="cssUrl" value="/css/site.css"/>
 <link rel="stylesheet" href="${cssUrl}"/>
 
@@ -16,15 +17,20 @@
             <h2 id="userNameText"><c:out value="${user.capitalizedUsername}"/> </h2>
 
   </div>
-<%--  <c:forEach var="event" items="${geteventsByGuestId}">--%>
-  <div id="userEvents">
+  <h2>EVENTS:</h2>
+<%--  <c:forEach var="event" items="${events}">--%>
   <c:set var="restaurant" value="${restaurants}"/>
-    <h2>EVENTS:</h2>
+  <div id="userEvents" style="background-color: aliceblue">
+
     <ul>
-      <li>${event.eventName} </li>
-      <li>${event.eventTime} </li>
-      <li>${event.eventDate} </li>
-      <li>${event.eventTime} </li>
+      <li>
+        <p>${event.eventName} name </p>
+        <p>${event.eventTime} time  </p>
+        <p>${event.eventDate}date </p>
+
+        <p>${restaurant.restaurantName} winner restaurant Name</p>
+
+      </li>
 
     </ul>
 
