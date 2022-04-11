@@ -90,6 +90,22 @@ public class JdbcRestaurantDao implements RestaurantDao {
         return restaurantsByEvent;
     }
 
+
+    public List<Restaurant> getRestaurantByRestaurantId(Long restaurantId) {
+        List<Restaurant> restaurantByRestaurantId = new ArrayList<>();
+
+        String sql = "SELECT * " +
+                "FROM restaurant " +
+                "WHERE restaurant_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, restaurantId);
+        while (results.next()) {
+            restaurantByRestaurantId.add(mapRowToRestaurant(results));
+        }
+
+        return restaurantByRestaurantId;
+
+    }
 // UPDATING RELATIONAL TABLES RESTAURANT_EVENT
     public void addRestaurantToEvent(Long eventId, Long restaurantId){
         String sqlAddRestaurantToEvent = "INSERT INTO restaurant_event (event_id, restaurant_id) VALUES (?,?)";
