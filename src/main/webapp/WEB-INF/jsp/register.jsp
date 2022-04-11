@@ -48,7 +48,7 @@
             </label>
         </div>
     </fieldset>
-    <button type="submit" class="btn btn-default">Save User</button>
+    <button id="submit-btn" type="submit" name="submit" >Save User</button>
 </form:form>
 </div>
 </div>
