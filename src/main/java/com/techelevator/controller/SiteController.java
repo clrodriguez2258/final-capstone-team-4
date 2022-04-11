@@ -134,5 +134,13 @@ public class SiteController {
     public String displayDecisionLinkExpired() {
         return "eventLinkExpired";
     }
+
+
+     //user profile page.
+    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
+    public String displayUserProfile(){return "userProfile";}
+
+
+
 }
 
