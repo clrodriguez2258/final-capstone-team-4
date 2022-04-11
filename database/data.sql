@@ -87,8 +87,8 @@ values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022'),
        ('2', 'toomanyevents', '17:00', '04/05/2022', '04/04/2022');
 -- --
 
-INSERT INTO guest(guest_name, attending, email)
-VALUES ('Christian Rodriguez', 'yes', 'guest1@gmail.com');
+INSERT INTO guest(guest_name, email)
+VALUES ('Christian Rodriguez', 'guest1@gmail.com');
 
 
 
@@ -131,6 +131,17 @@ ALTER TABLE restaurant_event
 ALTER TABLE restaurant_event
     ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
 
+ALTER TABLE favorites
+    ADD FOREIGN KEY (user_id) REFERENCES app_user (id);
+
+ALTER TABLE favorites
+    ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id );
+
+ALTER TABLE guest_restaurant
+    ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id );
+
+ALTER TABLE guest_restaurant
+    ADD FOREIGN KEY (guest_id) REFERENCES guest (guest_id );
 -- INSERT INTO USERPROFILE
 -- INSERT INTO userprofile(event_id, email, first_name, last_name, phone_number, zipcode)
 -- VALUES('1', 'user1@gmail.com', 'user1', 'userLastName', '123456789', '75075'),
