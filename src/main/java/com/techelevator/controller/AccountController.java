@@ -76,7 +76,7 @@ public class AccountController {
             model.put("restaurants", restaurants);
         }
 
-        return "restaurant_private";
+        return "restaurants_private";
     }
 
     @RequestMapping (path = "/createEvent", method = RequestMethod.GET)
