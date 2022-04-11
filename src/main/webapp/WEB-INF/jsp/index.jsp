@@ -24,7 +24,7 @@
             <input type="radio" id="searchZip" class="searchZip" name="searchRadio" value="zip" checked>
             <input type="text" id="restaurantSearch" name="restaurantSearch" placeholder="Enter a city or zip code"
                    style="width: 100%;">
-            <button type="submit">Search</button>
+            <button id="submit-btn" type="submit" name="submit">Search</button>
         </div>
     </form>
 </div>
