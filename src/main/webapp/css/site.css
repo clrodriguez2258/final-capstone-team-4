@@ -21,9 +21,9 @@ nav {
     position:sticky;
     top:0;
     z-index: 100;
-    background:#3A4750;
+    background:#BE3144;
     width:100%;
-    height:50px;
+    height:45px;
 }
 
 label {
@@ -104,7 +104,7 @@ label {
     box-shadow: 0px 1px 18px #3A4750;
 }
 ul.nav.navbar-nav > li > a:hover {
-    background-color: #3A4750;
+    background-color: #BE3144;
 }
 .form {
     align-items: center;
@@ -136,5 +136,8 @@ input#submit-btn{
     height: 2px;
     margin: -1.1rem auto 0 auto;
     width: 89px;
+}
+footer > p{
+    position: fixed;
 }
 
