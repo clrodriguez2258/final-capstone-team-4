@@ -201,23 +201,23 @@ public class AccountController {
 //    }
 
 
+    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
+    public String processAddRestaurantResults(@RequestParam Long[] restaurantCheckbox, ModelMap map) {
+        List<Restaurant> restaurants = new ArrayList<>();
+        Event event = (Event) map.get("event");
+        for (int i = 0; i < restaurantCheckbox.length; i++) {
+
+            if(!restaurantCheckbox[i].equals(0)){
+                Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId(restaurantCheckbox[i]);
+                restaurantDao.addRestaurantToEvent(event.getEventId(), restaurant.getRestaurantId());
+                restaurants.add(restaurant);
+           }
+        }
+        map.put("restaurants", restaurants);
+
+        return "addGuests";
+    }
+
 
 }
 
-
-//    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
-//    public String processAddRestaurantResults(@RequestParam Long[] restaurantCheckbox, ModelMap map) {
-////
-////        Event event = (Event) map.get("event");
-////        for (int i = 0; i < restaurantCheckbox.length; i++) {
-////        List<Restaurant> restaurants = new ArrayList<>();
-////            if(!restaurantCheckbox[i].equals(0)){
-////                Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId(restaurantCheckbox[i]);
-////                restaurantDao.addRestaurantToEvent(event.getEventId(), restaurant.getRestaurantId());
-////                restaurants.add(restaurant);
-//////            }
-////        }
-////        map.put("restaurants", restaurants);
-//
-//        return "addGuests";
-//    }
