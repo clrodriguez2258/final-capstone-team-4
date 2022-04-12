@@ -5,7 +5,10 @@
 
 <c:url var="cssUrl2" value="/css/site2.css"/>
 <link rel="stylesheet" href="${cssUrl2}"/>
-
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <h1>Welcome to HANGRY, The Restaurant Tinder!</h1>

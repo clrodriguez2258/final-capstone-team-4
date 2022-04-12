@@ -41,9 +41,7 @@ public class AccountController {
     @Autowired
     private GuestDao guestDao;
 
-    //user profile page.
-    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
-    public String displayUserProfile(){return "userProfile";}
+
 
 
 
