@@ -7,12 +7,13 @@ h1 {
     font-size: 45px;
     background-color: #303841;
     padding: 15px 15px;
+    border-radius: 4px;
 }
 h2{
     font-size: 26px;
     color: #3A4750;
 }
-#creatorDetails.aboutImg.creatorPic{
+.aboutImg.creatorPic{
    border-radius: 15px;
 }
 
