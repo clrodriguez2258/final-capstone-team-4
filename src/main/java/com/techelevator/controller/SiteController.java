@@ -136,6 +136,17 @@ public class SiteController {
     }
 
 
+//    @RequestMapping(path ="finalist",method= RequestMethod.GET)
+//    public String displayEventFinalist(){return "finalistRestaurants";}
+
+    @RequestMapping(path = "/finalist", method = RequestMethod.GET)
+
+    public String displayFinalistRestaurants (ModelMap map){
+        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
+        map.put("restaurants", restaurants);
+
+        return "finalistRestaurants";
+    }
 
 
 }

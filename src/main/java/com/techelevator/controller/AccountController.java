@@ -76,7 +76,7 @@ public class AccountController {
             model.put("restaurants", restaurants);
         }
 
-        return "restaurant_private";
+        return "restaurants_private";
     }
 
     @RequestMapping (path = "/createEvent", method = RequestMethod.GET)
@@ -194,6 +194,17 @@ public class AccountController {
     private Event getEvents(ModelMap map) {
         return (Event) map.get("eventInvite");
     }
+
+
+
+
+//    public String displayFinalistRestaurants (ModelMap map){
+//        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
+//        map.put("restaurants", restaurants);
+//
+//        return "finalistRestaurants";
+//    }
+
 
 
 }
