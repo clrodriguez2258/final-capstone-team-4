@@ -14,7 +14,7 @@ public interface EventDao {
     public List<Event> getEventByEventId(Long eventId);
     public void addGuestToEvent(Long guestId, Long eventId);
     public void removeGuestFromEvent(Long guestId, Long eventId);
-    public List<Event> getEventByUserId(Long userId);
+    public List<Event> getEventByUserId(int userId);
 }
 
 

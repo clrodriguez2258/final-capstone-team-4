@@ -57,12 +57,12 @@ public class JdbcEventDao implements EventDao {
 
 
     @Override
-    public List<Event> getEventByUserId(Long userId) {
+    public List<Event> getEventByUserId(int userId) {
         List<Event> eventByUser = new ArrayList<>();
 
         String sql = "SELECT * " +
-                "FROM app_user " +
-                "LEFT JOIN user_event ON app_user.id = user_event.user_id " +
+                "FROM events " +
+                "JOIN user_event ON events.event_id = user_event.event_id " +
                 "WHERE user_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);

@@ -43,7 +43,15 @@ public class AccountController {
 
     //user profile page.
     @RequestMapping(path ="userprofile",method= RequestMethod.GET)
-    public String displayUserProfile(){return "userProfile";}
+    public String displayUserProfile(@RequestParam int userId, @RequestParam Long eventId, ModelMap map){
+        List<Event> events = eventDao.getEventByUserId(userId);
+        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
+        map.put("events",events);
+        map.put("restaurants", restaurants);
+
+
+
+        return "userProfile";}
 
 
 
