@@ -38,7 +38,7 @@ public class SiteController {
         modelHolder.put("user", auth.getCurrentUser());
         return "index";
     }
-
+ 
     @RequestMapping(path = "/logoff", method = RequestMethod.POST)
     public String logOff() {
         auth.logOff();
