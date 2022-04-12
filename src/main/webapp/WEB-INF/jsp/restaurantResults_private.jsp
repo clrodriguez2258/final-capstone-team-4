@@ -6,12 +6,10 @@
 <br>
 <br>
 <br>
-<form for="restaurantSearch" action="restaurantResults" method="POST">
-    <div class="searchbar1">
-        <div class="btn-group">
-            <button id="submit-btn" type="submit" name="submit">Create Event</button>
-        </div>
-    </div>
+<%--<form for="restaurantSearch" action="restaurantResults" method="POST">--%>
+<%--    <div class="searchbar1">--%>
+<%--       --%>
+<%--    </div>--%>
 
 <%--                       Code used after database works                         --%>
 <div id=" masonry-page">
@@ -49,6 +47,10 @@
                                 <label for="Restaurant${ restaurant.restaurantId }">Add Restaurant to Event: </label>
                                 <input type="checkbox" id="restaurant${ restaurant.restaurantId }"
                                        name="restaurantCheckbox" value=${ restaurant.restaurantId }/>
+
+                                <div class="btn-group">
+                                    <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Create Event</button>
+                                </div>
 <%--                            </form>--%>
                         </div>
                     </div>
@@ -57,5 +59,5 @@
         </c:forEach>
     </div>
 </div>
-</form>
+<%--</form>--%>
 <%@ include file="common/footer.jspf" %>

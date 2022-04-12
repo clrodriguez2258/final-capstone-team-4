@@ -116,7 +116,6 @@ public class JdbcRestaurantDao implements RestaurantDao {
         jdbcTemplate.update(sqlRemoveGuestFromEvent, eventId, restaurantId);
     }
 
-
     private Restaurant mapRowToRestaurant(SqlRowSet results){
 
         Restaurant restaurant = new Restaurant();
