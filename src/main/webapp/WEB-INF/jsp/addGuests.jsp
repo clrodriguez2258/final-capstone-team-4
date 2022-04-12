@@ -15,7 +15,7 @@
         <div class="guestsSubheader">
             <p><span>Invite your favorite people for great food and fun!</span></p>
         </div>
-        <c:url var="addGuest" value="/login/addMoreGuests"/>
+        <c:url var="addGuest" value="/login/addGuests"/>
         <form:form action="${ addGuest }" method="POST">
 
             <div id="addGuests">
