@@ -3,9 +3,14 @@
 
 <c:url var="cssUrl" value="/css/site.css"/>
 <link rel="stylesheet" href="${cssUrl}"/>
-
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 <footer>
-    <p>&copy; 2022 hangry, LLC. a subsidiary of Code Swindlers, LLC.&copy;</p>
+    <p>&copy; 2022 HANGRY, LLC. a subsidiary of Code Swindlers, LLC.&copy;</p>
 </footer>
 </div>
 </body>

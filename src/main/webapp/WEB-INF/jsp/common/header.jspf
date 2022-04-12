@@ -22,7 +22,7 @@
     <%--===================================================================--%>
 
 </head>
-<body>
+<body >
 <nav>
     <div class="container-fluid" >
         <div class="navbar-header">
@@ -32,6 +32,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+
+<%--            SETTING A CLICKABLE LINK TO LOGO IMAGE--%>
             <div class="navbar-header">
                 <c:url var="homeUrl" value="/index"/>
                 <a class="navbar-brand" href="${homeUrl}" class="navbar-brand">
@@ -39,6 +41,8 @@
                     <img src="${ logoUrl }" style="width: 125px; height:75px; "/></a>
             </div>
         </div>
+
+<%--        SETTING THE BUTTONS AND URL LINKS TO THE TOP OF THE PAGE HOME, ABOUT AND SET UP EVENT--%>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="${homeUrl}">Home </a></li>
@@ -49,15 +53,17 @@
 <%--                <c:url var="restaurantUrl" value="/restaurants"/>--%>
 <%--                <li><a href="${restaurantUrl}">Restaurants</a></li>--%>
             </ul>
+
+<%--            SETTING THE LOGIN AND REGISTER BUTTONS AND URL--%>
             <ul class="nav navbar-nav navbar-right">
-                <c:if test="${empty user}">
+                <c:if test="${ empty user.username || user.id==0}">
                     <c:url var="loginUrl" value="/login"/>
                     <li><a href="${loginUrl}">Login</a></li>
                     <c:url var="registerUrl" value="/register"/>
                     <li><a href="${registerUrl}">Register</a></li>
                 </c:if>
-                <c:if test="${not empty user}">
-                    <li><a href="${homeUrl}"><c:out value="${user.capitalizedUsername}"/></a></li>
+                <c:if test="${user.id > 0}">
+                    <li><a href="${registerUrl}"><c:out value="${user.capitalizedUsername}"/></a></li>
                     <c:url var="logoffUrl" value="/logoff"/>
                     <li>
                         <form action="${logoffUrl}" method="POST" class="navbar-form">

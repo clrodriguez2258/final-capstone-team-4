@@ -20,7 +20,8 @@ nav {
     z-index: 100;
     background:#BE3144;
     width:100%;
-    height:45px;
+    height:50px;
+    color: #fbfbfb;
 }
 
 label {

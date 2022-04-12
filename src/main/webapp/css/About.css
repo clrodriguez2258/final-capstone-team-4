@@ -1,0 +1,27 @@
+h1 {
+    font-family: Bahnschrift;
+    color: darkorange;
+    border: 10px solid #303841;
+    font-weight: bolder;
+    font-style: oblique;
+    font-size: 45px;
+}
+h2{
+    font-size: 30px;
+    color: #3A4750;
+}
+.aboutImg{
+   border-radius: 5px;
+}
+
+.creatorDetails{
+    position: absolute;
+}
+
+td{
+    padding: 20px;
+}
+
+
+
+

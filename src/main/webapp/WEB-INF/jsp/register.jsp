@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ include file="common/header.jspf" %>
 
 <br>
@@ -48,7 +50,8 @@
             </label>
         </div>
     </fieldset>
-    <button id="submit-btn" type="submit" name="submit" >Save User</button>
+    <button class = "btn btn-default" id="submit-btn" type="submit" name="submit" >Save User</button>
+
 </form:form>
 </div>
 </div>
