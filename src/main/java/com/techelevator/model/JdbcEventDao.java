@@ -98,7 +98,7 @@ public class JdbcEventDao implements EventDao {
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
 
-        if (results.next()) {
+        while(results.next()) {
             event = mapRowToEvent(results);
         }
 
