@@ -139,7 +139,7 @@ public class AccountController {
         }
         map.put("restaurants", restaurants);
 
-        return "redirect:/addGuests";
+        return "redirect:/login/addGuests";
     }
 
     @RequestMapping (path = "/addGuests", method = RequestMethod.GET)
