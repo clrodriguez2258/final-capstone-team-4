@@ -18,7 +18,7 @@
 
   </div>
   <h2>EVENTS:</h2>
-<%--  <c:forEach var="event" items="${events}">--%>
+ <c:forEach var="event" items="${events}">
   <c:set var="restaurant" value="${restaurants}"/>
   <div id="userEvents" style="background-color: aliceblue">
 
@@ -36,7 +36,7 @@
 
   </div>
 
-<%--  </c:forEach>--%>
+</c:forEach>
 
 
 
