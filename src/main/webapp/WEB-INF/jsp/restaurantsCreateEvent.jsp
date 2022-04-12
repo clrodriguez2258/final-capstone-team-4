@@ -10,6 +10,8 @@
     <form for="restaurantSearch" action="addRestaurants" method="POST">
         <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
         <div class="btn-group">
+
+
             <label for="searchCity"> Search by city</label>
             <input type="radio" id="searchCity" class="searchCity" name="searchRadio" value="city">
             <br>
@@ -17,6 +19,15 @@
             <input type="radio" id="searchZip" class="searchZip" name="searchRadio" value="zip" checked>
             <input type="text" id="restaurantSearch" name="restaurantSearch" placeholder="Enter a city or zip code"
                    style="width: 100%;">
+            <label>Choose Cuisine type</label>
+            <select name="cuisine" id="cuisine">
+                <option value="American">American</option>
+                <option value="Italian">Italian</option>
+                <option value="Cantonese">Cantonese</option>
+                <option value="Mexican">Mexican</option>
+
+            </select>
+
             <button id="submit-btn" type="submit" name="submit">Search</button>
         </div>
     </form>
