@@ -114,6 +114,8 @@
     justify-content: center;
 }
 
+
+
 .item {
     width: 10em;
 }
@@ -181,10 +183,13 @@ button.submit-btn:hover  {
 }
 footer > p {
     position: absolute;
-    bottom: 0;
+    bottom: auto;
     width: 100%;
     height: 2.5rem;
 }
 .row{
     column-gap: 50px;
 }
+
+
+
