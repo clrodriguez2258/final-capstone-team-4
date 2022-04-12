@@ -75,6 +75,8 @@ public class SiteController {
         return "redirect:/login";
     }
 
+
+
     @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelHolder) {
 
