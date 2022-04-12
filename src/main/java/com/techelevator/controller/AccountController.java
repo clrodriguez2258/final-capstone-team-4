@@ -12,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -54,18 +55,18 @@ public class AccountController {
         }
     }
 
-    @RequestMapping (path = "/createEvent"/*, method = RequestMethod.GET*/)
+    @RequestMapping (path = "/createEvent", method = RequestMethod.GET)
     public String CreateEvent(ModelMap map) {
-        map.addAttribute("eventInvite", new Event());
+        map.addAttribute("event", new Event());
         return "createEvent";
     }
 
     @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
     public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate eventDate,
                                      @RequestParam @DateTimeFormat(pattern = "HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate decisionDate,
-                                     ModelMap map) {
+                                     HttpSession session) {
 
-        Event eventInvite = getEvents(map);
+        Event eventInvite = new Event();
 
         eventInvite.setEventName(eventName);
         eventInvite.setEventDate(eventDate);
@@ -73,7 +74,7 @@ public class AccountController {
         eventInvite.setDecisionDate(decisionDate);
 
         Event newEvent = eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
-        map.addAttribute("event", newEvent);
+        session.setAttribute("event", newEvent);
 
         return "redirect:/login/addRestaurants";
     }
@@ -100,11 +101,8 @@ public class AccountController {
     }
 
 
-
-
-
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.GET)
-    public String displayAddRestaurant (ModelMap map){
+    public String displayAddRestaurant (ModelMap map, HttpSession session){
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
@@ -112,23 +110,24 @@ public class AccountController {
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.POST)
-    public String processAddRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch,@RequestParam String cuisine,  ModelMap model) {
+    public String processAddRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch/*,@RequestParam String cuisine*/,  ModelMap map) {
+
         if(searchRadio.equals("city")){
             List<Restaurant> restaurants = restaurantDao.getRestaurantByCity(restaurantSearch);
-           for(Restaurant restaurant : restaurants){
-               if(!restaurant.getTypeOfEstablishment().equals(cuisine)){
-                   restaurants.remove(restaurant);
-               }
-           }
-            model.put("restaurants", restaurants);
+//           for(Restaurant restaurant : restaurants){
+//               if(!restaurant.getTypeOfEstablishment().equals(cuisine)){
+//                   restaurants.remove(restaurant);
+//               }
+//           }
+            map.put("restaurants", restaurants);
         } else if(searchRadio.equals("zip")){
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
-            for(Restaurant restaurant : restaurants) {
-                if (!restaurant.getTypeOfEstablishment().equals(cuisine)) {
-                    restaurants.remove(restaurant);
-                }
-            }
-            model.put("restaurants", restaurants);
+//            for(Restaurant restaurant : restaurants) {
+//                if (!restaurant.getTypeOfEstablishment().equals(cuisine)) {
+//                    restaurants.remove(restaurant);
+//                }
+//            }
+            map.put("restaurants", restaurants);
         }
         return "redirect:/login/restaurantResults";
     }
@@ -136,46 +135,60 @@ public class AccountController {
     @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
     public String displayAddRestaurantResults (ModelMap map){
         List<Restaurant> restaurants = (List<Restaurant>) map.get("restaurants");
-
         return "restaurantResults_private";
     }
 
+    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
+    public String processAddRestaurantResults(@RequestParam Long[] restaurantCheckbox, ModelMap map, HttpSession session) {
+        List<Restaurant> restaurants = new ArrayList<>();
+        Event event = (Event) session.getAttribute("event");
+        for (int i = 0; i < restaurantCheckbox.length; i++) {
+            Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId(restaurantCheckbox[i]);
+            restaurantDao.addRestaurantToEvent(event.getEventId(), restaurant.getRestaurantId());
+            restaurants.add(restaurant);
+        }
+        map.put("restaurants", restaurants);
 
+        return "addGuests";
+    }
 
     @RequestMapping (path = "/addGuests", method = RequestMethod.GET)
-    public String displayAddGuests(ModelMap map) {
+    public String displayAddGuests() {
         return "addGuests";
     }
 
     @RequestMapping (path = "/addGuests", method = RequestMethod.POST)
-    public String processAddGuests(@RequestParam String guestName, @RequestParam String email, ModelMap map) {
+    public String processAddGuests(@RequestParam String guestName, @RequestParam String email, HttpSession session, ModelMap map) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
-        Event event = (Event) map.get("event");
-        eventDao.addGuestToEvent(guest.getGuestId(), event.getEventId());
-        List<Guest> guests = new ArrayList<>();
+        Event event = (Event) session.getAttribute("event");
+        Long eventId = event.getEventId();
+        List<Guest> guests = new ArrayList<Guest>();
+        eventDao.addGuestToEvent(newGuest.getGuestId(), eventId);
         guests.add(newGuest);
-        map.addAttribute("guests", guests);
+        session.setAttribute("guests", guests);
 
         return "addMoreGuests";
     }
+    // -------------------------------------------------------------------------
 
-    @RequestMapping (path = "/addMoreGuests", method = RequestMethod.GET)
-    public String displayAddMoreGuests(ModelMap map) {
-       List<Guest> guests = (List<Guest>) map.get("guests");
-
-        return "addMoreGuests";
-    }
+//    @RequestMapping (path = "/addMoreGuests", method = RequestMethod.GET)
+//    public String displayAddMoreGuests(ModelMap map) {
+//       List<Guest> guests = (List<Guest>) map.get("guests");
+//
+//        return "addMoreGuests";
+//    }
 
     @RequestMapping (path = "/addMoreGuests", method = RequestMethod.POST)
-    public String processAddMoreGuests(@RequestParam String guestName, @RequestParam String email, ModelMap map) {
+    public String processAddMoreGuests(@RequestParam String guestName, @RequestParam String email, HttpSession session) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
-        //Add into guest_event table - might need to get event from model attribute
-        List<Guest> guests = (List<Guest>) map.get("guests");
+        Event event = (Event) session.getAttribute("event");
+        Long eventId = event.getEventId();
+        List<Guest> guests = (List<Guest>) session.getAttribute("guests");
+        eventDao.addGuestToEvent(newGuest.getGuestId(), eventId);
         guests.add(newGuest);
-        map.replace("guests", guests);
-        Event event = (Event) map.get("event");
+        session.setAttribute("guests", guests);
 
         return "addMoreGuests";
     }
@@ -184,10 +197,6 @@ public class AccountController {
     public String displayCreateEventConfirmation(ModelMap map) {
 
         return "createEventConfirmation";
-    }
-
-    private Event getEvents(ModelMap map) {
-        return (Event) map.get("eventInvite");
     }
 
 
@@ -201,23 +210,5 @@ public class AccountController {
 //    }
 
 
-    @RequestMapping(path = "/restaurantResults", method = RequestMethod.POST)
-    public String processAddRestaurantResults(@RequestParam Long[] restaurantCheckbox, ModelMap map) {
-        List<Restaurant> restaurants = new ArrayList<>();
-        Event event = (Event) map.get("event");
-        for (int i = 0; i < restaurantCheckbox.length; i++) {
-
-            if(!restaurantCheckbox[i].equals(0)){
-                Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId(restaurantCheckbox[i]);
-                restaurantDao.addRestaurantToEvent(event.getEventId(), restaurant.getRestaurantId());
-                restaurants.add(restaurant);
-           }
-        }
-        map.put("restaurants", restaurants);
-
-        return "addGuests";
-    }
-
 
 }
-
