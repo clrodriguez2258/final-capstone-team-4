@@ -5,6 +5,29 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 6px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #3A4750;
+            border-radius: 6px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #BE3144;
+        }
+    </style>
     <title><c:out value="${pageTitle}"/> - WebApplication.Web</title>
 
     <%--if you don't want to use the Bootstrap 4 framework comment out all the lines up to the ====== below--%>

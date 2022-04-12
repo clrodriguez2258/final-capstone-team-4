@@ -39,17 +39,11 @@ h1 {
     font-size: 24px;
     font-weight: bold;
     font-family: "Candara Light";
-    color: white;
+    color: #303841;
+    font-style: italic;
     margin-bottom: 20px;
+    display: inline;
 }
-
-.subheader p span {
-    background-color: #3A4750;
-    border-radius: 4px;
-    padding: 10px;
-    z-index: 50;
-}
-
 
 /*#eventForm {*/
 /*    !*right: 0;*!*/
@@ -61,51 +55,16 @@ h1 {
 /*    !*padding: 20px;*!*/
 /*    border-radius: 6px;*/
 /*}*/
-.inputs {
-    margin-top: -600px;
-    position: center;
-    max-width: 50%;
-    padding: 16px;
-    background-color: white;
-    /*width: 100%;*/
-    /*padding: 20px;*/
-    border-radius: 6px;
-    z-index: 9;
-}
 
 .groupdinner {
     width: 100%;
     height: 750px;
-    opacity: 0.8;
+    /*opacity: 0.8;*/
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: -1;
-}
-
-.item input {
-    width: 50%;
-    padding: 5px;
-}
-
-/*form div span input {*/
-/*    display: inline-block;*/
-/*}*/
-
-input[type="date"] {
-    padding: 4px 5px;
-}
-
-.dueBy input[type="date"] {
-    margin-right: 20px;
-}
-
-.dueBy input[type="time"] {
-    padding: -2px -2px -2px -2px;
-}
-
-textarea {
-    width: calc(30% - 12px);
-    padding: 5px;
+    opacity: 0.8;
+    display: inline-block;
 }
 
 .item input:hover, .item select:hover, .item textarea:hover {
@@ -124,9 +83,9 @@ textarea {
 .item p {
     position: relative;
     font-size: 16px;
-    color: white;
+    color: #303841;
     font-weight: bold;
-    text-shadow: 5px 5px 5px #303841;
+    text-shadow: 5px 5px 5px #8D8DAA;
 }
 
 .item input {
@@ -135,20 +94,18 @@ textarea {
     color: black;
     width: 50%;
     padding: 5px;
-}
-
-
-.addToInvite {
-    position: relative;
-    margin: 10px 0;
-    margin-bottom: 10px;
-}
-
-input[type="radio"] {
     display: inline;
 }
 
-input[type="checkbox"] {
+.inputs {
+    margin-top: -600px;
+    position: fixed;
+    max-width: 50%;
+    padding: 16px;
+    background-color: white;
+    border-radius: 6px;
+    margin-left: 15%;
+    opacity: 0.9;
     display: inline;
 }
 
@@ -158,17 +115,15 @@ input[type="date"]::-webkit-inner-spin-button {
     color: black;
 }
 
+input[type="date"] {
+    padding: 4px 5px;
+}
+
 .item i, input[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     font-size: 20px;
     color: black;
 }
-
-/*.item i {*/
-/*    right: 2%;*/
-/*    top: 28px;*/
-/*    z-index: 1;*/
-/*}*/
 
 [type="date"]::-webkit-calendar-picker-indicator {
     right: 1%;
@@ -192,7 +147,21 @@ input[type="submit"] {
     width: 140px;
     margin-left: 25px;
     opacity: 1;
+    display: inline;
 }
+
+/*.addToInvite {*/
+/*    position: relative;*/
+/*    margin: 10px 0;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+/*input[type="radio"] {*/
+/*    display: inline;*/
+/*}*/
+
+/*input[type="checkbox"] {*/
+/*    display: inline;*/
+/*}*/
 
 
 /*____________________________LINK EXPIRED PAGE SPECIFIC CSS BLOW LINE________________*/
@@ -293,7 +262,7 @@ img.decisionLogo {
 }
 
 /*__________________ADD MORE GUESTS SPECIFIC CSS BELOW___________________________*/
-.done-btn{
+.done-btn {
 
     background: #BE3144;
     border-radius: 21px;
@@ -304,7 +273,7 @@ img.decisionLogo {
     padding: 10px 50px;
 }
 
-.guestsSubheader{
+.guestsSubheader {
     position: center;
     margin: 10px;
     font-size: 24px;
@@ -317,10 +286,11 @@ img.decisionLogo {
     margin-top: 20px;
 }
 
-#guestPage{
+#guestPage {
     background-color: white;
     margin-top: -10px;
 }
+
 .guestItem {
     position: relative;
     margin: 10px 0;
@@ -343,4 +313,5 @@ img.decisionLogo {
     width: 30%;
     padding: 5px;
 }
+
 /*__________________EVENT CONFIRMATION SPECIFIC CSS BELOW___________________________*/

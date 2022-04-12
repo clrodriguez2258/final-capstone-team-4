@@ -5,16 +5,18 @@ h1 {
     font-weight: bolder;
     font-style: oblique;
     font-size: 45px;
+    background-color: #303841;
+    padding: 15px 15px;
 }
 h2{
-    font-size: 30px;
+    font-size: 26px;
     color: #3A4750;
 }
-.aboutImg{
-   border-radius: 5px;
+#creatorDetails.aboutImg.creatorPic{
+   border-radius: 15px;
 }
 
-.creatorDetails{
+.creatorDetail{
     position: absolute;
 }
 
