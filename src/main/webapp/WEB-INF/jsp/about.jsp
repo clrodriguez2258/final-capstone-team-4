@@ -12,8 +12,14 @@
 <div>
 </div>
 <div>
+    <p class="story">
+        Our Story....
+        We founded our startup after recognizing a need to help bring families and friends back together. Being apart became the "new normal" during the pandemic. Facilitating togetherness is our goal, creating new memories for our users drives us each day.
+    </p>
 </div>
-
+<div>
+    <br>
+</div>
 <table id="creatorDetails">
     <tr>
         <td class="aboutImg">
@@ -30,7 +36,7 @@
     <tr>
         <td class="aboutImg">
             <c:url var="aboutImage1" value="/img/Avatar11.png"/>
-            <img id="creatorPic" src="${ aboutImage1 }" height="250px" width="250px"/>
+            <img class="creatorPic" src="${ aboutImage1 }" height="250px" width="250px"/>
         </td>
         <td class="creatorDetail">
             <span>
@@ -42,7 +48,7 @@
     <tr>
         <td class="aboutImg">
             <c:url var="aboutImage2" value="/img/Avatar22.png"/>
-            <img id="creatorPic" src="${ aboutImage2 }" height="250px" width="250px"/>
+            <img class="creatorPic" src="${ aboutImage2 }" height="250px" width="250px"/>
         </td>
         <td class="creatorDetail">
                         <span>
@@ -54,7 +60,7 @@
     <tr>
         <td class="aboutImg">
             <c:url var="aboutImage3" value="/img/Avatar33.png"/>
-            <img id="creatorPic" src="${ aboutImage3 }" height="250px" width="250px"/>
+            <img class="creatorPic" src="${ aboutImage3 }" height="250px" width="250px"/>
         </td>
         <td class="creatorDetail">
                         <span>
@@ -66,7 +72,7 @@
     <tr>
         <td class="aboutImg" rowspan="2">
             <c:url var="aboutImage4" value="/img/Avatar44.png"/>
-            <img id="creatorPic" src="${ aboutImage4 }" height="250px" width="250px"/>
+            <img class="creatorPic" src="${ aboutImage4 }" height="250px" width="250px"/>
         </td>
         <td class="creatorDetail">
                         <span>
