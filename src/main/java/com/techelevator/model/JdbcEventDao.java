@@ -21,6 +21,22 @@ public class JdbcEventDao implements EventDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    public List<Event> getAllEvents() {
+        List <Event>  events = new ArrayList<>();
+        String sql = "Select * "+
+                "from events ";
+
+        SqlRowSet  results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+
+            events.add(mapRowToEvent(results));
+        }
+
+        return events;
+
+
+    }
+
     @Override
     public Event createNewEvent(String eventName, LocalDate eventDate, LocalTime eventTime, LocalDate decisionDate) {
 
@@ -57,7 +73,7 @@ public class JdbcEventDao implements EventDao {
 
 
     @Override
-    public List<Event> getEventByUserId(int userId) {
+    public List<Event> getEventByUserId(Long userId) {
         List<Event> eventByUser = new ArrayList<>();
 
         String sql = "SELECT * " +
@@ -73,8 +89,8 @@ public class JdbcEventDao implements EventDao {
         return eventByUser;
 
     }
-    public List<Event> getEventByEventId(Long guestId) {
-        List<Event> eventByEventId = new ArrayList<>();
+    public Event getEventByEventId(Long guestId) {
+        Event event = new Event();
 
         String sql = "SELECT * " +
                 "FROM events " +
@@ -82,11 +98,11 @@ public class JdbcEventDao implements EventDao {
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
 
-        while (results.next()) {
-            eventByEventId.add(mapRowToEvent(results));
+        if (results.next()) {
+            event = mapRowToEvent(results);
         }
 
-        return eventByEventId;
+        return event;
 
     }
 
@@ -101,6 +117,7 @@ public class JdbcEventDao implements EventDao {
         String sqlRemoveGuestFromEvent = "DELETE FROM guest_event WHERE guest_id =? AND event_id = ?";
         jdbcTemplate.update(sqlRemoveGuestFromEvent, guestId, eventId);
     }
+
 
 
 
