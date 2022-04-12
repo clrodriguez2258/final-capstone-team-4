@@ -84,7 +84,7 @@ public class SiteController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
         if (auth.signIn(username, password)) {
-            return "userProfile";
+            return "decision";
         } else {
             flash.addFlashAttribute("message", "Login Invalid");
             return "redirect:/login";

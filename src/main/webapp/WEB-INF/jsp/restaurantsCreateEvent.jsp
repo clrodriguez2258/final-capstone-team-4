@@ -7,7 +7,7 @@
 <br>
 <br>
 <div class="searchbar1">
-    <form for="restaurantSearch" action="restaurants" method="POST">
+    <form for="restaurantSearch" action="addRestaurants" method="POST">
         <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
         <div class="btn-group">
             <label for="searchCity"> Search by city</label>

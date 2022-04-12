@@ -41,16 +41,14 @@ public class AccountController {
     @Autowired
     private GuestDao guestDao;
 
-    //user profile page.
-    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
-    public String displayUserProfile(){return "userProfile";}
-
-
+//    //user profile page.
+//    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
+//    public String displayUserProfile(){return "userProfile";}
 
     @RequestMapping(path = "/decision", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
-            return "decision";
+            return "createEvent";
         } else {
             return "redirect:/login";
         }
@@ -74,7 +72,6 @@ public class AccountController {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
             model.put("restaurants", restaurants);
         }
-
         return "restaurants_private";
     }
 
@@ -99,7 +96,7 @@ public class AccountController {
         Event newEvent = eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
         map.addAttribute("event", newEvent);
 
-        return "restaurantsCreateEvent";
+        return "redirect:/login/addRestaurants";
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.GET)
@@ -107,7 +104,7 @@ public class AccountController {
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
-        return "restaurantResults_private";
+        return "restaurantsCreateEvent";
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.POST)
@@ -119,7 +116,7 @@ public class AccountController {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
             model.put("restaurants", restaurants);
         }
-        return "restaurantsCreateEvent";
+        return "redirect:/login/restaurantResults";
     }
 
     @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
@@ -135,14 +132,14 @@ public class AccountController {
         Event event = (Event) map.get("event");
         for (int i = 0; i < restaurantCheckbox.length; i++) {
             if(!restaurantCheckbox[i].equals(0)){
-                Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId(restaurantCheckbox[i]);
+                Restaurant restaurant = restaurantDao.getRestaurantByRestaurantId((Long) restaurantCheckbox[i]);
                 restaurantDao.addRestaurantToEvent(event.getEventId(), restaurant.getRestaurantId());
                 restaurants.add(restaurant);
             }
         }
         map.put("restaurants", restaurants);
 
-        return "restaurantResults_private";
+        return "redirect:/addGuests";
     }
 
     @RequestMapping (path = "/addGuests", method = RequestMethod.GET)
