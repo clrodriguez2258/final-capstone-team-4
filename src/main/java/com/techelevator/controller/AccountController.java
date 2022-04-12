@@ -52,7 +52,6 @@ public class AccountController {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
             return "decision";
         } else {
-            //throw new UnauthorizedException();
             return "redirect:/login";
         }
     }
@@ -108,7 +107,7 @@ public class AccountController {
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
-        return "restaurantsCreateEvent";
+        return "restaurantResults_private";
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.POST)
@@ -120,8 +119,7 @@ public class AccountController {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
             model.put("restaurants", restaurants);
         }
-
-        return "restaurantResults_private";
+        return "restaurantsCreateEvent";
     }
 
     @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
@@ -144,7 +142,7 @@ public class AccountController {
         }
         map.put("restaurants", restaurants);
 
-        return "addGuests";
+        return "restaurantResults_private";
     }
 
     @RequestMapping (path = "/addGuests", method = RequestMethod.GET)
