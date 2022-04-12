@@ -22,7 +22,7 @@
             <div class="caption">
                 <h3 class="decision-card-title">Set Up An Event</h3>
                 <c:url var="getStartedBtn" value="/login/createEvent"/>
-                <form action="${ getStartedBtn }" method="POST" >
+                <form action="${ getStartedBtn }" method="GET" >
                     <button class="submit-btn" type="submit" name="submit" >Get Started</button>
                 </form>
             </div>
@@ -35,7 +35,7 @@
             <div class="caption">
                 <h3 class="decision-card-title">Search For Restaurants</h3>
                 <c:url var="searchForRestaurantsBtn" value="/login/restaurants"/>
-                <form action="${ searchForRestaurantsBtn }" method="POST" >
+                <form action="${ searchForRestaurantsBtn }" method="GET" >
                     <button class="submit-btn" type="submit" name="submit" >Subdue your HANGER</button>
                 </form>
             </div>

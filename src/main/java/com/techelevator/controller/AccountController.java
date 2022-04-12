@@ -100,7 +100,7 @@ public class AccountController {
         Event newEvent = eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
         map.addAttribute("event", newEvent);
 
-        return "restaurants_private";
+        return "restaurantsCreateEvent";
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.GET)
@@ -108,7 +108,7 @@ public class AccountController {
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
-        return "restaurants_private";
+        return "restaurantsCreateEvent";
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.POST)

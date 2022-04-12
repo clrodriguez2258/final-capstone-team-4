@@ -13,10 +13,10 @@
         <img class="groupdinner" src="${ createEventImage }"/>
     </div>
     <div class="imgBackground" <%--action="/"--%>>
-        <c:url var="addGuests" value="/login/createEvent"/>
-        <form:form action="${ addGuests }" method="POST">
+        <c:url var="addRestaurants" value="/login/addRestaurants"/>
+        <form:form action="${ addRestaurants }" method="GET">
             <div id="eventForm">
-                <form method="POST" action="${ addGuests }"/>
+                <form method="GET" action="${ addRestaurants }"/>
                 <div class="subheader">
                     <p><span>Invite your favorite people for great food and fun!</span></p>
                 </div>
@@ -42,7 +42,7 @@
 <%--                <input type="input" name="time" value="24:00:00">required/>--%>
                 </span>
                 </div>
-                <input id="submit-btn" type="submit" name="submit" value="Add Guests"/>
+                <input id="submit-btn" type="submit" name="submit" value="Add Restaurants"/>
             </div>
             </form>
         </form:form>
