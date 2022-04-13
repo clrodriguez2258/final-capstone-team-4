@@ -8,36 +8,28 @@
 <c:url var="cssUrl2" value="/css/site2.css"/>
 <link rel="stylesheet" href="${cssUrl2}"/>
 
-
-<div  class="container">
-
-
-  <div id="profile">
-
-            <h2 id="userNameText"><c:out value="${user.capitalizedUsername}"/> </h2>
-
-  </div>
+<h2 id="userNameText"><c:out value="${user.capitalizedUsername}"/> </h2>
   <h2>EVENTS:</h2>
  <c:forEach var="event" items="${allEvents}">
      <c:url var="eventDetails" value="/finalist?eventId=${event.eventId}"></c:url>
 <%--  <c:set var="restaurant" value="${restaurants}"/>--%>
-  <div id="userEvents" style="background-color: aliceblue">
+    <table style="width:100%; border:1px solid black">
+        <tr  style="border:1px solid black">
+            <td>Name of event maker</td>
+            <td>Time</td>
+            <td>Date of event</td>
+        </tr>
+        <tr>
+            <a href="${eventDetails}">Events Details</a>
+            <td>${event.eventName}</td>
+            <td>${event.eventTime}</td>
+            <td>${event.eventDate} </td>
+        </tr>
+    </table>
 
-    <ul>
-      <a href="${eventDetails}"><li>
-        <p>${event.eventName} </p>
-        <p>${event.eventTime}  </p>
-        <p>${event.eventDate} </p>
 
-<%--        <p>${restaurant.restaurantName} winner restaurant Name</p>--%>
 
-      </li></a>
-
-    </ul>
-
-  </div>
-
-</c:forEach>
+    </c:forEach>
 
 
 
