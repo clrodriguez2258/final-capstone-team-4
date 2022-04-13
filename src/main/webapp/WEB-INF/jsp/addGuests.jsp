@@ -32,7 +32,7 @@
                     <i class="email"></i>
                 </div>
                 <div class="eventButton">
-                    <input id="event-btn" type="submit" name="submit" value="Add"/>
+                    <input class="event-btn" type="submit" name="submit" value="Add"/>
                 </div>
                 <div>
                     <br>
@@ -44,6 +44,9 @@
                 <li>${ guest.guestName } - ${ guest.email }</li>
             </c:forEach>
         </ul>
+        <div>
+            <br>
+        </div>
         <c:url var="doneAddingGuests" value="/login/createEventConfirmation"/>
         <a class="done-btn" href="${ doneAddingGuests }">Done</a>
         <div>

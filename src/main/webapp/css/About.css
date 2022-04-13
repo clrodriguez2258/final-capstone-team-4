@@ -10,17 +10,18 @@ h1 {
     border-radius: 4px;
 }
 
-h7{
+h7 {
     overflow-wrap: normal;
     font-size: 22px;
     text-align: left;
     color: #3A4750;
 }
-p{
+
+p {
     overflow-wrap: normal;
 }
 
-h2{
+h2 {
     font-size: 20px;
     color: #3A4750;
 }
@@ -31,11 +32,11 @@ img.creatorPic {
     border: 3px solid #3A4750;
 }
 
-.creatorDetail{
+.creatorDetail {
     position: absolute;
 }
 
-td{
+td {
     padding: 20px;
 }
 
