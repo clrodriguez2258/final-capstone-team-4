@@ -42,23 +42,29 @@
 .decision-card-title {
     font-family: "Raleway Thin", sans-serif;
     letter-spacing: 4px;
-    padding-bottom: 23px;
     padding-top: 13px;
     text-align: center;
 }
 
 .event-image {
     position: center;
-    max-height: 300px;
+    height: 300px;
     border-radius: 4px;
     display: inline;
+    margin-left: -45px;
+    max-width: 500px;
 }
 
+.caption{
+    margin-top: 20px;
+}
 .search-image {
     position: center;
-    max-height: 300px;
-   border-radius: 4px;
-    display: inline-block;
+    height: 300px;
+    border-radius: 4px;
+    display: inline;
+    max-width: 500px;
+    margin-left: -45px;
 }
 #card-private{
     background: #fbfbfb;
