@@ -121,7 +121,10 @@ ALTER TABLE user_event
     ADD FOREIGN KEY (user_id) REFERENCES app_user (id);
 
 ALTER TABLE guest_event
-    ADD FOREIGN KEY (guest_id) REFERENCES events (event_id);
+    ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
+
+ALTER TABLE guest_event
+    ADD FOREIGN KEY (guest_id) REFERENCES guest(guest_id);
 
 ALTER TABLE events
     ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
