@@ -10,13 +10,14 @@
 <div class="container"   >
 
     <div>
+        <p>Your current leader is:</p>
         <p>${event.eventName}  </p>
         <p>${event.eventTime}   </p>
         <p>${event.eventDate} </p>
 
         <br/>
 
-        <c:forEach var="restaurant" items="${restaurants}">
+<%--        <c:forEach var="restaurant" items="${restaurants}">--%>
             <div style="background-color: aliceblue;
             width: 300px;
             height: auto;
@@ -25,19 +26,19 @@
             display: inline-block;
 
                ">
-                <c:url var="restaurantImage" value="/img/${  restaurant.image }"></c:url>
+                <c:url var="restaurantImage" value="/img/${  finalRestaurant.image }"/>
                 <img src="${restaurantImage}" style="width: 300px;
 height: 300px">
-                <p>${restaurant.restaurantName}</p>
-                <p> ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }</p>
-                <label for="chooseAsWinner"> Choose as Winner </label>
-                <input type="radio" id="chooseAsWinner" class="chooseAsWinner" name="winnerRadio" value="winner">
-                <br>
+                <p>${finalRestaurant.restaurantName}</p>
+                <p> ${ finalRestaurant.street } ${ finalRestaurant.city }, ${ finalRestaurant.state } ${ finalRestaurant.zipCode }</p>
+<%--                <label for="chooseAsWinner"> Choose as Winner </label>--%>
+<%--                <input type="radio" id="chooseAsWinner" class="chooseAsWinner" name="winnerRadio" value="winner">--%>
+<%--                <br>--%>
 
             </div>
 
 
-        </c:forEach>
+<%--        </c:forEach>--%>
 
 
     </div>

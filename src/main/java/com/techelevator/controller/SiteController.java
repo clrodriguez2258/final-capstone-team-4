@@ -89,7 +89,7 @@ public class SiteController {
     public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash, HttpSession session) {
         if (auth.signIn(username, password)) {
             session.setAttribute("id", userDao.getUserIdWithEmail(username));
-            return "decision";
+            return "redirect:/login/decision";
         } else {
             flash.addFlashAttribute("message", "Login Invalid");
             return "redirect:/login";
