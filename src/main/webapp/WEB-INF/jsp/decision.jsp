@@ -1,7 +1,7 @@
 <%@ include file="common/header.jspf" %>
 
-<c:url var="cssUrl" value="/css/site.css"/>
-<link rel="stylesheet" href="${cssUrl}"/>
+<%--<c:url var="cssUrl" value="/css/site.css"/>--%>
+<%--<link rel="stylesheet" href="${cssUrl}"/>--%>
 
 <c:url var="cssUrl2" value="/css/site2.css"/>
 <link rel="stylesheet" href="${cssUrl2}"/>
@@ -18,10 +18,10 @@
 </div>
 
 <div class="row">
-    <div id="card1" class="col-sm-6 col-md-4" style="width: 50%;">
+    <div id="card1" class="col-sm-6 col-md-4">
         <div id="card-content-card1">
             <c:url var="createEventUrl" value="/img/scheduleEvent.jpg"/>
-            <img src="${ createEventUrl }" alt="people eating food" class="event-image">
+            <img class="event-image" src="${ createEventUrl }" alt="people eating food">
             <div class="caption">
                 <h3 class="decision-card-title">Set Up An Event</h3>
                 <c:url var="getStartedBtn" value="/login/createEvent"/>
@@ -31,10 +31,12 @@
             </div>
         </div>
     </div>
-    <div id="card2" class="col-sm-6 col-md-4" style="width: 50%;">
+    <div>
+    </div>
+    <div id="card2" class="col-sm-6 col-md-4">
         <div id="card-content-card2">
             <c:url var="createEventUrl" value="/img/searchRestaurants.jpg"/>
-            <img src="${ createEventUrl }" alt="people eating food" class="search-image">
+            <img class="search-image" src="${ createEventUrl }" alt="people eating food">
             <div class="caption">
                 <h3 class="decision-card-title">Search For Restaurants</h3>
                 <c:url var="searchForRestaurantsBtn" value="/login/restaurants"/>
@@ -45,5 +47,3 @@
         </div>
     </div>
 </div>
-
-<%@ include file="common/footer.jspf" %>

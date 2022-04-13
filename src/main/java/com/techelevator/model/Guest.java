@@ -6,7 +6,7 @@ import java.time.LocalTime;
 public class Guest {
 
   private Long guestId;
-  private Long eventId;
+  //private Long eventId;
   private String guestName;
   private boolean attending;
   private String email;
@@ -29,13 +29,13 @@ public class Guest {
   }
 
 
-  public Long getEventId() {
-    return eventId;
-  }
+//  public Long getEventId() {
+//    return eventId;
+//  }
 
-  public void setEventId(Long eventId) {
-    this.eventId = eventId;
-  }
+//  public void setEventId(Long eventId) {
+//    this.eventId = eventId;
+//  }
 
 
   public String getGuestName() {
