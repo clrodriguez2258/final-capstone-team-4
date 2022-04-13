@@ -75,6 +75,7 @@ public class AccountController {
 
         Event newEvent = eventDao.createNewEvent(eventName, eventDate, eventTime, decisionDate);
         session.setAttribute("event", newEvent);
+        userDao.addUserToEvent((Long) session.getAttribute("id"), newEvent.getEventId());
 
         return "redirect:/login/addRestaurants";
     }
