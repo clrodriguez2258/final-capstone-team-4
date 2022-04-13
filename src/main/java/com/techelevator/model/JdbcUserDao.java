@@ -71,6 +71,7 @@ public class JdbcUserDao implements UserDao {
         jdbcTemplate.update("UPDATE app_user SET password=?, salt=? WHERE id=?", hashedPassword, saltString, user.getId());
     }
 
+
     /**
      * Look for a user with the given username and password. Since we don't
      * know the password, we will have to get the user's salt from the database,

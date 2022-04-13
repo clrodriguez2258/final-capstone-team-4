@@ -46,26 +46,26 @@ public class EventController {
 
 
     //user profile page.
-    @RequestMapping(path ="profile",method= RequestMethod.GET)
-    public String displayUserEvents(HttpServletRequest request){
-//        Long eventId = Long.parseLong(request.getParameter("eventId"));
-        Long userId = Long.parseLong(request.getParameter("id"));
-        List<Event> events = eventDao.getEventByUserId(userId);
-        request.setAttribute("events", events);
-
-//        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
-//        map.put("events",events);
-//        map.put("restaurants", restaurants);
+//    @RequestMapping(path ="/profile",method= RequestMethod.GET)
+//    public String displayUserEvents(HttpServletRequest request){
+////        Long eventId = Long.parseLong(request.getParameter("eventId"));
+//        Long userId = Long.parseLong(request.getParameter("id"));
+//        List<Event> events = eventDao.getEventByUserId(userId);
+//        request.setAttribute("events", events);
 //
+////        List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
+////        map.put("events",events);
+////        map.put("restaurants", restaurants);
+////
+////
 //
+//        return "userProfile";}
 
-        return "userProfile";}
 
-
-    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
+    @RequestMapping(path ="/userprofile",method= RequestMethod.GET)
     public String displayUserProfile(ModelMap map, HttpSession session){
-        session.getAttribute("id");
-        List<Event> allEvents = eventDao.getAllEvents();
+       Long Id = (Long) session.getAttribute("id");
+        List<Event> allEvents = eventDao.getEventByUserId(Id);
         map.put("allEvents", allEvents);
 
 
@@ -76,7 +76,7 @@ public class EventController {
     @RequestMapping(path = "/finalist", method = RequestMethod.GET)
 
     public String displayFinalistRestaurants (HttpServletRequest request){
-        Long eventId = Long.parseLong(request.getParameter("eventId"));
+            Long eventId = Long.parseLong(request.getParameter("eventId"));
         Event event = eventDao.getEventByEventId(eventId);
         request.setAttribute("event", event);
 

@@ -64,7 +64,7 @@ public class AccountController {
     @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
     public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate eventDate,
                                      @RequestParam @DateTimeFormat(pattern = "HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate decisionDate,
-                                     HttpSession session) {
+                                         HttpSession session) {
 
         Event eventInvite = new Event();
 
