@@ -10,17 +10,20 @@ h1 {
     border-radius: 4px;
 }
 
-p.story{
-    overflow-wrap: anywhere;
+h7{
+    overflow-wrap: normal;
     font-size: 22px;
+    text-align: left;
+    color: #3A4750;
+}
+p{
+    overflow-wrap: normal;
 }
 
 h2{
     font-size: 20px;
     color: #3A4750;
 }
-
-
 
 img.creatorPic {
     vertical-align: middle;
