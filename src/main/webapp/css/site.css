@@ -107,6 +107,10 @@ ul.nav.navbar-nav > li > a:hover {
 }
 ul{
     font-size: large;
+    color: #303841;
+}
+ul.nav.navbar-nav > li > a{
+    color: #303841;
 }
 .form {
     align-items: center;
