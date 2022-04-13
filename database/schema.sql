@@ -79,10 +79,11 @@ CREATE TABLE guest
 
 CREATE TABLE guest_restaurant
 (
-    thumbs_up_down  int,
-    restaurant_id int,
-    guest_id int,
-    event_id int,
+    thumbs_up_count   int,
+    thumbs_down_count int,
+    restaurant_id     int,
+    guest_id          int,
+    event_id          int,
     primary key (restaurant_id, guest_id)
 );
 -- CREATE TABLE preferences(
@@ -96,11 +97,12 @@ CREATE TABLE guest_restaurant
 
 
 -- );
-create table favorites (
-    user_id  int ,
-    restaurant_id int ,
+create table favorites
+(
+    user_id       int,
+    restaurant_id int,
 
-    primary key ( user_id,restaurant_id )
+    primary key (user_id, restaurant_id)
 
 );
 
@@ -108,12 +110,12 @@ create table favorites (
 
 CREATE TABLE events
 (
-    event_id          serial,
-    restaurant_id     int,
-    event_name        varchar(250) not null,
-    event_time        time         not null,
-    event_date        date         not null,
-    decision_date     date,
+    event_id      serial,
+    restaurant_id int,
+    event_name    varchar(250) not null,
+    event_time    time         not null,
+    event_date    date         not null,
+    decision_date date,
 --     thumbs_up         boolean,
 --     thumbs_up_count   int,
 --     thumbs_down       boolean,
@@ -143,16 +145,12 @@ CREATE TABLE user_event
 
 CREATE TABLE restaurant_event
 (
-    event_id  int,
+    event_id      int,
     restaurant_id int,
 
     PRIMARY KEY (event_id, restaurant_id)
 
 );
-
-
-
-
 
 
 

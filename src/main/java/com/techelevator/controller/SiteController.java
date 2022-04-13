@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
@@ -84,8 +85,9 @@ public class SiteController {
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash) {
+    public String login(@RequestParam String username, @RequestParam String password, RedirectAttributes flash, HttpSession session) {
         if (auth.signIn(username, password)) {
+            session.setAttribute("id", userDao.getUserIdWithEmail(username));
             return "decision";
         } else {
             flash.addFlashAttribute("message", "Login Invalid");
