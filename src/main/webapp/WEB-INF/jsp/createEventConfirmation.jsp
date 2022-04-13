@@ -8,7 +8,8 @@
 <div>
     <ul>
         <c:forEach var="guest" items="${ guests }">
-            <c:set var="guestUrl" value="http://localhost:8080/capstone_war_exploded/eventVote?guestId=${ guest.guestId }&eventId=${ event.eventId }"/>
+            <c:set var="guestUrl"
+                   value="http://localhost:8080/capstone_war_exploded/eventVote?guestId=${ guest.guestId }&eventId=${ event.eventId }"/>
             <li>${ guest.guestName } - ${ guest.email } - <a onclick="${ guestUrl }">${ guestUrl }</a></li>
         </c:forEach>
     </ul>

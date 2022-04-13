@@ -16,33 +16,31 @@
             <c:url var="createEventImage" value="/img/groupdinner.jpg"/>
             <img class="groupdinner" src="${ createEventImage }"/>
         </div>
-
-
         <form method="POST" action="${ addGuests }">
-            <div class="subheader">
-                <p><span>Invite your favorite people for great food and fun!</span></p>
-            </div>
             <div class="inputs">
+                <div class="subheader">
+                    <p class="inviteSubheader"><span>Plan the perfect event for creating memories with family & friends!</span></p>
+                </div>
                 <div class="item">
-                    <label for="eventName" class="inputLabel">Event Name</label>
+                    <label for="eventName" class="inputLabel">Event Name</label><br>
                     <input type="text" name="eventName" id="eventName"/>
                 </div>
                 <div class="item">
-                    <label for="eventDate" class="inputLabel">Event Date</label>
+                    <label for="eventDate" class="inputLabel">Event Date</label><br>
                     <input type="date" name="eventDate" id="eventDate" required/>
                     <i class="fas fa-calendar-alt"></i>
                 </div>
                 <div class="item">
-                    <label for="eventTime" class="inputLabel">Event Time</label>
+                    <label for="eventTime" class="inputLabel">Event Time</label><br>
                     <input type="time" name="eventTime" id="eventTime" required/>
                 </div>
                 <div class="item">
-                    <label for="decisionDate" class="inputLabel">Decision due date</label>
+                    <label for="decisionDate" class="inputLabel">Decision due date</label><br>
                     <input type="date" name="decisionDate" id="decisionDate" required/>
                 </div>
                 <br/>
                 <div class="item">
-                <button type="submit" class="submit-btn" value="submit" formaction="${addGuests}">Choose restaurants</button>
+                <button class="main-event-btn" type="submit" value="submit" formaction="${addGuests}">Choose restaurants</button>
                 <%--                        <input id="event-btn" type="submit" name="submit" value="Choose Restaurants"/>--%>
                 </div>
 
@@ -54,5 +52,3 @@
 </div>
 
 
-
-<%@ include file="common/footer.jspf" %>
