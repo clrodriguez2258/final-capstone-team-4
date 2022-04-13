@@ -121,14 +121,14 @@ public class JdbcRestaurantDao implements RestaurantDao {
 //        jdbcTemplate.update(sqlAddRestaurantToEvent, thumbsUpCount, eventId, restaurantId);
 //    }
 
-    public void updateRestaurantVoteUp( Long eventId,Long restaurantId){
-        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count += 1 WHERE restaurant_id = ? AND event_id =? ;";
-        jdbcTemplate.update(sqlAddRestaurantToEvent, eventId, restaurantId);
+    public void updateRestaurantVoteUp(Long eventId, Long restaurantId){
+        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = thumbs_up_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, restaurantId, eventId);
     }
 
     public void updateRestaurantVoteDown( Long eventId,Long restaurantId){
-        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_down_count += 1 WHERE restaurant_id = ? AND event_id =? ;";
-        jdbcTemplate.update(sqlAddRestaurantToEvent, eventId, restaurantId);
+        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_down_count = thumbs_down_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, restaurantId, eventId);
     }
 
 
