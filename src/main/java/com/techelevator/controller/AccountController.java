@@ -49,7 +49,7 @@ public class AccountController {
     @RequestMapping(path = "/decision", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
-            return "createEvent";
+            return "decision";
         } else {
             return "redirect:/login";
         }

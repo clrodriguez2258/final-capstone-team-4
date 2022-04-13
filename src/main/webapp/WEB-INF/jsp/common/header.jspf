@@ -71,7 +71,7 @@
                 <li><a href="${homeUrl}">Home </a></li>
                 <c:url var="aboutUrl" value="/about"/>
                 <li><a href="${aboutUrl}">About  </a></li>
-                <c:url var="privateUrl" value="/decision"/>
+                <c:url var="privateUrl" value="/login/decision"/>
                 <li><a href="${privateUrl}">Search and Set up Event  </a></li>
                 <c:url var="profileUrl" value="/userprofile"/>
                 <li><a href="${profileUrl}">User Profile </a></li>
