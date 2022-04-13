@@ -106,14 +106,44 @@ public class JdbcRestaurantDao implements RestaurantDao {
         return restaurantByRestaurantId;
 
     }
+
+//    public void updateRestaurantVoteUpTEST(Long eventId,Long restaurantId){
+//        int thumbsUpCount = 0;
+//        String sql = "SELECT * FROM restaurant_event WHERE restaurant_id =? AND event_id = ?;";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, restaurantId, eventId);
+//
+//        while (results.next()){
+//           thumbsUpCount = (int) results.getLong("thumbs_up_count");
+//           thumbsUpCount ++;
+//
+//        }
+//        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = ? WHERE restaurant_id = ? AND event_id =? ;";
+//        jdbcTemplate.update(sqlAddRestaurantToEvent, thumbsUpCount, eventId, restaurantId);
+//    }
+
+    public void updateRestaurantVoteUp(Long eventId, Long restaurantId){
+        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = thumbs_up_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, restaurantId, eventId);
+    }
+
+    public void updateRestaurantVoteDown( Long eventId,Long restaurantId){
+        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_down_count = thumbs_down_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, restaurantId, eventId);
+    }
+
+
+
+
+
+
 // UPDATING RELATIONAL TABLES RESTAURANT_EVENT
     public void addRestaurantToEvent(Long eventId, Long restaurantId){
-        String sqlAddRestaurantToEvent = "INSERT INTO restaurant_event (event_id, restaurant_id) VALUES (?,?)";
+        String sqlAddRestaurantToEvent = "INSERT INTO restaurant_event (event_id, restaurant_id) VALUES (?,?);";
         jdbcTemplate.update(sqlAddRestaurantToEvent, eventId, restaurantId);
     }
 
     public void removeRestaurantFromEvent(Long eventId, Long restaurantId){
-        String sqlRemoveGuestFromEvent = "DELETE FROM restaurant_event WHERE event_id = ? AND restaurant_id = ?";
+        String sqlRemoveGuestFromEvent = "DELETE FROM restaurant_event WHERE event_id = ? AND restaurant_id = ?;";
         jdbcTemplate.update(sqlRemoveGuestFromEvent, eventId, restaurantId);
     }
 
