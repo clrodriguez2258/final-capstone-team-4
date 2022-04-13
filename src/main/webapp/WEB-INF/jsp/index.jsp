@@ -1,15 +1,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="common/header.jspf" %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Welcome to HANGRY!</h1>
-<p>Your solution to quick restaurant decisions</p>
 
 <c:url var="cssUrl2" value="/css/site2.css"/>
 <link rel="stylesheet" href="${cssUrl2}"/>
+
+<br>
+<br>
+<br>
+<div class="welcome">
+<h1>Welcome to HANGRY!</h1>
+<p>Your solution to quick restaurant decisions</p>
+</div>
     <div class="searchbar1" >
         <form for="restaurantSearch" action="restaurants" method="POST">
             <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
@@ -26,8 +27,8 @@
         </form>
     </div>
 <div class="hompageImg" >
-    <c:url var="image1" value="/img/sheri-silver.jpg"/>
-    <img src="${image1}"/>
+    <c:url var="image1" value="/img/mandarin.jpg"/>
+    <img src="${image1}" height="70%" width="100%"/>
 </div>
     <%--                       Code used after database works                         --%>
     <div id=" masonry-page">

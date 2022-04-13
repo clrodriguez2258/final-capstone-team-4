@@ -8,16 +8,12 @@
 <br>
 <br>
 <br>
-<h1>The People Behind HANGRY</h1>
+<h1>The Developers</h1>
 <div>
 </div>
 <div class="ourStory">
-    <h7 class="story">
-        Our Story....
-        We founded our startup after recognizing a need to help bring families and friends back together. Being apart
-        became the "new normal" during the pandemic. Facilitating togetherness is our goal, creating new memories for
-        our users drives us each day.
-    </h7>
+<%--    <h7 class="story">--%>
+<%--    </h7>--%>
 </div>
 <div>
     <br>

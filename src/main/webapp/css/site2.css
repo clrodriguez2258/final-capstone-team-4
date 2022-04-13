@@ -112,21 +112,31 @@
 /*    box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);*/
 /*}*/
 
+.welcome h1{
+    font-size: 55px;
+    font-weight: bolder;
+    font-family: "Candara";
+}
+.welcome p{
+    font-size: 35px;
+    font-weight: bold;
+    font-family: "Candara light";
+}
 .searchbar1 {
     height: 200px;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
-    /*justify-content: center;*/
-    position: absolute;
-    z-index: 100;
-    top: 275px;
+    justify-content: center;
+    /*position: absolute;*/
+    top: 15px;
+    right: 600px;
 }
 
 .hompageImg{
     position: absolute;
     left: 0;
-    top: 250px;
-    width: 100%;
+    top: 200px;
+    z-index: -100;
 }
 
 
