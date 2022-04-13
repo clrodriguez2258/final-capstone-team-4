@@ -30,7 +30,7 @@
                         <div class="restaurantInfo">
                             <span>
 
-                                <button type="submit" class="submit-btn" value="${ restaurant.restaurantId }" formaction="${eventVote}" name="restaurantId" id="upvoteButton${ restaurant.restaurantId }"
+                                <button type="submit" class="vote-submit-btn" value="${ restaurant.restaurantId }" formaction="${eventVote}" name="restaurantId" id="upvoteButton${ restaurant.restaurantId }"
                                 style="margin-top: 5px; background: lightgreen; display: inline-block; width: 99%"><span
                                 class="glyphicon glyphicon-ok"
                                 style="color: darkgreen; font-size: 150%;"></span></button>
