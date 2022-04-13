@@ -27,6 +27,9 @@
                 <option value="Mexican">Mexican</option>
 
             </select>
+            <div>
+
+            </div>
 
             <button id="submit-btn" type="submit" name="submit">Search</button>
         </div>
