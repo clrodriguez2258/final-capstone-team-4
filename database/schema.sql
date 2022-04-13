@@ -16,29 +16,7 @@ CREATE TABLE app_user
     salt      varchar(255) NOT NULL
 );
 
--- CREATE TABLE userProfile
--- (
---     event_id     int,
---     email        varChar(255) NOT NULL,
---     first_name   varChar(255) NOT NULL,
---     last_name    varChar(255) NOT NULL,
---     phone_number varChar(15),
---     zipcode      varChar(5)   NOT NULL,
---
---
---     CONSTRAINT PK_user PRIMARY KEY (email)
---
---
--- );
 
--- CREATE TABLE user_userProfile
--- (
---     user_id int,
---     email   varchar(250),
---
---         CONSTRAINT PK_userProfile PRIMARY KEY (user_id, email)
---
--- );
 
 CREATE TABLE restaurant
 (
@@ -73,7 +51,6 @@ CREATE TABLE guest
     email      varchar(250) NOT NULL,
 
     CONSTRAINT PK_guest PRIMARY KEY (guest_id)
---     CONSTRAINT UNQ_email UNIQUE (email)
 
 );
 
@@ -85,17 +62,9 @@ CREATE TABLE guest_restaurant
     event_id          int,
     primary key (restaurant_id, guest_id)
 );
--- CREATE TABLE preferences(
---     preference_id serial primary key ,
---     pet_friendly boolean ,
---     dress_code varchar(250),
---     dineIn boolean,
---     vegan boolean,
---     gluten_free boolean
---
 
 
--- );
+
 create table favorites
 (
     user_id       int,
@@ -115,11 +84,7 @@ CREATE TABLE events
     event_time    time         not null,
     event_date    date         not null,
     decision_date date,
---     thumbs_up         boolean,
---     thumbs_up_count   int,
---     thumbs_down       boolean,
---     thumbs_down_count int,
---     event_description int,
+
     CONSTRAINT PK_event PRIMARY KEY (event_id)
 );
 
@@ -155,23 +120,6 @@ CREATE TABLE restaurant_event
 );
 
 
-
--- INSERTING VALUES
-
---
--- INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
---                        call_to_order, isOpen, open_time, close_time)
---
--- VALUES ('Chipotle', 'mainstreet', 'Rolling Meadows', 'OH', '43204', '4', 'chipotle.jpg', 'www.chipotle.com',
---         '8474392530', 'true', true, '8:00', '22:00');
---
--- INSERT INTO event( user_id, restaurant_id, event_name, event_time, event_date, decision_date, decision_time
--- )
--- values('1', '1', 'burritotime', '15:00', '17:00','04/05/2022','04/04/2022', '18:00' );
---
--- insert into  guest( event_id, guest_name, attending, email )
--- values ('1','Christian Rodriguez', 'yes','ab@f=gmail.com');
---
 
 COMMIT;
 
