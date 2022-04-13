@@ -59,4 +59,5 @@
         </c:forEach>
     </div>
 </div>
+
 <%@ include file="common/footer.jspf" %>

@@ -39,6 +39,12 @@ public class JdbcGuestDao implements GuestDao {
         return guestsByEvent;
     }
 
+    public void updateGuestVoted (Long guestId, Long eventId){
+        String sqlUpdateGuestVoted = "UPDATE restaurant_event  SET thumbs_up_count = thumbs_up_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        jdbcTemplate.update(sqlUpdateGuestVoted, guestId, eventId);
+
+    }
+
     @Override
     public Guest createNewGuest(Guest guest) {
         Guest newGuest = new Guest();

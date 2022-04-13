@@ -33,13 +33,15 @@ public class SiteController {
     private UserDao userDao;
     @Autowired
     private EventDao eventDao;
+    @Autowired
+    private GuestDao guestDao;
 
     @RequestMapping(method = RequestMethod.GET, path = {"/", "/index"})
     public String index(ModelMap modelHolder) {
         modelHolder.put("user", auth.getCurrentUser());
         return "index";
     }
- 
+
     @RequestMapping(path = "/logoff", method = RequestMethod.POST)
     public String logOff() {
         auth.logOff();
@@ -60,7 +62,7 @@ public class SiteController {
             result.addError(new FieldError("user", "password", "Passwords must match"));
         }
 
-        if (!userDao.getUserWithEmail(user.getUsername().toUpperCase()).isEmpty()){
+        if (!userDao.getUserWithEmail(user.getUsername().toUpperCase()).isEmpty()) {
             result.addError((new FieldError("user", "username", "User already exists")));
         }
 
@@ -75,7 +77,6 @@ public class SiteController {
         auth.register(user.getUsername(), user.getPassword(), user.getRole());
         return "redirect:/login";
     }
-
 
 
     @RequestMapping(path = "/login", method = RequestMethod.GET)
@@ -101,7 +102,7 @@ public class SiteController {
     }
 
     @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
-    public String displayRestaurant (ModelMap map){
+    public String displayRestaurant(ModelMap map) {
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
@@ -111,10 +112,10 @@ public class SiteController {
     @RequestMapping(path = "/restaurants", method = RequestMethod.POST)
     public String processRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch, ModelMap model) {
 
-        if(searchRadio.equals("city")){
+        if (searchRadio.equals("city")) {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByCity(restaurantSearch);
             model.put("restaurants", restaurants);
-        } else if(searchRadio.equals("zip")){
+        } else if (searchRadio.equals("zip")) {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
             model.put("restaurants", restaurants);
         }
@@ -123,15 +124,30 @@ public class SiteController {
     }
 
     @RequestMapping(path = "/eventVote", method = RequestMethod.GET)
-    public String displayEventVote(@RequestParam Long eventId, @RequestParam Long guestId, ModelMap map){
+    public String displayEventVote(@RequestParam Long eventId, @RequestParam Long guestId, ModelMap map) {
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
         Event event = (Event) eventDao.getEventByEventId(eventId);
         map.addAttribute("restaurants", restaurants);
-        if(event.getDecisionDate().isBefore(LocalDate.now())) {
-            return("redirect:/eventLinkExpired");
+        map.addAttribute("guestId", guestId);
+        map.addAttribute("eventId", eventId);
+        if (event.getDecisionDate().isBefore(LocalDate.now())) {
+            return ("redirect:/eventLinkExpired");
         }
         return "eventVote";
     }
+
+    @RequestMapping(path = "/eventVote", method = RequestMethod.POST)
+    public String processEventVote(@RequestParam Long restaurantId, ModelMap map) {
+        guestDao.updateGuestVoted(restaurantId, (Long) map.get("guestId"));
+        restaurantDao.updateRestaurantVoteUpTEST(restaurantId,(Long) map.get("eventId"));
+
+
+
+
+
+        return "votingConfirmation";
+    }
+
 
     // RETURN LINK EXPIRED PAGE
     @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
@@ -142,8 +158,6 @@ public class SiteController {
 
 //    @RequestMapping(path ="finalist",method= RequestMethod.GET)
 //    public String displayEventFinalist(){return "finalistRestaurants";}
-
-
 
 
 }

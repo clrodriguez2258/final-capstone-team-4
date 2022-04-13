@@ -79,8 +79,7 @@ CREATE TABLE guest
 
 CREATE TABLE guest_restaurant
 (
-    thumbs_up_count   int,
-    thumbs_down_count int,
+
     restaurant_id     int,
     guest_id          int,
     event_id          int,
@@ -129,7 +128,7 @@ CREATE TABLE guest_event
 (
     guest_id int,
     event_id int,
-
+    voted boolean Default (false),
     CONSTRAINT PK_guest_event PRIMARY KEY (guest_id, event_id)
 
 );
@@ -143,10 +142,13 @@ CREATE TABLE user_event
 
 );
 
+
 CREATE TABLE restaurant_event
 (
     event_id      int,
     restaurant_id int,
+    thumbs_up_count   int DEFAULT (0),
+    thumbs_down_count int DEFAULT (0),
 
     PRIMARY KEY (event_id, restaurant_id)
 
