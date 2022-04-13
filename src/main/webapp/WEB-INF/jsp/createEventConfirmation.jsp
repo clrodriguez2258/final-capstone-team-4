@@ -4,8 +4,14 @@
 
 <div class="bannerPageExpired">
     <h1 class="oneandhalf">The event invitation has been sent to the following recipients:</h1>
-</div>
-<div>
+    <div>
+        <br>
+        <br>
+    </div>
+    <div>
+        <br>
+    </div>
+<div class="guestList">
     <ul>
         <c:forEach var="guest" items="${ guests }">
             <c:set var="guestUrl"
@@ -13,6 +19,7 @@
             <li>${ guest.guestName } - ${ guest.email } - <a onclick="${ guestUrl }">${ guestUrl }</a></li>
         </c:forEach>
     </ul>
+</div>
 </div>
 
 <%@ include file="common/footer.jspf" %>
