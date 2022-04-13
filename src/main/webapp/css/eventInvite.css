@@ -359,3 +359,10 @@ img.decisionLogo {
 }
 
 /*__________________EVENT CONFIRMATION SPECIFIC CSS BELOW___________________________*/
+
+div.guestList{
+    background-color: white;
+    font-size: 18px;
+    border-radius: 3px;
+    position: absolute;
+}
