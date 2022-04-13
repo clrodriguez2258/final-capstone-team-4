@@ -118,10 +118,6 @@ public class JdbcEventDao implements EventDao {
         jdbcTemplate.update(sqlRemoveGuestFromEvent, guestId, eventId);
     }
 
-
-
-
-
     private Event mapRowToEvent(SqlRowSet results) {
 
         Event event = new Event();
