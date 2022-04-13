@@ -10,10 +10,6 @@
 
 <c:url var="cssUrl2" value="/css/site2.css"/>
 <link rel="stylesheet" href="${cssUrl2}"/>
-<br>
-<br>
-<br>
-
     <div class="searchbar1" >
         <form for="restaurantSearch" action="restaurants" method="POST">
             <label for="restaurantSearch" style="font-size: 30px;">Restaurant Search</label><br>
@@ -29,7 +25,7 @@
             </div>
         </form>
     </div>
-<div class="container">
+<div class="container" >
     <c:url var="image1" value="/img/sheri-silver.jpg"/>
     <img src="${image1}" style="width: 100%; height: 50%"/>
 </div>

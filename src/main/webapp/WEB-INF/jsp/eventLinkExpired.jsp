@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="${eventLinkExpired}"/>
 
 <div class="linkExpired">
-<div class="bannerPageExpired">
-     <h1 class="oneandhalf">Decision date has passed, you are no longer able to submit your restaurant choice</h1>
-</div>
+    <div class="bannerPageExpired">
+        <h1 class="oneandhalf">Decision date has passed, you are no longer able to submit your restaurant choice</h1>
+    </div>
 </div>
 <div class="linkExpired">
-   <c:url var="hangryLogo" value="/img/hangry-no-text-logo.png"/>
-<img class="decisionLogo" src="${hangryLogo}"/>
+    <c:url var="hangryLogo" value="/img/hangry-no-text-logo.png"/>
+    <img class="decisionLogo" src="${hangryLogo}"/>
 </div>
 <%@ include file="common/footer.jspf" %>

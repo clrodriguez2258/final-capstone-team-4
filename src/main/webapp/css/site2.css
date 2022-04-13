@@ -42,23 +42,29 @@
 .decision-card-title {
     font-family: "Raleway Thin", sans-serif;
     letter-spacing: 4px;
-    padding-bottom: 23px;
     padding-top: 13px;
     text-align: center;
 }
 
 .event-image {
-    max-height: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: center;
+    height: 300px;
+    border-radius: 4px;
+    display: inline;
+    margin-left: -45px;
+    max-width: 500px;
 }
 
+.caption{
+    margin-top: 20px;
+}
 .search-image {
-    max-height: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: center;
+    height: 300px;
+    border-radius: 4px;
+    display: inline;
+    max-width: 500px;
+    margin-left: -45px;
 }
 #card-private{
     background: #fbfbfb;
@@ -77,9 +83,8 @@
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
     height: 540px;
-    margin: 6rem auto 8.1rem auto;
-    width: 329px;
-
+    width: 45%;
+    margin-left: 20px;
 }
 
 #card-content-card2{
@@ -90,8 +95,9 @@
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
     height: 540px;
-    margin: 6rem auto 8.1rem auto;
-    width: 329px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 45%;
 }
 
 #card-content-card1{
@@ -164,15 +170,17 @@ img#pizzaSliceImage{
 }
 
 button.submit-btn {
+    position: fixed;
     background: #BE3144;
     border: none;
     border-radius: 21px;
     box-shadow: 0px 1px 8px #8D8DAA;
     cursor: pointer;
     color: white;
+    margin-left: 140px;
     font-family: "Raleway SemiBold", sans-serif;
+    font-weight: bold;
     height: 42.3px;
-    margin: 0 auto;
     margin-top: 50px;
     transition: 0.25s;
     width: 153px;
@@ -191,5 +199,7 @@ footer > p {
     column-gap: 50px;
 }
 
-
-
+#card-content-card1.event-image{
+    position: fixed;
+    text-align: center;
+}

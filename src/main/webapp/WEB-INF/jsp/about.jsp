@@ -11,11 +11,13 @@
 <h1>The People Behind HANGRY</h1>
 <div>
 </div>
-<div>
-    <p class="story">
+<div class="ourStory">
+    <h7 class="story">
         Our Story....
-        We founded our startup after recognizing a need to help bring families and friends back together. Being apart became the "new normal" during the pandemic. Facilitating togetherness is our goal, creating new memories for our users drives us each day.
-    </p>
+        We founded our startup after recognizing a need to help bring families and friends back together. Being apart
+        became the "new normal" during the pandemic. Facilitating togetherness is our goal, creating new memories for
+        our users drives us each day.
+    </h7>
 </div>
 <div>
     <br>
@@ -29,7 +31,7 @@
         <td class="creatorDetail">
             <span>
                 <h2>Angel Martinez Barrientos</h2>
-                <p> Years of experience, specializes in....</p>
+                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </span>
         </td>
     </tr>
@@ -41,7 +43,7 @@
         <td class="creatorDetail">
             <span>
                <h2>Jade Cephas</h2>
-                <p> Years of experience, specializes in...</p>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </span>
         </td>
     </tr>
@@ -53,7 +55,7 @@
         <td class="creatorDetail">
                         <span>
                             <h2>Jose Rodriguez</h2>
-                            <p> Years of experience, specializes in...</p>
+                            <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </span>
         </td>
     </tr>
@@ -65,7 +67,7 @@
         <td class="creatorDetail">
                         <span>
                             <h2>Nate Harraman</h2>
-                            <p> Years of experience, specializes in...</p>
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </span>
         </td>
     </tr>
@@ -77,42 +79,11 @@
         <td class="creatorDetail">
                         <span>
                             <h2>Christian Rodriguez</h2>
-                            <p> Years of experience, specializes in...</p>
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </span>
         </td>
     </tr>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <%--<div class="aboutImg">--%>
