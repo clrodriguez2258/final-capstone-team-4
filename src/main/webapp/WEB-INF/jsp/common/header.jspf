@@ -61,20 +61,20 @@
                 <c:url var="homeUrl" value="/index"/>
                 <a class="navbar-brand" href="${homeUrl}" class="navbar-brand">
                     <c:url var="logoUrl" value="/img/Hangry.png"/>
-                    <img src="${ logoUrl }" style="width: 250px; height:125px; "/></a>
+                    <img src="${ logoUrl }" style="width: 318px; height:200px; "/></a>
             </div>
         </div>
 
 <%--        SETTING THE BUTTONS AND URL LINKS TO THE TOP OF THE PAGE HOME, ABOUT AND SET UP EVENT--%>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${homeUrl}">Home </a></li>
+                <li><a href="${homeUrl}">HOME </a></li>
                 <c:url var="aboutUrl" value="/about"/>
-                <li><a href="${aboutUrl}">About  </a></li>
+                <li><a href="${aboutUrl}">ABOUT  </a></li>
                 <c:url var="privateUrl" value="/login/decision"/>
-                <li><a href="${privateUrl}">Search and Set up Event  </a></li>
+                <li><a href="${privateUrl}">EVENTS  </a></li>
                 <c:url var="profileUrl" value="/userprofile"/>
-                <li><a href="${profileUrl}">User Profile </a></li>
+                <li><a href="${profileUrl}">PROFILE </a></li>
 <%--                <c:url var="restaurantUrl" value="/restaurants"/>--%>
 <%--                <li><a href="${restaurantUrl}">Restaurants</a></li>--%>
             </ul>
@@ -83,9 +83,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <c:if test="${ empty user.username || user.id==0}">
                     <c:url var="loginUrl" value="/login"/>
-                    <li><a href="${loginUrl}">Login</a></li>
+                    <li><a href="${loginUrl}">LOGIN</a></li>
                     <c:url var="registerUrl" value="/register"/>
-                    <li><a href="${registerUrl}">Register</a></li>
+                    <li><a href="${registerUrl}">REGISTER</a></li>
                 </c:if>
                 <c:if test="${user.id > 0}">
                     <li><a href="${registerUrl}"><c:out value="${user.capitalizedUsername}"/></a></li>
