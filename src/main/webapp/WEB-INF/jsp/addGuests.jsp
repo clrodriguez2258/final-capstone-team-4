@@ -8,34 +8,65 @@
     <div class="banner">
         <h1>Add Guests</h1>
     </div>
-    <div>
+    <div id="guestPage">
+        <div>
+            <br>
+        </div>
+        <div class="guestsSubheader">
+            <p><span>Invite your favorite people for great food and fun!</span></p>
+        </div>
         <c:url var="addGuest" value="/login/addGuests"/>
         <form:form action="${ addGuest }" method="POST">
+
             <div id="addGuests">
-<%--                <form method="POST" action="${ addGuest }"/>--%>
-                <div class="subheader">
-                    <p><span>Invite your favorite people for great food and fun!</span></p>
-                </div>
-                <div class="item">
+
+                <div class="guestItem">
                     <p>Guest Name</p>
                     <div class="guestName">
                         <input type="text" name="guestName" id="guestName"/>
                     </div>
                 </div>
-                <div class="email">
+                <div class="guestItem">
                     <p>Email</p>
                     <input type="email" name="email" id="email" required/>
                     <i class="email"></i>
                 </div>
-                <div class="btn-block">
-                    <input id="add-btn" type="submit" name="submit" value="Add"/>
+                <div class="eventButton">
+                    <input class="event-btn" type="submit" name="submit" value="Add"/>
                 </div>
-                </form>
+                <div>
+                    <br>
+                </div>
             </div>
         </form:form>
-        <c:url var="doneAddingGuests" value="/createEventConfirmation"/>
-        <input src="${ doneAddingGuests }" id="done-btn" type="submit" name="submit" value="Done"/>
+        <ul id="theList">
+            <c:forEach var="guest" items="${ guests }">
+                <li>${ guest.guestName } - ${ guest.email }</li>
+            </c:forEach>
+        </ul>
+        <div>
+            <br>
+        </div>
+        <c:url var="doneAddingGuests" value="/login/createEventConfirmation"/>
+        <a class="done-btn" href="${ doneAddingGuests }">Done</a>
+        <div>
+            <br>
+        </div>
+        <%--        <button formmethod="POST" id="submit-btn" type="submit" name="submit" value="Done"></button>--%>
     </div>
 </div>
+
+<%--<script>--%>
+<%--    const guestName = document.getElementById('guestInput');--%>
+<%--    const btn1 = document.getElementById('btn1')--%>
+<%--    const completelist = document.getElementById('theList');--%>
+
+<%--    function addelement() {--%>
+<%--        completelist.innerHTML += '<li>' + guestName.value + '</li>';--%>
+<%--    }--%>
+
+<%--    btn1.addEventListener('click', addelement);--%>
+
+<%--</script>--%>
 
 <%@ include file="common/footer.jspf" %>

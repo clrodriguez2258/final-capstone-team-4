@@ -99,8 +99,9 @@ public class JdbcRestaurantDao implements RestaurantDao {
                 "WHERE restaurant_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, restaurantId);
-
-        restaurantByRestaurantId = (mapRowToRestaurant(results));
+        while(results.next()){
+            restaurantByRestaurantId = (mapRowToRestaurant(results));
+        }
 
         return restaurantByRestaurantId;
 

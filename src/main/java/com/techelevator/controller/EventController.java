@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -62,8 +63,8 @@ public class EventController {
 
 
     @RequestMapping(path ="userprofile",method= RequestMethod.GET)
-    public String displayUserProfile(ModelMap map){
-
+    public String displayUserProfile(ModelMap map, HttpSession session){
+        session.getAttribute("id");
         List<Event> allEvents = eventDao.getAllEvents();
         map.put("allEvents", allEvents);
 
