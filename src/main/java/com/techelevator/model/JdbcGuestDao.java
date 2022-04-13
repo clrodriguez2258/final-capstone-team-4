@@ -40,7 +40,7 @@ public class JdbcGuestDao implements GuestDao {
     }
 
     public void updateGuestVoted (Long guestId, Long eventId){
-        String sqlUpdateGuestVoted = "UPDATE restaurant_event  SET thumbs_up_count = thumbs_up_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        String sqlUpdateGuestVoted = "UPDATE guest_event  SET voted = true WHERE guest_id = ? AND event_id =? ;";
         jdbcTemplate.update(sqlUpdateGuestVoted, guestId, eventId);
 
     }
