@@ -10,9 +10,9 @@
 <div class="container"   >
 
     <div>
-        <p>${event.eventName} evenName </p>
-        <p>${event.eventTime} EventTime  </p>
-        <p>${event.eventDate}eventDate </p>
+        <p>${event.eventName}  </p>
+        <p>${event.eventTime}   </p>
+        <p>${event.eventDate} </p>
 
         <br/>
 

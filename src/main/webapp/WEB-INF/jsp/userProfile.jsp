@@ -25,9 +25,9 @@
 
     <ul>
       <a href="${eventDetails}"><li>
-        <p>${event.eventName} name </p>
-        <p>${event.eventTime} time  </p>
-        <p>${event.eventDate}date </p>
+        <p>${event.eventName} </p>
+        <p>${event.eventTime}  </p>
+        <p>${event.eventDate} </p>
 
 <%--        <p>${restaurant.restaurantName} winner restaurant Name</p>--%>
 
