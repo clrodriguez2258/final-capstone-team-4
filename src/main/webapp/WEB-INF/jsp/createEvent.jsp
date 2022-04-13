@@ -16,13 +16,12 @@
             <c:url var="createEventImage" value="/img/groupdinner.jpg"/>
             <img class="groupdinner" src="${ createEventImage }"/>
         </div>
-        <div class="subheader">
-            <p><span>Invite your favorite people for great food and fun!</span></p>
-        </div>
 
 
         <form method="POST" action="${ addGuests }">
-
+            <div class="subheader">
+                <p><span>Invite your favorite people for great food and fun!</span></p>
+            </div>
             <div class="inputs">
                 <div class="item">
                     <label for="eventName" class="inputLabel">Event Name</label>
