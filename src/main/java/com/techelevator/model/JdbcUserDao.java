@@ -117,19 +117,34 @@ public class JdbcUserDao implements UserDao {
         return users;
     }
     @Override
-    public List<User> getUserWithEmail(String email) {
-        List<User> users = new ArrayList<User>();
+    public Long getUserIdWithEmail(String email) {
+        User user = new User();
         String sqlSelectAllUsers = "SELECT id, user_name, role FROM app_user WHERE user_name = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllUsers, email.toUpperCase());
 
         while (results.next()) {
-            User user = mapResultToUser(results);
-            users.add(user);
+             user = mapResultToUser(results);
+
+        }
+
+        return user.getId();
+    }
+
+    // get single using
+    @Override
+    public List<User> getUserWithEmail(String email) {
+        List<User> users = new ArrayList<>();
+        String sqlSelectAllUsers = "SELECT id, user_name, role FROM app_user WHERE user_name = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllUsers, email.toUpperCase());
+
+        while (results.next()) {
+         User user = mapResultToUser(results);
+         users.add(user);
+
         }
 
         return users;
     }
-
 
     //UPDATE RELATIONAL TABLES USER_EVENT
 
