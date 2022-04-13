@@ -107,27 +107,28 @@ public class JdbcRestaurantDao implements RestaurantDao {
 
     }
 
-    public void updateRestaurantVoteUpTEST(Long eventId,Long restaurantId){
-        int thumbsUpCount = 0;
-        String sql = "SELECT * FROM restaurant_event WHERE restaurant_id =? AND event_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, restaurantId, eventId);
+//    public void updateRestaurantVoteUpTEST(Long eventId,Long restaurantId){
+//        int thumbsUpCount = 0;
+//        String sql = "SELECT * FROM restaurant_event WHERE restaurant_id =? AND event_id = ?;";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, restaurantId, eventId);
+//
+//        while (results.next()){
+//           thumbsUpCount = (int) results.getLong("thumbs_up_count");
+//           thumbsUpCount ++;
+//
+//        }
+//        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = ? WHERE restaurant_id = ? AND event_id =? ;";
+//        jdbcTemplate.update(sqlAddRestaurantToEvent, thumbsUpCount, eventId, restaurantId);
+//    }
 
-        while (results.next()){
-           thumbsUpCount = (int) results.getLong("thumbs_up_count");
-           thumbsUpCount ++;
-
-        }
-        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = ? WHERE restaurant_id = ? AND event_id =? ;";
-        jdbcTemplate.update(sqlAddRestaurantToEvent, thumbsUpCount, eventId, restaurantId);
+    public void updateRestaurantVoteUp(Long eventId, Long restaurantId){
+        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = thumbs_up_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
+        jdbcTemplate.update(sqlAddRestaurantToEvent, restaurantId, eventId);
     }
 
-    public void updateRestaurantVoteUp( Long eventId,Long restaurantId){
-        String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_up_count = restaurant_event.thumbs_up_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
-        jdbcTemplate.update(sqlAddRestaurantToEvent, eventId, restaurantId);
-    }
     public void updateRestaurantVoteDown( Long eventId,Long restaurantId){
         String sqlAddRestaurantToEvent = "UPDATE restaurant_event  SET thumbs_down_count = thumbs_down_count + 1 WHERE restaurant_id = ? AND event_id =? ;";
-        jdbcTemplate.update(sqlAddRestaurantToEvent, eventId, restaurantId);
+        jdbcTemplate.update(sqlAddRestaurantToEvent, restaurantId, eventId);
     }
 
 
