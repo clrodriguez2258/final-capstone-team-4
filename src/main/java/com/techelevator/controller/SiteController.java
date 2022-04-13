@@ -139,7 +139,7 @@ public class SiteController {
     @RequestMapping(path = "/eventVote", method = RequestMethod.POST)
     public String processEventVote(@RequestParam Long restaurantId, ModelMap map) {
         guestDao.updateGuestVoted(restaurantId, (Long) map.get("guestId"));
-        restaurantDao.updateRestaurantVoteUpTEST(restaurantId,(Long) map.get("eventId"));
+        restaurantDao.updateRestaurantVoteUp(restaurantId,(Long) map.get("eventId"));
 
 
 

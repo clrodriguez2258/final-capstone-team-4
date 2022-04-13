@@ -20,7 +20,7 @@ public interface RestaurantDao {
 
     public Restaurant getRestaurantByRestaurantId(Long restaurantId);
 
-    public void updateRestaurantVoteUpTEST(Long eventId, Long restaurantId);
+    public void updateRestaurantVoteUp(Long eventId, Long restaurantId);
 
     public void updateRestaurantVoteDown(Long eventId, Long restaurantId);
 
