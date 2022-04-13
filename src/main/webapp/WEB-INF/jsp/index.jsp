@@ -25,9 +25,9 @@
             </div>
         </form>
     </div>
-<div class="container" >
+<div class="hompageImg" >
     <c:url var="image1" value="/img/sheri-silver.jpg"/>
-    <img src="${image1}" style="width: 100%; height: 50%"/>
+    <img src="${image1}"/>
 </div>
     <%--                       Code used after database works                         --%>
     <div id=" masonry-page">

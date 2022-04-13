@@ -120,6 +120,11 @@ public class JdbcEventDao implements EventDao {
 
 
 
+// UPDATE EVENT AND ADD FINAL RESTAURANT
+    public void finalEvent(Long restaurantId, Long eventId){
+        String sqlAddFinalRestaurantToEvent = "UPDATE events SET restaurant_id = (SELECT restaurant_id FROM restaurant_event WHERE restaurant_id = ? and event_id = ?  ORDER BY thumbs_up_count DESC LIMIT 1) WHERE event_id=?;";
+        jdbcTemplate.update(sqlAddFinalRestaurantToEvent, restaurantId, eventId);
+    }
 
 
     private Event mapRowToEvent(SqlRowSet results) {

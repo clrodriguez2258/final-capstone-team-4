@@ -71,7 +71,7 @@
                 <li><a href="${homeUrl}">Home </a></li>
                 <c:url var="aboutUrl" value="/about"/>
                 <li><a href="${aboutUrl}">About  </a></li>
-                <c:url var="privateUrl" value="login/decision"/>
+                <c:url var="privateUrl" value="/decision"/>
                 <li><a href="${privateUrl}">Search and Set up Event  </a></li>
 <%--                <c:url var="restaurantUrl" value="/restaurants"/>--%>
 <%--                <li><a href="${restaurantUrl}">Restaurants</a></li>--%>

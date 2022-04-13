@@ -85,19 +85,14 @@ values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022'),
        ('1', 'timetime', '17:00', '04/05/2022', '04/04/2022'),
        ('2', 'anotherevent', '17:00', '04/05/2022', '04/04/2022'),
        ('2', 'toomanyevents', '17:00', '04/05/2022', '04/04/2022');
--- --
 
 INSERT INTO guest(guest_name, email)
 VALUES ('Christian Rodriguez', 'guest1@gmail.com');
 
 
 
--- --
-
 -- -- INSERT INTO GUEST
 
-
---
 
 INSERT INTO user_event(user_id, event_id)
 VALUES ((SELECT id FROM app_user where user_name = 'user1@gmail.com'),
@@ -121,7 +116,10 @@ ALTER TABLE user_event
     ADD FOREIGN KEY (user_id) REFERENCES app_user (id);
 
 ALTER TABLE guest_event
-    ADD FOREIGN KEY (guest_id) REFERENCES events (event_id);
+    ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
+
+ALTER TABLE guest_event
+    ADD FOREIGN KEY (guest_id) REFERENCES guest(guest_id);
 
 ALTER TABLE events
     ADD FOREIGN KEY (restaurant_id) REFERENCES restaurant (restaurant_id);
@@ -147,14 +145,6 @@ ALTER TABLE guest_restaurant
     ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
 
 
--- INSERT INTO USERPROFILE
--- INSERT INTO userprofile(event_id, email, first_name, last_name, phone_number, zipcode)
--- VALUES('1', 'user1@gmail.com', 'user1', 'userLastName', '123456789', '75075'),
---        ('1', 'user2@gmail.com','user2', 'user2LastName', '875678544', '75074'),
---       ('1', 'user3@gmail.com','user3', 'user3LastName', '875678544', '75075');
 
--- INSERT INTO EVENTS
-
---rollback;
 COMMIT;
 

@@ -124,12 +124,12 @@ public class SiteController {
     }
 
     @RequestMapping(path = "/eventVote", method = RequestMethod.GET)
-    public String displayEventVote(@RequestParam Long eventId, @RequestParam Long guestId, ModelMap map) {
+    public String displayEventVote(@RequestParam Long guestId, @RequestParam Long eventId, HttpSession session) {
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
-        Event event = (Event) eventDao.getEventByEventId(eventId);
-        map.addAttribute("restaurants", restaurants);
-        map.addAttribute("guestId", guestId);
-        map.addAttribute("eventId", eventId);
+        Event event = eventDao.getEventByEventId(eventId);
+
+        session.setAttribute("guestId", guestId);
+        session.setAttribute("eventId", eventId);
         if (event.getDecisionDate().isBefore(LocalDate.now())) {
             return ("redirect:/eventLinkExpired");
         }
@@ -137,14 +137,11 @@ public class SiteController {
     }
 
     @RequestMapping(path = "/eventVote", method = RequestMethod.POST)
-    public String processEventVote(@RequestParam Long restaurantId, ModelMap map) {
-        guestDao.updateGuestVoted(restaurantId, (Long) map.get("guestId"));
-        restaurantDao.updateRestaurantVoteUpTEST(restaurantId,(Long) map.get("eventId"));
-
-
-
-
-
+    public String processEventVote(@RequestParam Long restaurantId, HttpSession session) {
+        guestDao.updateGuestVoted(restaurantId, (Long) session.getAttribute("guestId"));
+        restaurantDao.updateRestaurantVoteUp((Long) session.getAttribute("eventId"), restaurantId);
+        session.removeAttribute("guestId");
+        session.removeAttribute("eventId");
         return "votingConfirmation";
     }
 
