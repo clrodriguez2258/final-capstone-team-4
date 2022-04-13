@@ -116,7 +116,17 @@
     height: 200px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /*justify-content: center;*/
+    position: absolute;
+    z-index: 100;
+    top: 275px;
+}
+
+.hompageImg{
+    position: absolute;
+    left: 0;
+    top: 250px;
+    width: 100%;
 }
 
 
