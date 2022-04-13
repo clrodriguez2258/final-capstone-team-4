@@ -61,7 +61,7 @@
                 <c:url var="homeUrl" value="/index"/>
                 <a class="navbar-brand" href="${homeUrl}" class="navbar-brand">
                     <c:url var="logoUrl" value="/img/Hangry.png"/>
-                    <img src="${ logoUrl }" style="width: 318px; height:200px; "/></a>
+                    <img src="${ logoUrl }" style="width: 320px; height:200px; "/></a>
             </div>
         </div>
 
