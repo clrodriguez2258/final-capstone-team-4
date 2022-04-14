@@ -126,19 +126,21 @@ public class SiteController {
     @RequestMapping(path = "/eventVote", method = RequestMethod.GET)
     public String displayEventVote(@RequestParam Long guestId, @RequestParam Long eventId, HttpSession session) {
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
-        Event event = eventDao.getEventByEventId(eventId);
 
+        Event event = eventDao.getEventByEventId(eventId);
         session.setAttribute("guestId", guestId);
         session.setAttribute("eventId", eventId);
         if (event.getDecisionDate().isBefore(LocalDate.now())) {
-            return ("redirect:/eventLinkExpired");
+            return "redirect:/eventLinkExpired";
+        } else if(guestDao.getDidGuestVote(guestId)){
+            return "redirect:/tooManyVotes";
         }
         return "eventVote";
     }
 
     @RequestMapping(path = "/eventVote", method = RequestMethod.POST)
     public String processEventVote(@RequestParam Long restaurantId, HttpSession session) {
-        guestDao.updateGuestVoted(restaurantId, (Long) session.getAttribute("guestId"));
+        guestDao.updateGuestVoted((Long) session.getAttribute("guestId"), (Long) session.getAttribute("eventId"));
         restaurantDao.updateRestaurantVoteUp((Long) session.getAttribute("eventId"), restaurantId);
         // If time permits, add guest's name in and create query to return that.
         session.removeAttribute("guestId");
@@ -153,6 +155,10 @@ public class SiteController {
         return "eventLinkExpired";
     }
 
+    @RequestMapping(path = "/tooManyVotes", method = RequestMethod.GET)
+    public String displayGuestTooManyVotes() {
+        return "tooManyVotes";
+    }
 
 //    @RequestMapping(path ="finalist",method= RequestMethod.GET)
 //    public String displayEventFinalist(){return "finalistRestaurants";}
