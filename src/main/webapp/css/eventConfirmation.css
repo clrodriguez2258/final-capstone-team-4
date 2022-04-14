@@ -1,22 +1,44 @@
-.confirmbannerPageExpired {
+.redBox {
     border: thick solid #303841;
     position: relative;
     margin-top: 50px;
     border-radius: 10px;
     height: 250px;
+    width: 1000px;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-family: "Candara Light";
+
     background-color: rgba(190, 49, 68, 1);
 }
 
 div.guestList {
+
     margin-top: 70px;
     background-color: white;
     font-size: 18px;
-    border-radius: 3px;
+    border-radius: 10px;
     position: absolute;
+    align-items: center;
+    width: 1000px;
+    height: auto;
+    font-family: "Candara Light";
+    border: thick solid #303841;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
+#list{
+    list-style: none;
+    font-weight: bold;
+
+}
+
+.oneandhalf{
+    font-weight: bold;
+}
+
+
