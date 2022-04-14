@@ -1,18 +1,26 @@
 <%@ include file="common/header.jspf" %>
 <c:url var="createEventConfirmation" value="/css/eventInvite.css"/>
-<link rel="stylesheet" href="${createEventConfirmation}"/>
+<link rel="stylesheet" href="${ createEventConfirmation }"/>
 
 <div class="bannerPageExpired">
-    <h1 class="oneandhalf">Thank You for submitting your vote</h1>
+    <h1 class="oneandhalf">Thank you for submitting your vote</h1>
 </div>
-<div>
-    <ul>
+    <table style="width:100%;">
+        <tr >
+            <th>Name</th>
+            <th>Email</th>
+            <th>Link to vote</th>
+        </tr>
         <c:forEach var="guest" items="${ guests }">
             <c:set var="guestUrl" value="http://localhost:8080/capstone_war_exploded/eventVote?guestId=${ guest.guestId }&eventId=${ event.eventId }"/>
-            <li>${ guest.guestName } - ${ guest.email } - <a href="${ guestUrl }">${ guestUrl }</a></li>
+            <tr>
+                <td >${ guest.guestName }</td>
+                <td>${ guest.email }</td>
+                <td><a href="${ guestUrl }">${ guestUrl }</a></td>
+            </tr>
         </c:forEach>
-    </ul>
-</div>
+    </table>
+
 
 
 <%@ include file="common/footer.jspf" %>

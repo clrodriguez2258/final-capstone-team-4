@@ -4,12 +4,12 @@
 <%@ include file = "common/header.jspf" %>
 <h2>Your current leader is:</h2>
 <table style=" width:25%">
-    <tr>
+    <tr style="font-size: medium">
         <td>Name</td>
         <td>Time</td>
         <td>Date of event</td>
     </tr>
-    <tr>
+    <tr style="font-size: medium">
         <td>${event.eventName}</td>
         <td>${event.eventTime}</td>
         <td>${event.eventDate}</td>

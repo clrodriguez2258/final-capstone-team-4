@@ -8,13 +8,7 @@
     font-size: 200%;
     border-radius: 40px;
 }
-#grid {
-    display: grid;
-    grid-gap: 15px;
-    grid-auto-rows: minmax(150px, 1fr);
-    grid-auto-flow: row dense;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
+
 
 #upbutton {
 
@@ -165,8 +159,24 @@ img#pizzaSliceImage{
     display: flex;
     flex: 1;
 }
+#grid {
+    display: grid;
+    grid-gap: 15px;
+    grid-auto-rows: minmax(150px, 1fr);
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+#masonry-page,
+#card-page {
+    display: flex;
+}
 #masonry-page #grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+#masonry-page .main-content,
+#card-page .main-content {
+    flex: 1;
 }
 .thumbnail{
     background: #fbfbfb;

@@ -23,7 +23,7 @@
                 <div class="guestItem">
                     <p>Guest Name</p>
                     <div class="guestName">
-                        <input type="text" name="guestName" id="guestName"/>
+                        <input type="text" name="guestName" id="guestName" required/>
                     </div>
                 </div>
                 <div class="guestItem">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </form:form>
-        <ul id="theList">
+        <ul id="theList" style="list-style: none">
             <c:forEach var="guest" items="${ guests }">
                 <li>${ guest.guestName } - ${ guest.email }</li>
             </c:forEach>

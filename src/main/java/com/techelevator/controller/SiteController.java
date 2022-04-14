@@ -4,6 +4,7 @@ import com.techelevator.authentication.AuthProvider;
 import com.techelevator.authentication.UnauthorizedException;
 
 import com.techelevator.model.*;
+import org.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -78,7 +79,6 @@ public class SiteController {
         return "redirect:/login";
     }
 
-
     @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String login(ModelMap modelHolder) {
 
@@ -127,35 +127,42 @@ public class SiteController {
     public String displayEventVote(@RequestParam Long guestId, @RequestParam Long eventId, HttpSession session) {
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
         Event event = eventDao.getEventByEventId(eventId);
-
+        session.setAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
         session.setAttribute("guestId", guestId);
         session.setAttribute("eventId", eventId);
         if (event.getDecisionDate().isBefore(LocalDate.now())) {
-            return ("redirect:/eventLinkExpired");
+//            map.addAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
+            return "redirect:/eventLinkExpired";
+        } else if(guestDao.getDidGuestVote(guestId)){
+//            map.addAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
+            return "redirect:/tooManyVotes";
         }
         return "eventVote";
     }
 
     @RequestMapping(path = "/eventVote", method = RequestMethod.POST)
     public String processEventVote(@RequestParam Long restaurantId, HttpSession session) {
-        guestDao.updateGuestVoted(restaurantId, (Long) session.getAttribute("guestId"));
+        guestDao.updateGuestVoted((Long) session.getAttribute("guestId"), (Long) session.getAttribute("eventId"));
         restaurantDao.updateRestaurantVoteUp((Long) session.getAttribute("eventId"), restaurantId);
         session.removeAttribute("guestId");
         session.removeAttribute("eventId");
+        session.removeAttribute("guestName");
         return "votingConfirmation";
     }
-
 
     // RETURN LINK EXPIRED PAGE
     @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
     public String displayDecisionLinkExpired() {
+
         return "eventLinkExpired";
     }
 
+    @RequestMapping(path = "/tooManyVotes", method = RequestMethod.GET)
+    public String displayGuestTooManyVotes() {
+        return "tooManyVotes";
+    }
 
 //    @RequestMapping(path ="finalist",method= RequestMethod.GET)
 //    public String displayEventFinalist(){return "finalistRestaurants";}
-
-
 }
 

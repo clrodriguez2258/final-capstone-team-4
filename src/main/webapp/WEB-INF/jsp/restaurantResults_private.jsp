@@ -9,7 +9,7 @@
 <form for="restaurantSearch" action="restaurantResults" method="POST">
     <div class="searchbar1">
         <div class="btn-group">
-            <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Create Event</button>
+            <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Submit</button>
         </div>
     </div>
 
@@ -33,23 +33,31 @@
                             <img class="displayRestaurantImage" src="<c:url value="/img/${ restaurant.image }"/>"
                                  alt="Restaurant Logo"/>
                             <div class="restaurantInfo">
-                                <h3>${ restaurant.restaurantName }</h3>
-                                <p>Cuisine: ${ restaurant.typeOfEstablishment }</p>
+                                <h3><strong>${ restaurant.restaurantName }</strong></h3>
+                                <p><strong>Cuisine: </strong>${ restaurant.typeOfEstablishment }</p>
                                 <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
-                                <p>Hours: ${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM</p>
+                                <p><strong>Hours: </strong>${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM
+                                </p>
                                 <p>
-                                    Address: ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }</p>
+                                    <strong>Address:</strong> ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }
+                                </p>
                                 <span>
-                                <h5>Phone Number: ${ restaurant.phoneNumber }</h5>
-                                <button type="button" style="width: 45%">Call to Order</button>
-                            </span>
-                                <img id="pizzaSliceImage" src="img/pizzaSlice${ restaurant.rating }.png"
-                                     alt="Pizza Slice Rating">
-                                    <%--                            <form for="restaurantSearch" action="restaurantResults" method="POST">--%>
+                            <h5><strong>Call To Order:&nbsp;&nbsp;&nbsp;</strong><a
+                                    href="tel:${ restaurant.phoneNumber }"
+                                    style="color: red; font-size: 24px;">&#9742;</a></h5>
+                                </span>
+                                <div class="rating">
+                                    <p><strong>Rating: </strong>
+                                        <c:url var="pizzaSliceImage" value="/img/pizzaSlice.png"/>
+                                        <c:forEach begin="1" end="${ restaurant.rating }" var="pizzaCount">
+                                    <span><img id="pizzaSliceImage" src="${ pizzaSliceImage }"
+                                               alt="Pizza Slice Rating"></span>
+                                        </c:forEach>
+                                    </p>
+                                </div>
                                 <label for="Restaurant${ restaurant.restaurantId }">Add Restaurant to Event: </label>
                                 <input type="checkbox" id="restaurant${ restaurant.restaurantId }"
                                        name="restaurantCheckbox" value="${ restaurant.restaurantId }"/>
-                                    <%--                            </form>--%>
                             </div>
                         </div>
                     </div>

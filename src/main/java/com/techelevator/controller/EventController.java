@@ -45,13 +45,15 @@ public class EventController {
     private GuestDao guestDao;
 
     @RequestMapping(path ="/userprofile",method= RequestMethod.GET)
-    public String displayUserProfile(ModelMap map, HttpSession session){
+    public String displayUserProfile(ModelMap map, HttpSession session) {
         Long Id = (Long) session.getAttribute("id");
         List<Event> allEvents = eventDao.getEventByUserId(Id);
         map.put("allEvents", allEvents);
-
-        return "userProfile";
-
+        if (auth.userHasRole(new String[]{"admin", "user"})) {
+            return "userProfile";
+        } else {
+            return "redirect:/login";
+        }
     }
 
     @RequestMapping(path = "/finalist", method = RequestMethod.GET)

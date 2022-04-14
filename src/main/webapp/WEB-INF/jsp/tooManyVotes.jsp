@@ -1,10 +1,10 @@
 <%@ include file="common/header.jspf" %>
 <c:url var="eventLinkExpired" value="/css/eventInvite.css"/>
-<link rel="stylesheet" href="${ eventLinkExpired }"/>
+<link rel="stylesheet" href="${eventLinkExpired}"/>
 
 <div class="linkExpired">
     <div class="bannerPageExpired">
-        <h1 class="oneandhalf">Decision date has passed, you are no longer able to submit your restaurant choice</h1>
+        <h1 class="oneandhalf">Don't Be Greedy... Only one vote per guest!</h1>
     </div>
 </div>
 <div class="linkExpired">

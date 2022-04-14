@@ -39,10 +39,20 @@ public class JdbcGuestDao implements GuestDao {
         return guestsByEvent;
     }
 
-    public void updateGuestVoted (Long guestId, Long eventId){
+    public void updateGuestVoted(Long guestId, Long eventId){
         String sqlUpdateGuestVoted = "UPDATE guest_event  SET voted = true WHERE guest_id = ? AND event_id =? ;";
         jdbcTemplate.update(sqlUpdateGuestVoted, guestId, eventId);
+    }
 
+    public boolean getDidGuestVote(Long guestId){
+        String sql = "SELECT * FROM guest_event WHERE guest_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
+
+        Boolean didVote = true;
+        if(results.next()){
+            didVote = results.getBoolean("voted");
+        }
+        return didVote;
     }
 
     @Override
@@ -55,6 +65,17 @@ public class JdbcGuestDao implements GuestDao {
         newGuest.setEmail(guest.getEmail());
 
         return newGuest;
+    }
+
+    @Override
+    public String getGuestNameById(Long guestId) {
+        String guestName = "";
+        String sql = "SELECT * FROM guest WHERE guest_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
+        if(results.next()){
+            guestName = results.getString("guest_name");
+        }
+        return guestName;
     }
 
     private Guest mapRowToGuest(SqlRowSet results){

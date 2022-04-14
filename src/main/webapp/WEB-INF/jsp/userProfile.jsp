@@ -14,12 +14,12 @@
      <c:url var="eventDetails" value="/finalist?eventId=${event.eventId}"></c:url>
 <%--  <c:set var="restaurant" value="${restaurants}"/>--%>
     <table style="width:100%; border:1px solid black">
-        <tr  style="border:1px solid black">
+        <tr  style="border:1px solid black; font-size: medium">
             <td>Name of event maker</td>
             <td>Time</td>
             <td>Date of event</td>
         </tr>
-        <tr>
+        <tr style="font-size: medium">
             <a href="${eventDetails}">Events Details</a>
             <td>${event.eventName}</td>
             <td>${event.eventTime}</td>

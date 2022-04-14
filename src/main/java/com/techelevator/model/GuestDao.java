@@ -7,4 +7,6 @@ public interface GuestDao {
     public List<Guest> getGuestsByEvent(Long eventId);
     public Guest createNewGuest(Guest guest);
     public void updateGuestVoted (Long guestId, Long eventId);
+    public boolean getDidGuestVote(Long guestId);
+    public String getGuestNameById(Long guestId);
 }
