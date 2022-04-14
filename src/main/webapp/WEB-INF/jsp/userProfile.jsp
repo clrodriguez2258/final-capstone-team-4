@@ -15,7 +15,7 @@
 <%--  <c:set var="restaurant" value="${restaurants}"/>--%>
     <table style="width:100%; border:1px solid black">
         <tr  style="border:1px solid black; font-size: medium">
-            <td>Name of event maker</td>
+            <td>Name of event</td>
             <td>Time</td>
             <td>Date of event</td>
         </tr>
