@@ -154,7 +154,6 @@ public class SiteController {
     // RETURN LINK EXPIRED PAGE
     @RequestMapping(path = "/eventLinkExpired", method = RequestMethod.GET)
     public String displayDecisionLinkExpired() {
-
         return "eventLinkExpired";
     }
 
