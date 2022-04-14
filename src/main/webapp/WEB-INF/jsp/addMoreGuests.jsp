@@ -39,7 +39,7 @@
                 </div>
             </div>
         </form:form>
-        <ul id="theList">
+        <ul id="theList" style="list-style: none">
             <c:forEach var="guest" items="${ guests }">
                 <li>${ guest.guestName } - ${ guest.email }</li>
             </c:forEach>

@@ -140,6 +140,7 @@ public class SiteController {
     public String processEventVote(@RequestParam Long restaurantId, HttpSession session) {
         guestDao.updateGuestVoted(restaurantId, (Long) session.getAttribute("guestId"));
         restaurantDao.updateRestaurantVoteUp((Long) session.getAttribute("eventId"), restaurantId);
+        // If time permits, add guest's name in and create query to return that.
         session.removeAttribute("guestId");
         session.removeAttribute("eventId");
         return "votingConfirmation";
