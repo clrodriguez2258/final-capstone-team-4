@@ -49,7 +49,7 @@ public class JdbcGuestDao implements GuestDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
 
         Boolean didVote = true;
-        while (results.next()){
+        if(results.next()){
             didVote = results.getBoolean("voted");
         }
         return didVote;
@@ -65,6 +65,17 @@ public class JdbcGuestDao implements GuestDao {
         newGuest.setEmail(guest.getEmail());
 
         return newGuest;
+    }
+
+    @Override
+    public String getGuestNameById(Long guestId) {
+        String guestName = "";
+        String sql = "SELECT * FROM guest WHERE guest_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, guestId);
+        if(results.next()){
+            guestName = results.getString("guest_name");
+        }
+        return guestName;
     }
 
     private Guest mapRowToGuest(SqlRowSet results){

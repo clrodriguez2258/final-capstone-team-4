@@ -8,4 +8,5 @@ public interface GuestDao {
     public Guest createNewGuest(Guest guest);
     public void updateGuestVoted (Long guestId, Long eventId);
     public boolean getDidGuestVote(Long guestId);
+    public String getGuestNameById(Long guestId);
 }
