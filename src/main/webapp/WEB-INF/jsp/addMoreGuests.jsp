@@ -23,7 +23,7 @@
                 <div class="guestItem">
                     <p>Guest Name</p>
                     <div class="guestName">
-                        <input type="text" name="guestName" id="guestName"/>
+                        <input type="text" name="guestName" id="guestName" required/>
                     </div>
                 </div>
                 <div class="guestItem">
