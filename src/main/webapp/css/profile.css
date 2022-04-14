@@ -1,17 +1,67 @@
-table{
-    border: 5px solid #303841;
-    background-color: white;
-    border-radius: 6px;
+
+.banner {
+    border: medium solid #303841;
+    position: relative;
+    margin-top: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Candara Light";
+    background-color: rgba(190, 49, 68, 1);
+    font-weight:bold;
 }
+/*#userNameText{*/
+/*    font-family: "Raleway SemiBold", sans-serif;*/
+/*}*/
+p{
+    font-weight: bolder;
+    color: white;
+    text-shadow: 5px 5px 5px #3A4750;
+    font-size: 35px;
+    margin-bottom: -10px;
+}
+
+table{
+    border-color: #303841;
+    border-style: solid;
+    border-width:  0 5px 5px 5px;
+    background-color: white;
+    border-radius: 10px;
+    height: 80px;
+    padding-top: 15px;
+}
+
+.tableDetails{
+    top:5px;
+    margin-top:2px;
+    background-color: white;
+    position: relative;
+}
+
 .headers{
     font-weight: bold;
     font-size: 18px;
-    position: center;
-    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.eventName{
+    width: 450px;
+}
+
+.Link{
+    width: 80px;
 }
 
 .details{
     font-size: 16px;
-    justify-content: center;
     font-style: oblique;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }

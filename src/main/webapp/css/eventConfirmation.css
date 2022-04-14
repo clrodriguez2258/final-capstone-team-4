@@ -29,11 +29,13 @@ div.guestList {
     border: thick solid #303841;
     padding-top: 50px;
     padding-bottom: 50px;
+    color: black;
 }
 
 #list{
     list-style: none;
     font-weight: bold;
+    color: black;
 
 }
 
