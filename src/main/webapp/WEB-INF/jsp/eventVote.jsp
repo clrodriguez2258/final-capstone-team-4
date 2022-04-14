@@ -34,7 +34,7 @@
                                         id="upvoteButton${ restaurant.restaurantId }"
                                         class="voteButton"
                                         ><span
-                                        class="glyphicon-ok"
+                                        class="glyphicon glyphicon-ok"
                                         ></span></button>
 <%--                          <button type="button" class="btn btn-default btn-sm" id="downvoteButton"--%>
 <%--                                style="margin-top: 5px; background: lightcoral; display: inline-block; width: 49%"><span--%>

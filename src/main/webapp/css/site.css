@@ -105,12 +105,13 @@ ul.nav.navbar-nav > li > a:hover {
     font-size: large;
     color: white;
 }
+/*ul.nav.navbar-nav{*/
 ul{
     font-weight: bold;
     text-align: center;
     font-size: 13pt;
-
     color: #303841;
+    /*padding-top: 150px;*/
 }
 ul.nav.navbar-nav > li > a{
     color: #303841;

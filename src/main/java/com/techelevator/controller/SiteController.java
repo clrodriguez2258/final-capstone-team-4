@@ -40,6 +40,7 @@ public class SiteController {
     @RequestMapping(method = RequestMethod.GET, path = {"/", "/index"})
     public String index(ModelMap modelHolder) {
         modelHolder.put("user", auth.getCurrentUser());
+        modelHolder.remove("restaurants");
         return "index";
     }
 
