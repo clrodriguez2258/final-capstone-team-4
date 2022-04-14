@@ -189,7 +189,8 @@ public class AccountController {
         List<Guest> guests = (List<Guest>) session.getAttribute("guests");
         eventDao.addGuestToEvent(newGuest.getGuestId(), eventId);
         guests.add(newGuest);
-        session.setAttribute("guests", guests);
+//        session.setAttribute("guests", guests);
+        session.removeAttribute("guests");
 
         return "addMoreGuests";
     }
