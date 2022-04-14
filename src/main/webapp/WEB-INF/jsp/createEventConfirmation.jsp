@@ -1,14 +1,11 @@
 <%@ include file="common/header.jspf" %>
 <c:url var="createEventConfirmation" value="/css/eventConfirmation.css"/>
-<link rel="stylesheet" href="${createEventConfirmation}"/>
+<link rel="stylesheet" href="${ createEventConfirmation }"/>
 
 <div>
-<div class="redBox">
+<div class="bannerPageExpired; redBox">
 
-    <div  >
     <h1 class="oneandhalf">The event invitations have been created using the following recipients:</h1>
-
-    </div>
 </div>
 
 <div class="guestList">
