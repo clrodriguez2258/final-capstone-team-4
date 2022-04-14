@@ -1,9 +1,9 @@
 <%@ include file="common/header.jspf" %>
 <c:url var="createEventConfirmation" value="/css/eventInvite.css"/>
-<link rel="stylesheet" href="${createEventConfirmation}"/>
+<link rel="stylesheet" href="${ createEventConfirmation }"/>
 
 <div class="bannerPageExpired">
-    <h1 class="oneandhalf">Thank You for submitting your vote</h1>
+    <h1 class="oneandhalf">Thank you for submitting your vote</h1>
 </div>
     <table style="width:100%;">
         <tr >

@@ -1,6 +1,6 @@
 <%@ include file="common/header.jspf" %>
 <c:url var="eventLinkExpired" value="/css/eventInvite.css"/>
-<link rel="stylesheet" href="${eventLinkExpired}"/>
+<link rel="stylesheet" href="${ eventLinkExpired }"/>
 
 <div class="linkExpired">
     <div class="bannerPageExpired">
