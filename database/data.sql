@@ -63,7 +63,42 @@ VALUES ('Chipotle', 'mainstreet', 'Plano', 'TX', '75075', '4', 'chipotle.jpg', '
         '3026604400', 'true',  '11:00', '20:00', 'American',  'false', '2', '150', 'Cafe', 'true'),
 
        ('Moes Southwest Grill', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '3', 'moes.png', 'www.moes.com',
-        '3026913690', 'true',  '11:00', '20:00', 'Southwestern',  'false', '1', '150', 'casual', 'true');
+        '3026913690', 'true',  '11:00', '20:00', 'Southwestern',  'false', '1', '150', 'casual', 'true'),
+('Hyde-Park Prime Steak house', '569 N high street ', 'Columbus ', 'OH', '43215', '4', 'hydePark.jpg', 'www.hydeparkrestaurants.com',
+    '6142242204', 'true',  '11:00', '22:00', 'American',  'false', '4', '150', 'casual', 'true'),
+
+('The Pearl', '641 N High S', 'Columbus', 'OH', '43215', '3', 'pearl.jpg', 'www.thepearlcolumbus.com',
+    '6142270151', 'true',  '11:00', '22:00', 'American',  'false', '4', '150', 'casual', 'true'),
+
+('Buca di Beppo', '343 N front St ', 'Columbus', 'OH', '43215', '3', 'buca.png', 'bucadibeppo.com',
+    '6146213287', 'true',  '11:00', '22:00', 'Italian',  'false', '4', '150', 'casual', 'true'),
+
+('Smokey  Bones', '1282 Essex Ave', 'Columbus', 'OH', '43201', '3', 'smokeyBones.png', 'smokeybones.com',
+    '3082151800', 'true',  '11:00', '22:00', 'American',  'false', '4', '150', 'casual', 'true'),
+
+('JLiu Restaurant & Bar ', '6880 High St', 'Worthington', 'OH', '43085', '3', 'jliu.jpg', 'jliurestaurant.com',
+    '6148881818', 'true',  '11:00', '22:00', 'Asian',  'false', '4', '150', 'casual', 'true'),
+
+('Hounddogs Pizza', '2657 N High St', 'Columbus', 'OH', '43202', '3', 'houndDogs.png', 'hounddogspizza.com',
+    '6142614686', 'true',  '11:00', '22:00', 'Pizza',  'false', '4', '150', 'casual', 'true'),
+
+('Condado Tacos', '680 N High St', 'Columbus', 'OH', '43215', '3', 'condadotacos.jpg', 'condadotacos.com',
+    '6149283909', 'true',  '11:00', '22:00', 'Mexican',  'false', '4', '150', 'casual', 'true'),
+
+('Brassica', '1227 N High St', 'Columbus', 'OH', '43201', '3', 'brassica.jpg', 'brassicas.com',
+    '6148675885', 'true',  '11:00', '22:00', 'Mediterranean',  'false', '4', '150', 'casual', 'true'),
+
+('Press Grill', '741 N High St', 'Columbus', 'OH', '43215', '3', 'pressGrill.jpg', 'places.singleplatform.com',
+    '6142981014', 'true',  '11:30', '22:00', 'American',  'false', '4', '150', 'casual', 'true'),
+
+
+('Rodizio Grill Brazilian Steak House', '125 W Nationwide Blv', 'Columbus', 'OH', '43215', '4', 'rodizio.jpg', 'www.rodiziogrill.com',
+    '6142414400', 'true',  '11:00', '22:00', 'American',  'false', '4', '150', 'casual', 'true');
+
+
+
+
+     
 
 --INSERT TEMPORARY USERS
 
