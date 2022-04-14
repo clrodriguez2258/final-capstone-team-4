@@ -231,7 +231,7 @@ button.submit-btn {
     font-family: "Raleway SemiBold", sans-serif;
     font-weight: bold;
     height: 30px;
-    margin-top: 50px;
+    margin-top: 10px;
     transition: 0.25s;
     width: 100%;
     background-color: darkseagreen;

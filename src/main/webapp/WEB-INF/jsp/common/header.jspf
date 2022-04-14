@@ -28,7 +28,7 @@
             background: #BE3144;
         }
     </style>
-    <title><c:out value="${pageTitle}"/> - WebApplication.Web</title>
+    <title><c:out value="${pageTitle}"/> HANGRY - Subdue Your Hanger</title>
 
     <%--if you don't want to use the Bootstrap 4 framework comment out all the lines up to the ====== below--%>
     <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"/>
