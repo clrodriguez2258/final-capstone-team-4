@@ -64,6 +64,7 @@ VALUES ('Chipotle', 'mainstreet', 'Plano', 'TX', '75075', '4', 'chipotle.jpg', '
 
        ('Moes Southwest Grill', 'Kirkwood Hwy', 'Wilmington', 'DE', '19808', '3', 'moes.png', 'www.moes.com',
         '3026913690', 'true',  '11:00', '20:00', 'Southwestern',  'false', '1', '150', 'casual', 'true'),
+
 ('Hyde-Park Prime Steak house', '569 N high street ', 'Columbus ', 'OH', '43215', '4', 'hydePark.jpg', 'www.hydeparkrestaurants.com',
     '6142242204', 'true',  '11:00', '22:00', 'American',  'false', '4', '150', 'casual', 'true'),
 

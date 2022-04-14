@@ -128,14 +128,11 @@ public class SiteController {
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
         Event event = eventDao.getEventByEventId(eventId);
         map.addAttribute("restaurants", restaurants);
-//        session.setAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
         session.setAttribute("guestId", guestId);
         session.setAttribute("eventId", eventId);
         if (event.getDecisionDate().isBefore(LocalDate.now())) {
-//            map.addAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
             return "redirect:/eventLinkExpired";
         } else if(guestDao.getDidGuestVote(guestId)){
-//            map.addAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
             return "redirect:/tooManyVotes";
         }
         return "eventVote";
