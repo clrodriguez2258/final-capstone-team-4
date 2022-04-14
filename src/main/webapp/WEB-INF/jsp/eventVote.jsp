@@ -41,26 +41,34 @@
 <%--                                class="glyphicon glyphicon-remove"--%>
 <%--                                style="color: darkred; font-size: 150%;"></span></button>--%>
                             </span>
-
-                            <h3>${ restaurant.restaurantName }</h3>
-                            <p>Cuisine: ${ restaurant.typeOfEstablishment }</p>
+                            <h3><strong>${ restaurant.restaurantName }</strong></h3>
+                            <p><strong>Cuisine: </strong>${ restaurant.typeOfEstablishment }</p>
                             <p style="color: ${ openCloseColor };"><strong>${ isOpen }</strong></p>
-                            <p>Hours: ${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM</p>
+                            <p><strong>Hours: </strong>${ restaurant.openTime }AM - ${ restaurant.closeTime.minusHours(12) }PM
+                            </p>
                             <p>
-                                Address: ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }</p>
+                                <strong>Address:</strong> ${ restaurant.street } ${ restaurant.city }, ${ restaurant.state } ${ restaurant.zipCode }
+                            </p>
                             <span>
-                    <h5>Phone Number: ${ restaurant.phoneNumber }</h5>
-                    <button type="button" style="width: 45%">Call to Order</button>
-                </span>
-                            <img id="pizzaSliceImage" src="img/pizzaSlice${ restaurant.rating }.png"
-                                 alt="Pizza Slice Rating">
+                            <h5><strong>Call To Order:&nbsp;&nbsp;&nbsp;</strong><a
+                                    href="tel:${ restaurant.phoneNumber }"
+                                    style="color: red; font-size: 24px;">&#9742;</a></h5>
+                        </span>
+                            <div class="rating">
+                                <p><strong>Rating: </strong>
+                                    <c:url var="pizzaSliceImage" value="/img/pizzaSlice.png"/>
+                                    <c:forEach begin="1" end="${ restaurant.rating }" var="pizzaCount">
+                                    <span><img id="pizzaSliceImage" src="${ pizzaSliceImage }"
+                                               alt="Pizza Slice Rating"></span>
+                                    </c:forEach>
+                                </p>
+                            </div>
+                            </div>
                         </div>
                     </div>
-
                 </c:forEach>
             </div>
     </form>
-
 </div>
 
 <%--<script>--%>
