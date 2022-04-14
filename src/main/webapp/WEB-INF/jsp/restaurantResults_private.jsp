@@ -9,7 +9,7 @@
 <form for="restaurantSearch" action="restaurantResults" method="POST">
     <div class="searchbar1">
         <div class="btn-group">
-            <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Create Event</button>
+            <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Submit</button>
         </div>
     </div>
 
