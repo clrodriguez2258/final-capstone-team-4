@@ -9,29 +9,28 @@ BEGIN;
 INSERT INTO restaurant(restaurant_name, street, city, state, zipcode, rating, image_name, website, phone_number,
                        call_to_order, open_time, close_time, cuisine, pet_friendly, affordability, capacity, dresscode, dine_in)
 
-VALUES ('Chipotle', 'mainstreet', 'Rolling Meadows', 'OH', '43204', '4', 'chipotle.jpg', 'www.chipotle.com',
+VALUES ('Chipotle', 'mainstreet', 'Plano', 'TX', '75075', '4', 'chipotle.jpg', 'www.chipotle.com',
         '8474392530', 'true',  '8:00', '22:00',null,  null, null , null, null, null),
 
-       ('McDonalds', 'Coit', 'Plano', 'TX', '75075', '3', 'mcdonalds.jpg', 'www.mcdonalds.com',
+       ('McDonalds', 'Coit', 'Plano', 'TX', '75075', '3', 'mcdonalds.png', 'www.mcdonalds.com',
         '9727580282', 'true',  '6:00', '22:00',null,  null, null , null, null, null),
 
-       ('In N Out', 'N Central Expy', 'Plano', 'TX', '75074', '4', 'innout.jpg', 'www.in-n-out.com',
+       ('In N Out', 'N Central Expy', 'Plano', 'TX', '75074', '4', 'inNout.jpg', 'www.in-n-out.com',
         '8007861000', 'true',  '10:30', '1:00',null,  null, null , null, null, null),
 
        ('Whataburger', 'Coit', 'Plano', 'TX', '75075', '4', 'whataburger.jpg', 'www.whataburger.com',
         '9725190442', 'true',  '6:00', '22:00',null,  null, null , null, null, null),
 
-       ('Taqueria La Ventana', 'Belt Line Rd', 'Addison', 'TX', '75001', '4', 'laVentana.jpg',
+       ('Taqueria La Ventana', 'Belt Line Rd', 'Plano', 'TX', '75001', '4', 'laventana.jpg',
         'www.taquerialaventana.com',
         '4698282035', 'true',  '11:00', '22:00',null,  null, null , null, null, null),
 
-       ('LazyDog Restaurant & Bar', 'Preston Rd', 'Plano', 'TX', '75024', '4', 'lazydogrestaurants.jpg',
+       ('LazyDog Restaurant & Bar', 'Preston Rd', 'Plano', 'TX', '75024', '4', 'lazydog.jpg',
         'www.lazydogrestaurants.com',
         '4696091570', 'true',  '11:00', '12:00',null,  null, null , null, null, null),
 
-       ('Velvet Taco', 'W Park', 'Plano', 'TX', '75093', '4', 'velvetTaco.jpg', 'velvettaco.com',
+       ('Velvet Taco', 'W Park', 'Plano', 'TX', '75093', '4', 'velvettaco.jpg', 'velvettaco.com',
         '4698250099', 'true',  '11:00', '22:00',null,  null, null , null, null, null),
-
 
        ('Cafe Valentina', 'McKennans Church Rd.', 'Wilmington', 'DE', '19808', '5', 'cafevalentina.jpg',
         'www.cafevalentina.com',
@@ -68,46 +67,29 @@ VALUES ('Chipotle', 'mainstreet', 'Rolling Meadows', 'OH', '43204', '4', 'chipot
 
 --INSERT TEMPORARY USERS
 
-INSERT INTO app_user (id, user_name, password, role, salt)
-VALUES (1, 'user1@gmail.com', 'AfD5Jrsb/tC7YdKTQ4iFFQ==', 'user',
-        'VZ63/yiy4kJEuK5KAdrAskghyhQ8Xzu/gao/+vLPGXHTlo6c1SOQiX5qTTaOQrCCps9HavSFyGKbKoLX9Ul18L8Uhk1lGIzzDW98pF1T6YbYPxwf6Qc8nAikH4uHD9enR58MZV6Y7hWRM49Yzb0kuhQjIaPbewY6qJarBKHf94E=');
-INSERT INTO app_user (id, user_name, password, role, salt)
-VALUES (2, 'administrator1@gmail.com', 'uDgWBAd7PWyLQic+eIaiYQ==', 'admin',
-        'KCzhQXLiIs0bqdMrwAKChH/doRdCJP57UP/bP3114/6nG3L/YOEPbi6LtM1mYEKc+a6FhNvrJz1lgerOGg+C05OAN5ufFfhrVoOShYyE3VD0xxjagkjUwJsPB8x4pZkf9XY2UtLnGF6isQT11Eqf/eNQCtRegW7IENpnBbiUj/8=');
-INSERT INTO app_user (id, user_name, password, role, salt)
-VALUES (3, 'editor1@gmail.com', 'GUs9nF7j7RbZRLyM9y71YQ==', 'editor',
-        'vHyRgM17BMYqKPcFm+2q1gCu04dORdI6Ywpg5rXr9ZXtOp4/gt83zSuNQogCR8levHK2kZbA6OAlBwtHZk/0ntR5/5H6932HwXWOIGMvB9oNk0OP8WZn4GyXIjpOy+nXGX3/AFiDJtTICEnS4cC/L9TnNjGRBcfcW7Fx78pdSoA=');
-
-
-INSERT INTO events(restaurant_id, event_name, event_time, event_date, decision_date)
-values ('1', 'burritotime', '17:00', '04/05/2022', '04/04/2022'),
-       ('1', 'teatime', '17:00', '04/05/2022', '04/04/2022'),
-       ('1', 'timetime', '17:00', '04/05/2022', '04/04/2022'),
-       ('2', 'anotherevent', '17:00', '04/05/2022', '04/04/2022'),
-       ('2', 'toomanyevents', '17:00', '04/05/2022', '04/04/2022');
-
-INSERT INTO guest(guest_name, email)
-VALUES ('Christian Rodriguez', 'guest1@gmail.com');
-
-
+-- INSERT INTO app_user (id, user_name, password, role, salt)
+-- VALUES (1, 'user1@gmail.com', 'AfD5Jrsb/tC7YdKTQ4iFFQ==', 'user',
+--         'VZ63/yiy4kJEuK5KAdrAskghyhQ8Xzu/gao/+vLPGXHTlo6c1SOQiX5qTTaOQrCCps9HavSFyGKbKoLX9Ul18L8Uhk1lGIzzDW98pF1T6YbYPxwf6Qc8nAikH4uHD9enR58MZV6Y7hWRM49Yzb0kuhQjIaPbewY6qJarBKHf94E=');
+-- INSERT INTO app_user (id, user_name, password, role, salt)
+-- VALUES (2, 'administrator1@gmail.com', 'uDgWBAd7PWyLQic+eIaiYQ==', 'admin',
+--         'KCzhQXLiIs0bqdMrwAKChH/doRdCJP57UP/bP3114/6nG3L/YOEPbi6LtM1mYEKc+a6FhNvrJz1lgerOGg+C05OAN5ufFfhrVoOShYyE3VD0xxjagkjUwJsPB8x4pZkf9XY2UtLnGF6isQT11Eqf/eNQCtRegW7IENpnBbiUj/8=');
+-- INSERT INTO app_user (id, user_name, password, role, salt)
+-- VALUES (3, 'editor1@gmail.com', 'GUs9nF7j7RbZRLyM9y71YQ==', 'editor',
+--         'vHyRgM17BMYqKPcFm+2q1gCu04dORdI6Ywpg5rXr9ZXtOp4/gt83zSuNQogCR8levHK2kZbA6OAlBwtHZk/0ntR5/5H6932HwXWOIGMvB9oNk0OP8WZn4GyXIjpOy+nXGX3/AFiDJtTICEnS4cC/L9TnNjGRBcfcW7Fx78pdSoA=');
 
 -- -- INSERT INTO GUEST
 
-
-INSERT INTO user_event(user_id, event_id)
-VALUES ((SELECT id FROM app_user where user_name = 'user1@gmail.com'),
-        (SELECT event_id from events where event_name = 'burritotime'));
---
-INSERT INTO guest_event(guest_id, event_id)
-VALUES ((SELECT guest_id FROM guest WHERE email = 'guest1@gmail.com'),
-        (SELECT event_id from events where event_name = 'burritotime'));
-
---
-
-INSERT INTO restaurant_event(event_id, restaurant_id)
-VALUES ((SELECT event_id FROM events WHERE event_name = 'burritotime'),
-        (SELECT restaurant_id FROM restaurant WHERE restaurant_name = 'Chipotle'));
-
+-- INSERT INTO user_event(user_id, event_id)
+-- VALUES ((SELECT id FROM app_user where user_name = 'user1@gmail.com'),
+--         (SELECT event_id from events where event_name = 'burritotime'));
+-- --
+-- INSERT INTO guest_event(guest_id, event_id)
+-- VALUES ((SELECT guest_id FROM guest WHERE email = 'guest1@gmail.com'),
+--         (SELECT event_id from events where event_name = 'burritotime'));
+-- --
+-- INSERT INTO restaurant_event(event_id, restaurant_id)
+-- VALUES ((SELECT event_id FROM events WHERE event_name = 'burritotime'),
+--         (SELECT restaurant_id FROM restaurant WHERE restaurant_name = 'Chipotle'));
 
 ALTER TABLE user_event
     ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
@@ -143,8 +125,6 @@ ALTER TABLE guest_restaurant
 
 ALTER TABLE guest_restaurant
     ADD FOREIGN KEY (event_id) REFERENCES events (event_id);
-
-
 
 COMMIT;
 
