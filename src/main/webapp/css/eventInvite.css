@@ -357,13 +357,3 @@ img.decisionLogo {
     margin-left: 45%;
     padding: 10px 50px;
 }
-
-/*__________________EVENT CONFIRMATION SPECIFIC CSS BELOW___________________________*/
-
-div.guestList {
-    margin-top: 70px;
-    background-color: white;
-    font-size: 18px;
-    border-radius: 3px;
-    position: absolute;
-}
