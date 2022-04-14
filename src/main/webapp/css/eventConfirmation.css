@@ -39,7 +39,9 @@ div.guestList {
 
 .oneandhalf{
     font-weight: bold;
-    font-family: "raleway", sans-serif;
+    font-family: "Candara light";
+    color: white;
+    text-shadow: 5px 5px 5px #3A4750;
 }
 
 
