@@ -5,16 +5,16 @@
 <div class="bannerPageExpired">
     <h1 class="oneandhalf">Thank You for submitting your vote</h1>
 </div>
-    <table>
+    <table style="width:100%;">
+        <tr >
+            <th>Name</th>
+            <th>Email</th>
+            <th>Link to vote</th>
+        </tr>
         <c:forEach var="guest" items="${ guests }">
             <c:set var="guestUrl" value="http://localhost:8080/capstone_war_exploded/eventVote?guestId=${ guest.guestId }&eventId=${ event.eventId }"/>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Link to vote</th>
-            </tr>
-            <tr>
-                <td>${ guest.guestName }</td>
+                <td >${ guest.guestName }</td>
                 <td>${ guest.email }</td>
                 <td><a href="${ guestUrl }">${ guestUrl }</a></td>
             </tr>
