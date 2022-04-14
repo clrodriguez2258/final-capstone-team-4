@@ -230,10 +230,10 @@ button.submit-btn {
     color: white;
     font-family: "Raleway SemiBold", sans-serif;
     font-weight: bold;
-    height: 42.3px;
+    height: 30px;
     margin-top: 50px;
     transition: 0.25s;
-    width: 153px;
+    width: 100%;
     background-color: darkseagreen;
     /*margin-left: 50%;*/
 }
