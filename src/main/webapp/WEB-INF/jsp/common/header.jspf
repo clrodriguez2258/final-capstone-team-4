@@ -60,8 +60,8 @@
             <div class="navbar-header">
                 <c:url var="homeUrl" value="/index"/>
                 <a class="navbar-brand" href="${homeUrl}" class="navbar-brand">
-                    <c:url var="logoUrl" value="/img/Hangry.png"/>
-                    <img src="${ logoUrl }" style="width: 320px; height:200px; "/></a>
+                    <c:url var="logoUrl" value="/img/hangryy2.png"/>
+                    <img src="${ logoUrl }" style="width: 375px; height:175px; padding-top: 20px;"/></a>
             </div>
         </div>
 
