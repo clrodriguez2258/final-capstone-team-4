@@ -5,7 +5,7 @@
 
 <br>
 <br>
-<form>
+<%--<form>--%>
 <c:url var="registerUrl" value="/register"/>
 <form:form action="${registerUrl}" method="POST" modelAttribute="user">
     <div id="card">
@@ -53,8 +53,9 @@
         </div>
     </fieldset>
     <button id="submit-btn" type="submit" name="submit">REGISTER</button>
-    </form>
+<%--    </form>--%>
 </form:form>
+</div>
 </div>
 </div>
 <%@ include file="common/footer.jspf" %>
