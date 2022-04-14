@@ -30,29 +30,8 @@
         <form:password class="form-control" path="confirmPassword"/>
         <form:errors path="passwordMatching" cssClass="bg-danger"/>
     </div>
-    <fieldset>
-        <legend style = "padding-top: 40px; font-size: 12pt">ROLE</legend>
-        <form:errors path="role" cssClass="bg-danger"/>
-        <div class="radio">
-            <label style = "font-size: 10pt">
-                <form:radiobutton path="role" value="user" checked="checked"/>
-                USER
-            </label>
-        </div>
-        <div class="radio">
-            <label style = "font-size: 10pt">
-                <form:radiobutton path="role" value="admin"/>
-                ADMINISTRATOR
-            </label>
-        </div>
-        <div class="radio">
-            <label style = "font-size: 10pt">
-                <form:radiobutton path="role" value="editor"/>
-                EDITOR
-            </label>
-        </div>
-    </fieldset>
-    <button id="submit-btn" type="submit" name="submit">REGISTER</button>
+
+    <button id="submit-btn" type="submit" name="submit" style="margin-left: 40px">REGISTER</button>
 <%--    </form>--%>
 </form:form>
 </div>
