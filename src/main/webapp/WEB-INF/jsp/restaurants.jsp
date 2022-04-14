@@ -24,7 +24,7 @@
 
 <%--                       Code used after database works                         --%>
 <div id=" masonry-page">
-    <div id="grid">
+    <div id="grid" class="main-content">
         <c:forEach var="restaurant" items="${ restaurants }">
         <c:choose>
             <c:when test="${ restaurant.isOpen() }">
