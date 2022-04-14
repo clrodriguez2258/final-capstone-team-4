@@ -98,7 +98,7 @@ VALUES ('Chipotle', 'mainstreet', 'Plano', 'TX', '75075', '4', 'chipotle.jpg', '
 
 
 
-     
+
 
 --INSERT TEMPORARY USERS
 
