@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="linkExpired">
-    <c:url var="hangryLogo" value="/img/hangry-no-text-logo.png"/>
+    <c:url var="hangryLogo" value="/img/animatedLogoShadow.png"/>
     <img class="decisionLogo" src="${hangryLogo}"/>
 </div>
 <%@ include file="common/footer.jspf" %>
