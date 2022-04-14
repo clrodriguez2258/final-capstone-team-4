@@ -1,0 +1,117 @@
+/*__________________ADD GUESTS SPECIFIC CSS BELOW___________________________*/
+.addGuestsBanner {
+    border: medium solid #303841;
+    position: relative;
+    margin-top: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Candara Light";
+    background-color: rgba(190, 49, 68, 1);
+}
+h1 {
+    margin: 30px;
+    line-height: 42px;
+    font-size: 35px;
+    color: white;
+    text-shadow: 5px 5px 5px #3A4750;
+    font-weight: bolder;
+    z-index: 10;
+    font-family: "Candara Light";
+    padding: 20px 20px;
+}
+
+
+
+.guestsSubheader {
+    position: center;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Candara Light";
+    color: #303841;
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-left: 25%;
+    margin-top: 20px;
+}
+
+#guestPage {
+    background-color: white;
+    margin-top: -10px;
+}
+
+.guestItem {
+    position: relative;
+    margin: 10px 0;
+    margin-left: 20px;
+}
+
+.guestItem p {
+    position: relative;
+    font-size: 16px;
+    color: #303841;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px gray;
+}
+
+.guestItem input {
+    position: relative;
+    font-size: 14px;
+    color: black;
+    width: 30%;
+    padding: 5px;
+}
+
+.event-btn {
+    background: #BE3144;
+    position: relative;
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0 1px 8px #8D8DAA;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    font-weight: bold;
+    height: 32.3px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    transition: 0.25s;
+    width: 140px;
+    margin-left: 25px;
+    opacity: 1;
+    display: inline;
+}
+
+#event-btn {
+    background: #BE3144;
+    position: relative;
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0 1px 8px #8D8DAA;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    font-weight: bold;
+    height: 32.3px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    transition: 0.25s;
+    width: 140px;
+    margin-left: 25px;
+    display: inline;
+}
+
+.done-btn {
+
+    background: #BE3144;
+    border-radius: 21px;
+    box-shadow: 0 1px 8px #8D8DAA;
+    cursor: pointer;
+    color: white;
+    margin-left: 45%;
+    padding: 10px 50px;
+}

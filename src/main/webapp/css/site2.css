@@ -196,7 +196,6 @@ img#pizzaSliceImage{
 }
 
 button.submit-btn {
-    position: fixed;
     background: #BE3144;
     border: none;
     border-radius: 21px;

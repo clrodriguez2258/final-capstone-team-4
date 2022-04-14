@@ -1,11 +1,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="common/header.jspf" %>
-<c:url var="createEvent" value="/css/eventInvite.css"/>
+<c:url var="createEvent" value="/css/addGuests.css"/>
 <link rel="stylesheet" href="${createEvent}"/>
 
 
 <div class="testbox">
-    <div class="banner">
+    <div class="addGuestsBanner">
         <h1>Add Guests</h1>
     </div>
     <div id="guestPage">

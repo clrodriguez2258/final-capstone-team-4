@@ -1,0 +1,22 @@
+.confirmbannerPageExpired {
+    border: thick solid #303841;
+    position: relative;
+    margin-top: 50px;
+    border-radius: 10px;
+    height: 250px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Candara Light";
+    background-color: rgba(190, 49, 68, 1);
+}
+
+div.guestList {
+    margin-top: 70px;
+    background-color: white;
+    font-size: 18px;
+    border-radius: 3px;
+    position: absolute;
+}
