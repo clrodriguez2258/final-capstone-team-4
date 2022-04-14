@@ -1,0 +1,20 @@
+
+
+.voteButton{
+    margin-top: 5px;
+    background: lightgreen;
+    display: inline-block;
+    width: 100%;
+}
+.glyphicon-ok{
+
+    color: darkgreen;
+    font-size: 150%;
+}
+.restaurantInfo{
+    height: auto;
+}
+
+#grid{
+
+}

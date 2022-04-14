@@ -22,8 +22,7 @@
             </c:choose>
 
 
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
+
                     <div class="thumbnail">
                         <img class="displayRestaurantImage" src="<c:url value="/img/${ restaurant.image }"/>"
                              alt="Restaurant Logo"/>
@@ -33,9 +32,10 @@
                                 <button type="submit" class="vote-submit-btn" value="${ restaurant.restaurantId }"
                                         formaction="${eventVote}" name="restaurantId"
                                         id="upvoteButton${ restaurant.restaurantId }"
-                                        style="margin-top: 5px; background: lightgreen; display: inline-block; width: 99%"><span
-                                        class="glyphicon glyphicon-ok"
-                                        style="color: darkgreen; font-size: 150%;"></span></button>
+                                        class="voteButton"
+                                        ><span
+                                        class="glyphicon-ok"
+                                        ></span></button>
 <%--                          <button type="button" class="btn btn-default btn-sm" id="downvoteButton"--%>
 <%--                                style="margin-top: 5px; background: lightcoral; display: inline-block; width: 49%"><span--%>
 <%--                                class="glyphicon glyphicon-remove"--%>
@@ -56,10 +56,9 @@
                                  alt="Pizza Slice Rating">
                         </div>
                     </div>
-                </div>
+
                 </c:forEach>
             </div>
-        </div>
     </form>
 
 </div>
