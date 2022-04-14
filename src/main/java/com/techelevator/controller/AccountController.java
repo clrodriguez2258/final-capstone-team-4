@@ -42,10 +42,6 @@ public class AccountController {
     @Autowired
     private GuestDao guestDao;
 
-//    //user profile page.
-//    @RequestMapping(path ="userprofile",method= RequestMethod.GET)
-//    public String displayUserProfile(){return "userProfile";}
-
     @RequestMapping(path = "/decision", method = RequestMethod.GET)
     public String privatePage(ModelMap model) throws UnauthorizedException {
         if (auth.userHasRole(new String[]{"admin", "user"})) {
@@ -55,7 +51,7 @@ public class AccountController {
         }
     }
 
-    @RequestMapping (path = "/createEvent", method = RequestMethod.GET)
+    @RequestMapping(path = "/createEvent", method = RequestMethod.GET)
     public String CreateEvent(ModelMap map) {
         map.addAttribute("event", new Event());
         return "createEvent";
@@ -64,7 +60,7 @@ public class AccountController {
     @RequestMapping(path = "/createEvent", method = RequestMethod.POST)
     public String saveUserForumInput(@RequestParam String eventName, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate eventDate,
                                      @RequestParam @DateTimeFormat(pattern = "HH:MM") LocalTime eventTime, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate decisionDate,
-                                         HttpSession session) {
+                                     HttpSession session) {
 
         Event eventInvite = new Event();
 
@@ -81,7 +77,7 @@ public class AccountController {
     }
 
     @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
-    public String displayRestaurant (ModelMap map){
+    public String displayRestaurant(ModelMap map) {
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
@@ -91,10 +87,10 @@ public class AccountController {
     @RequestMapping(path = "/restaurants", method = RequestMethod.POST)
     public String processRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch, ModelMap model) {
 
-        if(searchRadio.equals("city")){
+        if (searchRadio.equals("city")) {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByCity(restaurantSearch);
             model.put("restaurants", restaurants);
-        } else if(searchRadio.equals("zip")){
+        } else if (searchRadio.equals("zip")) {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
             model.put("restaurants", restaurants);
         }
@@ -103,7 +99,7 @@ public class AccountController {
 
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.GET)
-    public String displayAddRestaurant (ModelMap map, HttpSession session){
+    public String displayAddRestaurant(ModelMap map, HttpSession session) {
         List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
         map.put("restaurants", restaurants);
 
@@ -111,30 +107,20 @@ public class AccountController {
     }
 
     @RequestMapping(path = "/addRestaurants", method = RequestMethod.POST)
-    public String processAddRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch/*,@RequestParam String cuisine*/,  ModelMap map) {
+    public String processAddRestaurantSearch(@RequestParam String searchRadio, @RequestParam String restaurantSearch/*,@RequestParam String cuisine*/, ModelMap map) {
 
-        if(searchRadio.equals("city")){
+        if (searchRadio.equals("city")) {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByCity(restaurantSearch);
-//           for(Restaurant restaurant : restaurants){
-//               if(!restaurant.getTypeOfEstablishment().equals(cuisine)){
-//                   restaurants.remove(restaurant);
-//               }
-//           }
             map.put("restaurants", restaurants);
-        } else if(searchRadio.equals("zip")){
+        } else if (searchRadio.equals("zip")) {
             List<Restaurant> restaurants = restaurantDao.getRestaurantByZipCode(restaurantSearch);
-//            for(Restaurant restaurant : restaurants) {
-//                if (!restaurant.getTypeOfEstablishment().equals(cuisine)) {
-//                    restaurants.remove(restaurant);
-//                }
-//            }
             map.put("restaurants", restaurants);
         }
         return "redirect:/login/restaurantResults";
     }
 
     @RequestMapping(path = "/restaurantResults", method = RequestMethod.GET)
-    public String displayAddRestaurantResults (ModelMap map){
+    public String displayAddRestaurantResults(ModelMap map) {
         List<Restaurant> restaurants = (List<Restaurant>) map.get("restaurants");
         return "restaurantResults_private";
     }
@@ -153,12 +139,12 @@ public class AccountController {
         return "addGuests";
     }
 
-    @RequestMapping (path = "/addGuests", method = RequestMethod.GET)
+    @RequestMapping(path = "/addGuests", method = RequestMethod.GET)
     public String displayAddGuests() {
         return "addGuests";
     }
 
-    @RequestMapping (path = "/addGuests", method = RequestMethod.POST)
+    @RequestMapping(path = "/addGuests", method = RequestMethod.POST)
     public String processAddGuests(@RequestParam String guestName, @RequestParam String email, HttpSession session, ModelMap map) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
@@ -171,16 +157,8 @@ public class AccountController {
 
         return "addMoreGuests";
     }
-    // -------------------------------------------------------------------------
 
-//    @RequestMapping (path = "/addMoreGuests", method = RequestMethod.GET)
-//    public String displayAddMoreGuests(ModelMap map) {
-//       List<Guest> guests = (List<Guest>) map.get("guests");
-//
-//        return "addMoreGuests";
-//    }
-
-    @RequestMapping (path = "/addMoreGuests", method = RequestMethod.POST)
+    @RequestMapping(path = "/addMoreGuests", method = RequestMethod.POST)
     public String processAddMoreGuests(@RequestParam String guestName, @RequestParam String email, HttpSession session) {
         Guest guest = new Guest(guestName, email);
         Guest newGuest = guestDao.createNewGuest(guest);
@@ -199,12 +177,4 @@ public class AccountController {
     public String displayCreateEventConfirmation(ModelMap map) {
         return "createEventConfirmation";
     }
-
-//    public String displayFinalistRestaurants (ModelMap map){
-//        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
-//        map.put("restaurants", restaurants);
-//
-//        return "finalistRestaurants";
-//    }
-
 }

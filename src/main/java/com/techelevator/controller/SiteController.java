@@ -4,7 +4,6 @@ import com.techelevator.authentication.AuthProvider;
 import com.techelevator.authentication.UnauthorizedException;
 
 import com.techelevator.model.*;
-import org.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -125,10 +124,11 @@ public class SiteController {
     }
 
     @RequestMapping(path = "/eventVote", method = RequestMethod.GET)
-    public String displayEventVote(@RequestParam Long guestId, @RequestParam Long eventId, HttpSession session) {
+    public String displayEventVote(@RequestParam Long guestId, @RequestParam Long eventId, ModelMap map, HttpSession session) {
         List<Restaurant> restaurants = restaurantDao.getRestaurantsByEvent(eventId);
         Event event = eventDao.getEventByEventId(eventId);
-        session.setAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
+        map.addAttribute("restaurants", restaurants);
+//        session.setAttribute("guestName", guestDao.getGuestNameById((Long) session.getAttribute("guestId")));
         session.setAttribute("guestId", guestId);
         session.setAttribute("eventId", eventId);
         if (event.getDecisionDate().isBefore(LocalDate.now())) {
@@ -145,9 +145,9 @@ public class SiteController {
     public String processEventVote(@RequestParam Long restaurantId, HttpSession session) {
         guestDao.updateGuestVoted((Long) session.getAttribute("guestId"), (Long) session.getAttribute("eventId"));
         restaurantDao.updateRestaurantVoteUp((Long) session.getAttribute("eventId"), restaurantId);
-        session.removeAttribute("guestId");
-        session.removeAttribute("eventId");
-        session.removeAttribute("guestName");
+//        session.removeAttribute("guestId");
+//        session.removeAttribute("eventId");
+//        session.removeAttribute("guestName");
         return "votingConfirmation";
     }
 
@@ -162,7 +162,5 @@ public class SiteController {
         return "tooManyVotes";
     }
 
-//    @RequestMapping(path ="finalist",method= RequestMethod.GET)
-//    public String displayEventFinalist(){return "finalistRestaurants";}
 }
 
