@@ -196,12 +196,8 @@ public class AccountController {
 
     @RequestMapping(path = "/createEventConfirmation", method = RequestMethod.GET)
     public String displayCreateEventConfirmation(ModelMap map) {
-
         return "createEventConfirmation";
     }
-
-
-
 
 //    public String displayFinalistRestaurants (ModelMap map){
 //        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
@@ -209,7 +205,5 @@ public class AccountController {
 //
 //        return "finalistRestaurants";
 //    }
-
-
 
 }
