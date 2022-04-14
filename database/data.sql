@@ -92,7 +92,7 @@ VALUES ('Chipotle', 'mainstreet', 'Plano', 'TX', '75075', '4', 'chipotle.jpg', '
     '6142981014', 'true',  '11:30', '22:00', 'American',  'false', '4', '150', 'casual', 'true'),
 
 
-('Rodizio Grill Brazilian Steak House', '125 W Nationwide Blv', 'Columbus', 'OH', '43215', '4', 'rodizio.jpg', 'www.rodiziogrill.com',
+('Rodizio Grill', '125 W Nationwide Blv', 'Columbus', 'OH', '43215', '4', 'rodizio.jpg', 'www.rodiziogrill.com',
     '6142414400', 'true',  '11:00', '22:00', 'American',  'false', '4', '150', 'casual', 'true');
 
 
