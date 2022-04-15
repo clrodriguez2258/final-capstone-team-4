@@ -61,7 +61,7 @@
                 <c:url var="homeUrl" value="/index"/>
                 <a class="navbar-brand" href="${homeUrl}" class="navbar-brand">
                     <c:url var="logoUrl" value="/img/hangryy2.png"/>
-                    <img src="${ logoUrl }" style="width: 375px; height:175px; padding-top: 20px;"/></a>
+                    <img src="${ logoUrl }" style="width: 375px; height:155px;"/></a>
             </div>
         </div>
 
@@ -92,7 +92,7 @@
                     <c:url var="logoffUrl" value="/logoff"/>
                     <li>
                         <form action="${logoffUrl}" method="POST" class="navbar-form">
-                            <button id="submit-btn" type="submit" name="submit" >Log Off</button>
+                            <button id="submit-btn" type="submit" name="submit" style="background-color: #303841;">Log Off</button>
                         </form>
                     </li>
                 </c:if>
