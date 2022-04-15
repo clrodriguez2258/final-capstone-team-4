@@ -129,6 +129,16 @@
     top: 15px;
     /*right: 600px;*/
 }
+
+.searchbar2 {
+    /*height: 200px;*/
+    /*display: flex;*/
+    text-align: center;
+    justify-content: center;
+    /*position: absolute;*/
+    top: 15px;
+    /*right: 600px;*/
+}
 .homepage-button{
     margin-top: -15px;
 }
