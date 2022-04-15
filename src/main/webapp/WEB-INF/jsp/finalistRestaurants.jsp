@@ -1,30 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <%@ include file="common/header.jspf" %>
-<table style=" width:25%">
-    <tr style="font-size: medium">
-        <td>Name</td>
-        <td>Time</td>
-        <td>Date of event</td>
-    </tr>
-    <tr style="font-size: medium">
+<c:url var="cssUrl2" value="/css/site2.css"/>
+<link rel="stylesheet" href="${cssUrl2}"/>
+<table style=" width:25%; margin-left: 53px;">
+    <tr style="font-size: 32pt">
         <td>${event.eventName}</td>
-        <td>${event.eventTime}</td>
-        <td>${event.eventDate}</td>
+    </tr>
+    <tr style="font-size: 16pt">
+        <td>Date: ${event.eventDate}</td>
+    </tr>
+    <tr style="font-size: 16pt">
+        <td>Time: ${event.eventTime}</td>
     </tr>
 </table>
-<%--        <c:forEach var="restaurant" items="${restaurants}">--%>
-<%--<div>--%>
-<%--    <c:url var="restaurantImage" value="/img/${  finalRestaurant.image }"/>--%>
-<%--    <img src="${restaurantImage}">--%>
-<%--    <p>${finalRestaurant.restaurantName}</p>--%>
-<%--    <p> ${ finalRestaurant.street } ${ finalRestaurant.city }, ${ finalRestaurant.state } ${ finalRestaurant.zipCode }</p>--%>
-<%--    &lt;%&ndash;                <label for="chooseAsWinner"> Choose as Winner </label>&ndash;%&gt;--%>
-<%--    &lt;%&ndash;                <input type="radio" id="chooseAsWinner" class="chooseAsWinner" name="winnerRadio" value="winner">&ndash;%&gt;--%>
-<%--    &lt;%&ndash;                <br>&ndash;%&gt;--%>
-<%--</div>--%>
-<%--        </c:forEach>--%>
+<%--<h2>${ event.eventName }</h2>--%>
+<%--<h3>Date: ${ event.eventDate }</h3>--%>
+<%--<h3>Time: ${ event.eventTime }</h3>--%>
+<h2 style="margin-left: 53px;">Your current leader is:</h2>
 <div id=" masonry-page">
     <div id="grid">
         <c:choose>

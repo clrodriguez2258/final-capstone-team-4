@@ -63,7 +63,7 @@ public class EventController {
         Event event = eventDao.getEventByEventId(eventId);
         request.setAttribute("event", event);
         Restaurant finalRestaurant = restaurantDao.getRestaurantByRestaurantId(event.getRestaurantId());
-        map.addAttribute("finalRestaurant", finalRestaurant);
+        map.addAttribute("restaurant", finalRestaurant);
 
         return "finalistRestaurants";
     }
