@@ -7,7 +7,7 @@
 <br>
 <%--<form>--%>
 <c:url var="registerUrl" value="/register"/>
-<form:form action="${registerUrl}" method="POST" modelAttribute="user">
+<form:form action="${ registerUrl }" method="POST" modelAttribute="user">
     <div id="card">
     <div id ="card-content">
     <div class="form-group">
@@ -30,10 +30,18 @@
         <form:password class="form-control" path="confirmPassword"/>
         <form:errors path="passwordMatching" cssClass="bg-danger"/>
     </div>
-
+    <fieldset>
+    <legend style = "padding-top: 40px; font-size: 12pt"></legend>
+    <form:errors path="role" cssClass="bg-danger"/>
+    <div class="radio" style="opacity: 0%">
+        <label style = "font-size: 10pt">
+            <form:radiobutton path="role" value="user" checked="checked"/>
+        </label>
+    </div>
+    </fieldset>
     <button id="submit-btn" type="submit" name="submit" style="margin-left: 40px">REGISTER</button>
-<%--    </form>--%>
 </form:form>
+<%--</form>--%>
 </div>
 </div>
 </div>

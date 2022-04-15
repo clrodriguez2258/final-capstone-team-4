@@ -11,12 +11,11 @@
 <br>
 <div class="container">
     <div class="row">
-        <h1>Welcome to HANGRY, The Restaurant Tinder!</h1>
-        <h4>You have successfully logged in.</h4>
-        <p>User: ${user.capitalizedUsername}</p>
+        <h1>Welcome to HANGRY, what would you like to do?</h1>
+<%--        <h4>You have successfully logged in.</h4>--%>
+<%--        <p>User: ${user.capitalizedUsername}</p>--%>
     </div>
 </div>
-
 <div class="row">
     <div id="card1" class="col-sm-6 col-md-4">
         <div id="card-content-card1">
