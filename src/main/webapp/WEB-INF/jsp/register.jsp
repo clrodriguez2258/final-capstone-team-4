@@ -39,7 +39,7 @@
         </label>
     </div>
     </fieldset>
-    <button id="submit-btn" type="submit" name="submit" style="margin-left: 40px">REGISTER</button>
+    <button id="submit-btn" type="submit" name="submit" style="margin-left: 40px; margin-top: 0" >REGISTER</button>
 </form:form>
 <%--</form>--%>
 </div>

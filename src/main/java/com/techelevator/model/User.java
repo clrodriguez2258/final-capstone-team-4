@@ -24,7 +24,7 @@ public class User {
     private long id;
 
     @NotBlank(message = "Password is required")
-    @Pattern(regexp = "^(?=.*[0-9]).{8,20}$", message = "The password must be 8 character long have one number, one lowercase, one capital.")
+    @Pattern(regexp = "^(?=.*[0-9]).{8,20}$", message = "Must be at least 8 characters, have one number, and one lowercase and capital letter")
     private String password;
     private String confirmPassword;
 

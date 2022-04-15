@@ -60,7 +60,7 @@ public class SiteController {
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String processRegistration(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes flash) {
         if (!user.isPasswordMatching()) {
-            result.addError(new FieldError("user", "password", "Passwords must match"));
+            result.addError(new FieldError("user", "password", ""));
         }
 
         if (!userDao.getUserWithEmail(user.getUsername().toUpperCase()).isEmpty()) {

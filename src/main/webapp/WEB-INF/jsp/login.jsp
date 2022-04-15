@@ -14,7 +14,7 @@
             <form class="form" action="${loginUrl}" method="POST">
                 <label for="username" style="padding-top:13px">&nbsp;EMAIL
                 </label><br>
-                <input id="username" class="form-content" type="email" name="username"/>
+                <input id="username" class="form-content" type="email" name="username" />
                 <div class="form-border"></div>
                 <label for="password" style="padding-top:22px">&nbsp;PASSWORD
                 </label>

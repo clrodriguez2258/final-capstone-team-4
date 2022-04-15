@@ -6,10 +6,10 @@
 <br>
 <br>
 <br>
-<form for="restaurantSearch" action="restaurantResults" method="POST">
-    <div class="searchbar1">
+<form action="restaurantResults" method="POST">
+    <div class="searchbar2">
         <div class="btn-group">
-            <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Submit</button>
+            <button id="submit-btn" type="submit" name="submit" formaction="restaurantResults">Next Add Guests</button>
         </div>
     </div>
 
